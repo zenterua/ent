@@ -1,0 +1,96 @@
+<div class="page-padding">
+    <div class="bs-md"></div>
+	<div class="container-custome">
+		<div class="caption-align">
+			<h2 class="h1 title" i18n="@@myStatements">My Statements
+			</h2>
+		</div>
+		<div class="bs-xs-20"></div>
+		<div class="page-content-entry">
+		<div *ngIf="noStatements">
+		    <div class="bs-xs-30 bs-sm-50"></div>
+			<div class="text-center max-330">
+				<img src="assets/img/reports_icon.svg" alt="">
+				<div class="bs-xs-15"></div>
+				<h3 class="h3" i18n="@@noStatements">No Statements</h3>
+				<div class="bs-xs-20"></div>
+				<p class="text grey" i18n="@@statementsWillAppear">Statements will appear here. You do not have any statements</p>
+				<div class="bs-xs-30"></div>
+			</div>
+		</div>
+
+    <div class="mainTableWrapper" [hidden]="noStatements">
+        <div class="spinner semitransparent tableSpiner" [ngClass]="{'active': tableLoader}">
+          <img src="assets/img/spinner.gif" alt="">
+        </div>
+        <h5 *ngIf="nothingFound" class="h5 nothingFoundMessage" i18n="@@nothingFound">Nothing found</h5>
+        <h5 *ngIf="tableDataError" class="h5 nothingFoundMessage" i18n="@@errorOccurred">An Unexpected Error Occurred</h5>
+        <h5 *ngIf="tableServerError" class="h5 nothingFoundMessage" i18n="@@unexpectedServerError">An Unexpected Server Error Occurred</h5>
+
+        <div class="tableHeader">
+          <div class="responsiveTableHeader">
+            <button class="btn-icon icon-border iconColor iconNoBorder" (click)="tableHeaderToggle()">
+              <img src="assets/img/admin/filter.svg" alt="">
+            </button>
+          </div>
+
+          <form class="tableForm" [formGroup]="tableForm" [ngClass]="{'responsiveActive': responsiveTableHeader}">
+            <div class="tableSearch active">
+                <h6 class="h6" i18n="@@allStatements">All Statements</h6>
+            </div>
+
+            <div class="tableSorting" [ngClass]="{'active': tableSorting}">
+              <button class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSortingToggle()">
+                <img src="assets/img/admin/filter.svg" alt="">
+              </button>
+
+              <div class="tableSortingContent">
+                <app-datepicker filter="true" formControlName="startDate" class="tableCalendar" i18n-title="@@startDate" title="Start Date" ></app-datepicker>
+                <app-datepicker filter="true" formControlName="endDate" class="tableCalendar" i18n-title="@@endDate" title="End Date" ></app-datepicker>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="responsiveTable">
+          <table mat-table [dataSource]="statementsList" matSort class="table-custome style2">
+
+            <ng-container matColumnDef="id">
+              <th i18n="@@statementNo" mat-header-cell *matHeaderCellDef mat-sort-header> Statement # </th>
+              <td mat-cell *matCellDef="let row" i18n-data-name="@@statementNo" data-name="Statement #">
+                {{row?.REF_NO}}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="period">
+              <th i18n="@@period" mat-header-cell *matHeaderCellDef> Period </th>
+              <td mat-cell *matCellDef="let row"i18n-data-name="@@period" data-name="Period"> {{setDate(row?.DATE_STATEMENT)}} <span>to</span> {{setDate(row?.DATE_AVAILABLE_ON_WEB)}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="menu">
+              <th mat-header-cell *matHeaderCellDef> </th>
+              <td mat-cell *matCellDef="let row; let i = index" class="table-option">
+                <div class="text-right">
+                  <button class="btn-icon typeSimple type-xs menu-table" (click)="downloadStatement(row)">
+                    <div mat-menu-item ><img src="assets/img/download.svg" alt=""></div>
+                  </button>
+                </div>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+          </table>
+        </div>
+
+        <mat-paginator class="custome-pagination" [length]="tableLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+		<div class="spinner" [ngClass]="{'active': loadingData}"></div>
+		</div>
+		<div class="bs-lg"></div>
+	</div>
+</div>
+
+
+
+

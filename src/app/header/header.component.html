@@ -1,0 +1,178 @@
+<header [@animationHeader] [ngClass]="{'scrolled':scrolled}">
+    <div class="header-top">
+        <div class="logo-wrapper">
+            <div class="header-left-toggle-icon icon-menu-mobile">
+           	 	<button (click)="onToggleRsMenu()" class="btn-icon type-1 type-xs">
+           	 		<img src="assets/img/menu.svg" alt="">
+           	 	</button>
+            </div>
+            <a [routerLink]="['/dashboard']">
+               <img src="assets/img/logo.svg" alt=""/>
+            </a>
+        </div>
+        <div class="header-top-right-wrapper">
+            <div class="header-right-entry">
+                <div class="lang-wrap type-2">
+					<div class="app-languages">
+						<a class="link" [ngClass]="{'active': localeId =='en-US'}" [attr.href]="languages[0].url">EN</a>
+						<a class="link" [ngClass]="{'active': localeId =='fr'}" [attr.href]="languages[1].url">FR</a>
+
+					</div>
+				</div>
+                <div class="icon">
+                    <div class="text tt" [matMenuTriggerFor]="menu">
+                        {{userName}}
+                    </div>
+					<mat-menu #menu="matMenu" class="dark-tm-menu menu-wh-190">
+					  <button mat-menu-item [routerLink]="['/account']" i18n="@@myAccount">My Account</button>
+					  <button mat-menu-item [routerLink]="['/assign-tariff']" i18n="@@assignTariffs2">Assign Tariff</button>
+					  <button mat-menu-item (click)="logoutPopupOpened = true" class="menu-logout">
+				        <div class="inline-align">
+					   	 	<img src="assets/img/sign-out.svg" alt="">
+					  		<span class="row-lmar-10" i18n="@@signOut">Sign Out</span>
+					  	</div>
+					  </button>
+					</mat-menu>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="header-layer" (click)="onToggleRsMenu()" [ngClass]="{'active': !rsMenuOpened}"></div>
+<!--    (mouseenter)="onMouseEnterHeader()" (mouseleave)="onMouseLeaveHeader()"-->
+    <div class="header-left" [ngClass]="{'active': rsMenuOpened}" >
+        <div class="logo-wrapper">
+            <div class="header-left-toggle-icon descktop-menu-icon">
+           	 	<button (click)="onScreenHeader()" class="btn-icon type-1 type-xs">
+           	 		<img src="assets/img/menu.svg" alt="">
+           	 	</button>
+            </div>
+            <a [routerLink]="['/dashboard']" class="logo">
+                <img src="assets/img/logo.svg" alt="" />
+            </a>
+        </div>
+        <div class="overflow-wrapper">
+            <a class="header-left-entry dash-color" [class.active]="routerUrl.includes('/dashboard')" [routerLink]="['/dashboard']">
+                <div class="img">
+                	<img src="assets/img/menu-dashboard.svg" alt="" />
+                </div>
+                <span i18n="@@dashboard">Dashboard</span>
+            </a>
+            <app-slide-toggle [slideVisible]="routerUrl.includes('/reports')">
+                <ng-container slide-title>
+					<a class="header-left-entry" [class.active]="routerUrl.includes('/reports')">
+					    <div class="img">
+							<img src="assets/img/menu-report.svg" alt="" />
+						</div>
+						<span i18n="@@reports">Reports</span>
+					</a>
+                </ng-container>
+                <ng-container slide-toggle>
+                    <a class="header-left-entry" [class.active]="routerUrl.includes('/reports/new-report')" [routerLink]="['/reports/new-report']">
+                        <span i18n="@@submitNew">Submit New</span>
+                    </a>
+                    <a class="header-left-entry" [class.active]="routerUrl.includes('/reports/draft-reports')" [routerLink]="['/reports/draft-reports']">
+                        <span i18n="@@drafts">Drafts</span>
+                        <ng-container *ngIf="reportNumb">
+                        	<div class="num-item">{{reportNumb}}</div>
+                        </ng-container>
+                    </a>
+                    <a class="header-left-entry" [class.active]="routerUrl.includes('/reports/submitted-reports')" [routerLink]="['/reports/submitted-reports']">
+                        <span i18n="@@reportHistory">Report History</span>
+                    </a>
+                </ng-container>
+            </app-slide-toggle>
+
+            <app-slide-toggle [slideVisible]="routerUrl.includes('/payments')">
+                <ng-container slide-title>
+                <a class="header-left-entry">
+                    <div class="img">
+                    	<img src="assets/img/menu-payments.svg" alt="" />
+					</div>
+                    <span i18n="@@payments">Payments</span>
+                </a>
+                </ng-container>
+                <ng-container slide-toggle>
+                    <a class="header-left-entry" [class.active]="routerUrl.includes('/make-payment')" [routerLink]="['/payments/make-payment']">
+                        <span i18n="@@makePayment">Make a Payment</span>
+                    </a>
+                    <a class="header-left-entry" [class.active]="routerUrl.includes('/payment-history')" [routerLink]="['/payments/payment-history']">
+                        <span i18n="@@paymentHistory">Payment History</span>
+                    </a>
+                </ng-container>
+            </app-slide-toggle>
+
+            <a class="header-left-entry dash-color" [class.active]="routerUrl.includes('/invoices')" [routerLink]="['/invoices']">
+                <div class="img">
+                	<img src="assets/img/menu-invoice.svg" alt="" />
+				</div>
+                <span i18n="@@invoices">Invoices</span>
+            </a>
+
+
+
+
+<!--            <a class="header-left-entry dash-color" [class.active]="routerUrl.includes('/statements')" [routerLink]="['/statements']">-->
+<!--                <div class="img">-->
+<!--                	<img src="assets/img/menu-statements.svg" alt="" />-->
+<!--				</div>-->
+<!--                <span i18n="@@statements">Statements</span>-->
+<!--            </a>-->
+
+
+
+
+            <a class="header-left-entry dash-color" [class.active]="routerUrl.includes('/support')" [routerLink]="['/support']">
+                <div class="img">
+                	<img src="assets/img/menu-support.svg" alt="" />
+				</div>
+                <span i18n="@@support">Support</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<app-popup class="popupMainWrapper" *ngIf="logoutPopupOpened" [@animationPopup]="logoutPopupOpened ? 'popupOpened' : 'popupClosed'" (close)="logoutPopupOpened = false" size="2">
+    <ng-container content>
+        <div class="padd-50">
+            <div class="bs-xs-40"></div>
+			<div class="text-center">
+				<p class="grey text" i18n="@@youSureToSignOut">Are you sure you want to sign out? Unsaved data will be lost.</p>
+			</div>
+			<div class="bs-xs-25"></div>
+			<div class="btn-wrapper text-center">
+				<button type="button" class="btn btn-sm btn-secondary" (click)="logoutPopupOpened = false" i18n="@@cancel">Cancel</button>
+				<button type="button" class="btn btn-sm btn-primary" (click)="onLogout()" i18n="@@logOut">Log Out</button>
+			</div>
+			<div class="bs-xs-30"></div>
+		</div>
+        <div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+    </ng-container>
+</app-popup>
+
+
+<!--<app-popup class="popupMainWrapper" *ngIf="frenchPopupOpened" [@animationPopup]="frenchPopupOpened ? 'popupOpened' : 'popupClosed'" (close)="frenchPopupOpened = false" size="1">-->
+<!--    <ng-container content>-->
+<!--        <div class="bs-xs-50"></div>-->
+<!--        <div class="divider"></div>-->
+<!--        <div class="padd-50">-->
+<!--            <div class="bs-xs-30"></div> -->
+<!--			<div class="text-center">-->
+<!--		        <img src="assets/img/logo-part.png" alt="" class="img-full" width="30px">-->
+<!--		        <div class="bs-xs-30"></div> -->
+<!--			    <h2 class="h2">Notre portail francophone OUVRIRA BIENTÔT!</h2>-->
+<!--			    <div class="bs-xs-15"></div> -->
+<!--				<p class="grey text">Si vous avez questions, veuillez nous joindre à l’adresse</p>-->
+<!--				<div class="bs-xs-0"></div>-->
+<!--				<a href="mailto:info@entandemlicensing.com" class="link-text">info@entandemlicensing.com</a>-->
+<!--				<div class="bs-xs-10"></div>-->
+<!--				<p class="grey text">Vous voulez en savoir plus sur le service de délivrance de licences Entandem? Visitez notre <a href="https://www.entandemlicensing.com/fr/#faqs" class="link-text" target="_blank">FAQ.</a></p>-->
+<!--			</div>-->
+<!--			<div class="bs-xs-50"></div> -->
+<!--		</div>-->
+<!--    </ng-container>-->
+<!--</app-popup>-->
+
+
+<app-snack-bar></app-snack-bar>

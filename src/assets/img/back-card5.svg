@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210px" height="97px" viewBox="0 0 210 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>57B1B483-3278-4C32-A38A-0364ED0A5653</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="UI-UX-Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Make-a-Payment-See-Online-Banking-and-Interac" transform="translate(-1003.000000, -723.000000)">
+            <g id="back-card-copy-5" transform="translate(1004.000000, 724.000000)">
+                <rect id="BG" stroke="#DEDEDE" fill="#FFFFFF" stroke-linecap="square" x="0" y="0" width="208" height="95" rx="6"></rect>
+                <g id="bank-logo-image" transform="translate(36.000000, 12.000000)" fill-rule="nonzero">
+                    <rect id="Back-logo" x="-26.5" y="0" width="188" height="77"></rect>
+                    <g id="td-canada-trust-1" transform="translate(36.622340, 0.000000)" fill="#30B457">
+                        <path d="M0,54.7898102 L61.5613893,54.7898102 L61.5613893,0 L0,0 L0,54.7898102 Z M40.4304788,42.9140112 L26.0614586,42.9140112 L26.0614586,17.2356683 L33.2811869,17.2356683 L33.2811869,38.3949031 L40.2191697,38.3949031 C45.0088431,38.3949031 47.0162797,35.1019096 47.0162797,26.6242029 C47.0162797,18.0764326 44.7270976,15.5891715 39.8669878,15.5891715 L24.0540219,15.5891715 L24.0540219,42.949043 L16.9399482,42.949043 L16.9399482,15.5541397 L6.48014667,15.5541397 L6.48014667,10.9999997 L42.0857336,10.9999997 C50.6789712,10.9999997 54.7642808,15.4140123 54.7642808,26.5191074 C54.7642808,41.127387 48.6715345,42.9140112 40.4304788,42.9140112 L40.4304788,42.9140112 Z" id="Shape"></path>
+                    </g>
+                </g>
+                <text id="Canadian-Imperial-Ba" font-family="Roboto-Regular, Roboto" font-size="10" font-weight="normal" fill="#6F7886">
+                    <tspan x="67.4077148" y="87">TD Canada Trust </tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

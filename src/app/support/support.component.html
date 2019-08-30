@@ -1,0 +1,252 @@
+<div class="page-padding">
+    <div class="bs-md"></div>
+	<div class="container-custome">
+		<h2 class="h1 title" i18n="@@support">Support</h2>
+		<div class="bs-xs-20"></div>
+		<h5 class="h5" i18n="@@faqs">FAQs</h5>
+		<div class="bs-xs-5"></div>
+		<div class="divider"></div>
+		<div class="bs-xs-30"></div>
+		<div class="tabs">
+		   <div class="tab-item" (click)="setTab(1)" [ngClass]="{'active': isSet(1)}"><h5 class="h5 tab-title">1.<span i18n="@@supportTab1">What is Entandem</span></h5></div>
+			<div class="tab-item" (click)="setTab(2)" [ngClass]="{'active': isSet(2)}"><h5 class="h5 tab-title">2.<span i18n="@@supportTab2">Paying for music License</span></h5></div>
+			<div class="tab-item" (click)="setTab(3)" [ngClass]="{'active': isSet(3)}"><h5 class="h5 tab-title">3.<span i18n="@@supportTab3">Resound/Socan Customer</span></h5></div>
+		</div>
+		<div class="tabs-wrap tabs-wrap-type-2">
+			<div class="tab-panel" [ngClass]="{'active': isSet(1)}">
+				<mat-accordion class="custome-accordion type-2">
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle1">What is Entandem?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text">Entandem is a joint venture between RE:SOUND and SOCAN that brings the music licensing services now managed separately by each organization into a single, jointly operated business.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle2">When was Entandem launched?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text"><span i18n="@@suppDesc2">Entandem was launched in July 2019.</span>&nbsp;<a href="https://www.entandemlicensing.com/portal/en/auth/login" class="link-text" i18n="@@suppDesc3">Create your account</a>&nbsp;<span i18n="@@suppDesc4">to get started.</span></p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle3">Who owns/operates Entandem?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc5">Entandem is jointly owned and operated by both RE:SOUND and SOCAN, and we will administer recorded and live music licenses common to both RE:SOUND and SOCAN.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle4">What are RE:SOUND and SOCAN?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc6">RE:SOUND is the Canadian not-for-profit music licensing company dedicated to obtaining fair compensation for performing artists and record companies for their performance rights for recorded music. RE:SOUND advocates for music makers and performers, educates music users, licenses businesses and distributes royalties to creators to help build a thriving and sustainable music industry in Canada. RE:SOUND was started in 1997.</p>
+						<div class="bs-xs-10"></div>
+						<p class="text" i18n="@@suppDesc7">SOCAN is a not-for-profit rights management organization that connects more than four-million music creators worldwide and more than a quarter-million businesses and individuals in Canada. Nearly 160,000 songwriters, composers, music publishers and visual artists are its direct members, and more than 100,000 organizations are Licensed To Play music across Canada. In 1990, SOCAN became the name of an organization that started in 1921.</p>
+						<div class="bs-xs-10"></div>
+						<p class="text" i18n="@@suppDesc8">RE:SOUND administers the performance rights of performing artists and record companies in the sound recording. SOCAN administers the performance rights of the composers, authors and their music publishers in the musical work/song.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle5">Why was Entandem created?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc9">Entandem was created to deliver greater value to music users and the rights holders represented by both RE:SOUND and SOCAN. By working together, RE:SOUND and SOCAN will reach more music users to ensure that music creators are legally, fairly and ethically compensated for their music.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle6">How will Entandem licensing benefit my business?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc10">It's all about simplicity. For most businesses that use music, a single music licensing organization means a simplified experience, by interacting with one organization, with less administrative work and one payment for both RE:SOUND and SOCAN music licenses, and one point of contact to answer questions and resolve issues.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle7">How will Entandem benefit music rights-holders?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc11">By working together, RE:SOUND and SOCAN will eliminate duplication, reaching more music users to ensure that music creators are legally, fairly and ethically compensated for their music. Entandem will benefit music rights holders – the songwriters, composers and music publishers who earn money from compositions, and the artists and record companies who make recorded music.</p>
+					</div>
+				  </mat-expansion-panel>
+				</mat-accordion>
+			</div>
+			<div class="tab-panel" [ngClass]="{'active': isSet(2)}">
+				<mat-accordion class="custome-accordion type-2">
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle8">Will a license cost more under Entandem?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc12">The creation of Entandem has no impact on the individual licensing amounts currently collected by RE:SOUND and SOCAN and set by the Copyright Board of Canada.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle9">I don't currently pay a RE:SOUND and/or a SOCAN license. Do I have to get both?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc13">Organizations that use recorded music are legally required to obtain the applicable RE:SOUND and SOCAN licenses. Organizations that use live music are required to obtain a SOCAN licence.</p>
+						<div class="bs-xs-10"></div>
+						<p class="text" i18n="@@suppDesc14">You might currently be licensed by only one of the organizations due, for example, to lack of awareness or simple oversight. Entandem enables businesses that use music to complete both licenses at one time, through a single music license, so that rights-holders can be compensated for what they have fairly and legally earned through their work.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle10">How do you determine license fees? Do I have a say?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc15">Licenses for using music are determined by the Copyright Board of Canada's tariff-setting process. All stakeholders, including music users, can have input on future tariffs through the Copyright Board's tariff-setting process.</p>
+					</div>
+				  </mat-expansion-panel>
+				</mat-accordion>
+			</div>
+			<div class="tab-panel" [ngClass]="{'active': isSet(3)}">
+			  <mat-accordion class="custome-accordion type-2">
+				 <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle11">When will Entandem start administering my license?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc16">The transfer of licensing services to Entandem will take place in July 2019. Further details will be communicated in advance.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle12">If I have issues with my license/payments/service, who do I contact – RE:SOUND, SOCAN or Entandem?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc17">In July 2019, Entandem will be the sole point of contact for any licensing-related issues for the licenses it administers. Until then, please continue to contact RE:SOUND and/or SOCAN about your music licensing needs and requirements.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle13">What will happen to RE:SOUND and SOCAN after Entandem launches?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc18">Both organizations will continue without change, except for the transfer of general licensing operations to Entandem. Other types of licensing such as broadcast licenses (e.g., radio, TV), background music suppliers and new media (e.g., streaming/webcasting) will continue to be administered by RE:SOUND and SOCAN.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle14">I don't currently pay a RE:SOUND and/or a SOCAN license. Will this change?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc19">Music users that are legally required to pay RE:SOUND and/or SOCAN licenses, might currently be licensed by only one of the organizations due, for example, to lack of awareness or simple oversight.</p>
+						<div class="bs-xs-10"></div>
+						<p class="text" i18n="@@suppDesc20">Entandem enables businesses that use music to complete both licenses at one time, through one music license, so that rights-holders can be compensated for what they have fairly and legally earned.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle15">Which organization do I contact prior to the launch of Entandem?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc21">Until administration of your license is moved to Entandem, there will be no change to your account, the organization that manages your license(s), or your point of contact.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle16">When will I be able to report and pay for both RE:SOUND and SOCAN licenses online at one time?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text"><span i18n="@@suppDesc22">The Entandem music licensing website is now live. After you</span>&nbsp;<a href="https://www.entandemlicensing.com/portal/en/auth/login" class="link-text" i18n="@@suppDesc23">create your account,</a>&nbsp;<span i18n="@@suppDesc24">you'll receive both RE:SOUND and SOCAN licenses.</span></p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle17">Can I expect more changes of this nature?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc25">There are no plans currently for any other changes to music licensing. Both organizations have worked hard to ensure that Entandem is the optimal music licensing solution for Canada's unique marketplace, today and long into the future. As with any smart business, we will always consider further opportunities to deliver more to RE:SOUND and SOCAN members. Entandem will always explore new ways to help maximize the value that music brings to businesses, contributing to their bottom line, and returning more earned royalties to music creators and performers.</p>
+					</div>
+				  </mat-expansion-panel>
+				  <mat-expansion-panel>
+					<mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+					  <mat-panel-title>
+						<h6 class="h6" i18n="@@suppTitle18">Does this change where my license money goes?</h6>
+					  </mat-panel-title>
+					</mat-expansion-panel-header>
+					<div class="custome-accordion-content">
+						<p class="text" i18n="@@suppDesc26">No. All royalties collected and administered will still be delivered to the music rights-holders who have earned them through the use of their music.</p>
+					</div>
+				  </mat-expansion-panel>
+				</mat-accordion>
+			</div>
+		</div>
+		<div class="bs-xs-30"></div>
+		<h5 class="h5" i18n="@@contactInformation">Contact Information</h5>
+		<div class="bs-xs-5"></div>
+		<div class="divider"></div>
+		<div class="bs-xs-30"></div>
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@general">General:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg"><a href="mailto:info@entandemlicensing.com" class="link-text">info@entandemlicensing.com</a></p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@support2">Support:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg"><a href="mailto:support@entandemlicensing.com" class="link-text">support@entandemlicensing.com</a></p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@phone2">Phone:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">1.866.944.6223</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@address">Address:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">1235 Bay Street, Suite 900, Toronto ON Canada M5R 3K4</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+	</div>
+	<div class="bs-lg"></div>
+</div>

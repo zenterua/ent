@@ -1,0 +1,10 @@
+<mat-form-field class="example-full-width tableSelector">
+  <mat-label i18n="@@territories">Territories</mat-label>
+  <mat-select multiple [formControl]="selectProvince" (selectionChange)="updateProvince($event)">
+    <multi-select [model]="selectProvince" [values]="province" (sendSelectedProvince)="updateMultiProvince($event)">
+    </multi-select>
+    <mat-option *ngFor="let item of province" [value]="item.alt">
+      {{item.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

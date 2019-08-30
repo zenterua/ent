@@ -1,0 +1,295 @@
+<div class="page-title" i18n="@@AdminPortal">
+    Admin Portal
+  </div>
+  <div class="page-padding" >
+    <div class="adminWrapperContent" style="background-color: #F5F4F4;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-laptop-12 col-lg-8">
+            <back-button>
+              <ng-container content>
+                <button class="btn-icon icon-border">
+                  <svg width="40" height="40" viewBox="0 0 32 32">
+                    <g fill="none" fill-rule="evenodd">
+                      <path stroke="#DEDEDE" stroke-width="0" d="M16,0.75 C7.57765757,0.75 0.75,7.57765757 0.75,16 C0.75,24.4223424 7.57765757,31.25 16,31.25 C24.4223424,31.25 31.25,24.4223424 31.25,16 C31.25,7.57765757 24.4223424,0.75 16,0.75 Z"/>
+                      <polygon fill="#404DDC" points="18 12 12 18 6 12 7.096 10.94 11.263 15.126 11.263 6 12.737 6 12.737 15.126 16.94 10.94" transform="rotate(90 12 16)"/>
+                    </g>
+                  </svg>
+                </button>
+              </ng-container>
+            </back-button>
+            <div class="bs-xs-25"></div>
+
+            <div class="sectionTitle style2">
+              <h1 class="h1 as" i18n="@@newReminder">New Reminder</h1>
+            </div>
+            <div class="bs-xs-30"></div>
+            <form [formGroup]="reminderForm" #remiForm="ngForm" (ngSubmit)="createReminder()">
+              <div class="row alignCols">
+                <div class="col-xs-12 col-md-8 col-lg-10">
+                  <app-material-search (createTemplate)="startCreatingTemplate();" formControlName="templates" (editTemplate)="editTemplate($event)" (removeTemplate)="getTemplateId($event);" [items]="reminderTemplates" i18n-title="@@selectCriteriaTemplate" title="Select Criteria Template"></app-material-search>
+                </div>
+
+                <div class="col-xs-12 col-md-4 col-lg-2 " *ngIf="selectedTemplate">
+                  <div class="bs-xs-15 bs-sm-0"></div>
+                  <a class="link previewTemplate" (click)="showPreviewTemplate()" i18n="@@previewTemplate">PREVIEW TEMPLATE</a>
+                </div>
+              </div>
+              <div class="bs-xs-20 bs-sm-30"></div>
+
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <mat-form-field class="example-full-width tableSelector">
+                        <mat-label i18n="@@territories">Territories</mat-label>
+                        <mat-select formControlName="territories" multiple>
+                          <multi-select [model]="reminderForm.get('territories')" [values]="province">
+                          </multi-select>
+                          <mat-option *ngFor="let item of province" [value]="item.alt">
+                            {{item.value}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <div class="bs-xs-10 bs-sm-15"></div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <app-datepicker class="tableCalendar" title="Start Date" formControlName="startDate" filter="true" [min]="currentDate" (selectedDate)="setEndDate($event)"></app-datepicker>
+                        </div>
+                        <div class="col-sm-6">
+                          <app-datepicker class="tableCalendar" title="End Date" formControlName="endDate" filter="true" [checkDates]="minEndDate" [min]="minEndDate" ></app-datepicker>
+                        </div>
+                      </div>
+                      <div class="bs-xs-10 bs-sm-0"></div>
+                    </div>
+                  </div>
+
+                  <div class="bs-xs-0 bs-sm-15"></div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p class="text lg body" i18n="@@selectCadence">Select Cadence: </p>
+                      <div class="bs-xs-15"></div>
+                      <mat-radio-group aria-label="Select an option" formControlName="cadence" class="cadencyRadio">
+                        <mat-radio-button value="monthly" i18n="@@monthly">Monthly</mat-radio-button>
+                        <mat-radio-button value="auarterly" i18n="@@quarterly">Quarterly</mat-radio-button>
+                        <mat-radio-button value="annually" i18n="@@annually">Annually</mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                    <div class="bs-xs-30 bs-sm-0"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="bs-xs-0 bs-sm-30"></div>
+
+              <div class="tablePlaceholder" [ngClass]="{'childAssigned': tariffs.length}">
+                <ng-container *ngIf="tariffs.length">
+                  <h6 class="h6 as" i18n="@@selectedTariffsRemainder">Selected Tariffs to Remainder</h6>
+                  <div class="btn-icon icon-border iconColor iconNoBorder"  (click)="tariffPopup = true;">
+                  <img src="assets/img/admin/edit.svg" alt="">
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="!tariffs.length">
+                  <h6 class="h6 as" i18n="@@selectedTariffsRemainder">Select a Tariff to Set a Reminder</h6>
+                    <div class="btn-icon icon-border iconColor iconNoBorder" (click)="tariffPopup = true;">
+                    <img src="assets/img/admin/plus-icon.svg" alt="">
+                    </div>
+                </ng-container>
+              </div>
+              <div class="mainTableWrapper" [ngClass]="{'showTableSelected': this.selection.selected.length, 'hiddenTariffsTable': !tariffs.length }">
+                <h5 *ngIf="nothingFound" class="h5 nothingFoundMessage" i18n="@@nothingFound">Nothing found</h5>
+
+                <div class="tableHeader">
+                  <div class="responsiveTableHeader">
+                    <div class="btn-icon icon-border iconColor iconNoBorder" (click)="tableHeaderToggle()">
+                    <img src="assets/img/admin/filter.svg" alt="">
+                    </div>
+                  </div>
+
+                  <div class="tableSelected">
+                    <p>{{this.selection.selected.length}} <span i18n="@@tariffSelected">Tariff Selected</span> </p>
+                    <div class="btn btn btn-sm btn-primary" (click)="removeTariffs()" i18n="@@removeTariffs">Remove Tariffs</div>
+                  </div>
+                  <form class="tableForm" [formGroup]="tableForm" [ngClass]="{'responsiveActive': responsiveTableHeader}">
+                    <div class="tableSearch" [ngClass]="{'active': tableSearch}">
+                      <div class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSearchToggle();">
+                        <img src="assets/img/admin/search.svg" alt="">
+                      </div>
+                      <div class="tableSearchContent">
+                        <mat-form-field class="example-full-width">
+                          <input matInput type="text" i18n-placeholder="@@search" formControlName="tableSearch" placeholder="Search" (keyup)="startSearch($event)">
+                          <button *ngIf="tableForm.get('tableSearch').value" matSuffix class="btn-simple clearInput" (click)="tableSearchToggle();">
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <table mat-table [dataSource]="tariffsTableData" matSort class="table-custome tariffsTable">
+
+                  <ng-container matColumnDef="select">
+                    <th mat-header-cell *matHeaderCellDef>
+                      <mat-checkbox (change)="$event ? masterToggle() : null"
+                                    [checked]="selection.hasValue() && isAllSelected()"
+                                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                    [aria-label]="checkboxLabel()">
+                      </mat-checkbox>
+                    </th>
+                    <td mat-cell *matCellDef="let row">
+                      <mat-checkbox (click)="$event.stopPropagation()"
+                                    (change)="$event ? selection.toggle(row) : null"
+                                    [checked]="selection.isSelected(row)"
+                                    [aria-label]="checkboxLabel(row)">
+                      </mat-checkbox>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="id">
+                    <th i18n="@@tariff" mat-header-cell *matHeaderCellDef > Tariff </th>
+                    <td mat-cell *matCellDef="let row"  i18n-data-name="@@tariff" data-name="Tariff">
+                      <span> {{row | appTariffName}} </span>
+                    </td>
+
+                  </ng-container>
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let row">
+                      <ng-container *ngIf=" localeId === 'en-US'">
+                        <span>{{row.TRFF_NAME_ENG}}</span>
+                      </ng-container>
+                      <ng-container *ngIf=" localeId === 'fr'">
+                        <span>{{row.TRFF_NAME_FR}}</span>
+                      </ng-container>
+                    </td>
+
+                  </ng-container>
+
+
+                  <tr mat-header-row *matHeaderRowDef="displayedAllTariffsColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedAllTariffsColumns;" class="hover-menu-row"></tr>
+                </table>
+                <mat-paginator class="custome-pagination" [length]="tariffsTableData.data.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+              </div>
+
+
+              <div class="bs-xs-30 bs-sm-50"></div>
+
+<!--              <div class="row">-->
+<!--                <div class="col-md-4">-->
+<!--                  <p class="text lg body" i18n="@@accountsBalance">Accounts Balance:</p>-->
+<!--                  <div class="bs-xs-15"></div>-->
+<!--                  <mat-checkbox i18n="@@withBalanceDue">With a balance due</mat-checkbox>-->
+<!--                  <div class="bs-xs-10"></div>-->
+<!--                  <mat-checkbox i18n="@@withbalanceUpDate">With a balance up to date</mat-checkbox>-->
+<!--                  <div class="bs-xs-15 bs-md-0"></div>-->
+<!--                </div>-->
+<!--                <div class="col-md-4">-->
+<!--                  <p class="text lg body">Reporting:</p>-->
+<!--                  <div class="bs-xs-15"></div>-->
+<!--                  <mat-checkbox i18n="@@missingReportPeriodOnly">Missing Report Period Only</mat-checkbox>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="bs-xs-30 bs-sm-50"></div>-->
+
+              <div class="btnWrapper btnCenter">
+                <button class="btn btn-primary btn-wide" [disabled]="reminderForm.invalid || !tariffsTableData.data.length" i18n="@@createReminders">Create Reminders</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spinner z10 fix semitransparent" [ngClass]="{'active': loaderIsVisible}"></div>
+
+<app-popup class="popupMainWrapper" *ngIf="tariffPopup" [@animationPopup]="tariffPopup ? 'popupOpened' : 'popupClosed'" (close)="this.tariffPopup = false;" size="1">
+  <ng-container content>
+    <div class="popup-header">
+      <div class="h6" i18n="@@selectTariffReminders">Tariffs Selected for a Reminder</div>
+    </div>
+    <div class="popup-padding no-padding">
+      <app-admin-reminder-tariffs [allTariffs]="allTariffs" [selectedTariffs]="tariffs" (selectedNewTariff)="reminderTariffs($event)"></app-admin-reminder-tariffs>
+    </div>
+  </ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="previewTemplate" [@animationPopup]="previewTemplate ? 'popupOpened' : 'popupClosed'" (close)="this.previewTemplate = false;" size="1">
+  <ng-container content>
+    <div class="popup-header">
+      <div class="h6" i18n="@@previewRemindersTemplate">Preview Reminders Template</div>
+    </div>
+    <div class="popup-padding">
+      <div class="templatePreview">
+        <h6 class="h6 as">{{this.selectedTemplate?.TITLE}}</h6>
+        <div class="bs-xs-30"></div>
+
+        <div>
+          <p class="templateDescription">{{selectedTemplate?.TEXT}}</p>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="reminderCreateTemplate" [@animationPopup]="reminderCreateTemplate ? 'popupOpened' : 'popupClosed'" (close)="this.reminderCreateTemplate = false;" size="1">
+  <ng-container content>
+    <div class="popup-header" *ngIf="newReminder">
+      <div class="h6" i18n="@@newRemindersTemplate">New Reminder Template</div>
+    </div>
+    <div class="popup-header" *ngIf="!newReminder">
+      <div class="h6" i18n="@@newRemindersTemplate">Edit Reminder Template</div>
+    </div>
+    <div class="popup-padding relativePopup">
+      <form [formGroup]="reminderTemplate" #templateForm="ngForm" (ngSubmit)="submitTemplate()">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" i18n-placeholder="@@reminderTitle" placeholder="Reminder Title" formControlName="TITLE">
+          <mat-icon matSuffix class="invalid">warning</mat-icon>
+          <mat-error *ngIf="reminderTemplate.get('TITLE').hasError('required')" i18n="@@fielRequired">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+        <div class="bs-xs-40"></div>
+
+        <div class="editArea">
+          <p class="title" i18n="@@reminderMessage">Reminder Message</p>
+          <mat-form-field class="example-full-width customTextArea">
+            <textarea matInput formControlName="TEXT"></textarea>
+            <mat-icon matSuffix class="invalid">warning</mat-icon>
+            <mat-error *ngIf="reminderTemplate.get('TEXT').hasError('required')" i18n="@@fielRequired">
+              This field is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="bs-xs-40"></div>
+
+        <div class="btnWrapper btnCenter">
+          <div class="btn btn-secondary" (click)="reminderCreateTemplate = false;" i18n="@@discart">Discard</div>
+          <button type="submit" class="btn btn-primary" [disabled]="reminderTemplate.invalid" i18n="@@save">Save</button>
+        </div>
+      </form>
+      <div class="spinner z10 semitransparent" [ngClass]="{'active': templateSpinner}"></div>
+    </div>
+  </ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="closeRemoveConfirm" [@animationPopup]="closeRemoveConfirm ? 'popupOpened' : 'popupClosed'" (close)="closeRemoveConfirm = false;" size="1">
+  <ng-container content>
+    <div class="popup-padding">
+      <div class="removeConfirmation">
+        <p i18n="@@deleteTemplate">Are you sure you want to delete this template?</p>
+        <div class="bs-xs-40"></div>
+        <button type="submit" class="btn btn-primary btn-sm btn-wide" (click)="closeRemoveConfirm = false;" i18n="@@cancel">Cancel</button>
+        <button type="submit" class="btn btn-alert btn-sm btn-wide" (click)="removeSingleTemplate()" i18n="@@confirmDeleteTemplate">Delete Template</button>
+      </div>
+
+    </div>
+  </ng-container>
+</app-popup>
+
+<app-snack-bar></app-snack-bar>

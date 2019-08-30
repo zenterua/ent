@@ -1,0 +1,248 @@
+<div class="page-content-entry type-2 padd-20">
+	<div class="bs-xs-20"></div>
+	<div class="row">
+		<div class="col-md-4">
+			<p class="text sm grey" i18n="@@reportYear">Report Year</p>
+			<div class="bs-xs-5"></div>
+			<p class="text lg">{{reportsArr[0]?.VALID_YEAR}}</p>
+			<div class="bs-xs-15"></div>
+		</div>
+	</div>
+	<div class="divider"></div>
+	<div class="bs-xs-20"></div>
+	<div class="caption-align flex-justify-center text-center">
+		<img alt="" src="assets/img/tariff-title-2.svg" width="30px">
+		<div class="text row-lmar-10 grey">
+		<div class="bs-xs-20"></div>
+			<ng-container *ngIf="localeId === 'en-US'">{{reportsArr[0]?.TRFF_NAME_ENG}}</ng-container>
+			<ng-container *ngIf="localeId === 'fr'">{{reportsArr[0]?.TRFF_NAME_FR}}</ng-container>
+			<div class="bs-xs-5"></div>
+			<div  class="text sm grey">
+				{{reportsArr[0]?.ROOM_NAME}}
+			</div>
+		</div>
+	</div>
+	<div class="bs-xs-20"></div>
+	<div *ngIf="!serverError">
+	<ng-container *ngIf="zeroReport">
+		<div class="max-330 text-center">
+			<div class="bs-md"></div>
+			<div class="h3" i18n="@@iHaveNoEeventToReport">I have no events to report</div>
+			<div class="bs-xs-15"></div>
+			<p class="text grey" i18n="@@bySubmittingThisReport">By submitting this report you confirm that you have a total of 0 events to report for this year.</p>
+			<div class="bs-xs-40"></div>
+			<div class="divider"></div>
+			<div class="bs-xs-15"></div>
+			<div class="caption-align">
+				<div class="text sm grey">
+					<h3 class="h3"><ng-container i18n="@@totalPayment">Total Payment</ng-container>:</h3>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<h3 class="h3">$ 0.00</h3>
+			</div>
+		</div>
+	</ng-container>
+
+	<ng-container *ngIf="!zeroReport">
+		<table class="table-custome td-bg table-custome-border">
+			<thead>
+				<tr>
+					<th i18n="@@event">Event</th>
+					<th i18n="@@startDate">Start Date</th>
+					<th i18n="@@bandsFloat"># Bands or Floats</th>
+					<th i18n="@@bandsFloatLive"># Floats Live Music Only</th>
+				</tr>
+			</thead>
+			<tbody *ngFor="let row of eventsArr">
+				<tr>
+					<td data-name="Event" i18n-data-name="@@event">{{row.EVENT_NAME}}</td>
+					<td data-name="Start Date" i18n-data-name="@@startDate">{{row.DATE | date: 'MMM d, yyyy'}}</td>
+					<td data-name="# Bands or Floats" i18n-data-name="@@bandsFloat">{{row.BANDS}}</td>
+					<td data-name="# Floats Live Music Only" i18n-data-name="@@bandsFloatLive">
+						<ng-container *ngIf="row.LIVE_ONLY == 1" i18n="@@liveMusicOnly">
+							Live Music Only
+						</ng-container>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="bs-xs-20"></div>
+		<div class="max-330 text-center">
+			<div class="caption-align">
+				<div class="text sm grey">
+					<p><span i18n="@@rsLicense">RE:SOUND license:</span></p>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<p class="text lg">$ {{resoundFees | number:'1.2-2'}}</p>
+			</div>
+			<div class="bs-xs-15"></div>
+			<div class="caption-align">
+				<div class="text sm grey">
+					<p><span i18n="@@scLicense">SOCAN license:</span></p>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<p class="text lg">$ {{socanFees | number:'1.2-2'}}</p>
+			</div>
+			<div class="bs-xs-15"></div>
+			<div class="caption-align">
+				<div class="text sm grey">
+					<p><span i18n="@@subtotal2">Subtotal:</span></p>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<p class="text lg"><b class="bold">$ {{socanFees + resoundFees | number:'1.2-2'}}</b></p>
+			</div>
+			<div class="bs-xs-15"></div>
+			<div class="divider"></div>
+			<ng-container *ngIf="hstTaxCode">
+			<div class="bs-xs-15"></div>
+			<div class="caption-align">
+				<div class="text sm grey">
+					<p><span i18n="@@hst">HST:</span></p>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<p class="text lg">$ {{hstFees | number:'1.2-2'}}</p>
+			</div>
+			</ng-container>
+			<ng-container *ngIf="pstTaxCode">
+			<div class="bs-xs-15"></div>
+			<div class="caption-align">
+				<div class="text sm grey">
+					<p *ngIf="province == 'QC'"><span i18n="@@qst">QST:</span></p>
+					<p *ngIf="province !== 'QC'"><span i18n="@@pst">PST:</span></p>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<p class="text lg">$ {{pstFees | number:'1.2-2'}}</p>
+			</div>
+			</ng-container>
+			<ng-container *ngIf="gstTaxCode">
+			<div class="bs-xs-15"></div>
+			<div class="caption-align">
+				<div class="text sm grey">
+					<p><span i18n="@@gst">GST:</span></p>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<p class="text lg">$ {{gstFees | number:'1.2-2'}}</p>
+			</div>
+			</ng-container>
+			<div class="bs-xs-15"></div>
+			<div class="divider"></div>
+			<div class="bs-xs-15"></div>
+			<div class="caption-align">
+				<div class="text sm grey">
+					<h3 class="h3" i18n="@@totalPayment2">Total Payment:</h3>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</div>
+				<h3 class="h3">$ {{totalFees | number:'1.2-2'}}</h3>
+			</div>
+		</div>
+	</ng-container>
+	</div>
+	<div *ngIf="serverError">
+		<div class="bs-md"></div>
+		<div class="text-center">
+			<h2 class="h1" i18n="@@anUnexpectedError">An Unexpected Error Occurred</h2>
+			<div class="bs-xs-30"></div>
+			<a class="btn btn-primary btn-lg" (click)="serverError = false" i18n="@@goBack">Go Back</a>
+		</div>
+		<div class="bs-md"></div>
+	</div>
+	<div class="bs-xs-40"></div>
+	<div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+</div>
+
+<div class="bs-sm"></div>
+<h5 class="h5" i18n="@@licenseTerms">License Terms &amp; Conditions</h5>
+<div class="bs-xs-5"></div>
+<div class="divider"></div>
+<div class="bs-xs-30"></div>
+<form [formGroup]="licenseForm">
+	<mat-checkbox formControlName="termsAndConditions"><span i18n="@@iHaveRead">I have read and agree to the</span>&nbsp; <a class="link-text" (click)="openTermsPopup($event)" i18n="@@licenseTerms">License Terms &amp; Conditions.</a>&nbsp;<span i18n="@@infoProvidedCorrect">All the information provided is correct and complete, and I have the authority to bind the business.</span></mat-checkbox>
+<div class="bs-xs-20"></div>
+<div class="row">
+	<div class="col-md-4">
+		<p class="text sm grey"><span i18n="@@acceptedBy">Accepted by:</span></p>
+		<div class="bs-xs-5"></div>
+		<p class="text lg">{{reportsArr[0]?.SIGNER_NAME ? reportsArr[0]?.SIGNER_NAME : reportsArr[0]?.SUPPLIER_NAME}}</p>
+		<div class="bs-xs-15"></div>
+	</div>
+	<div class="col-md-4">
+		<p class="text sm grey"><span i18n="@@date2">Date:</span></p>
+		<div class="bs-xs-5"></div>
+		<p class="text lg">{{reportsArr[0]?.TRANS_DATE | date: 'MMM d, yyyy'}}</p>
+		<div class="bs-xs-15"></div>
+	</div>
+</div>
+<div class="bs-sm"></div>
+<div class="text-center">
+	<button type="button" class="btn btn-primary btn-wide" [disabled]="!licenseForm.get('termsAndConditions').valid"  (click)="sendFees(0)" i18n="@@submitReport">Submit Report</button>
+</div>
+</form>
+
+
+<app-popup  class="popupMainWrapper" *ngIf="saveReport" [@animationPopup]="saveReport ? 'popupOpened' : 'popupClosed'" (close)="saveReport = false" size="4">
+    <ng-container content>
+        <div class="padd-50">
+            <div class="bs-xs-40"></div>
+			<div class="text-center">
+				<p class="grey text"><span i18n="@@saveReportText1">Your report has been saved. To access your report, navigate to </span>&nbsp;<b class="bold" i18n="@@drafts">Drafts</b>&nbsp;<span i18n="@@saveReportText2">in the main menu.</span></p>
+			</div>
+			<div class="bs-xs-25"></div>
+			<div class="btn-wrapper text-center">
+				<button type="button" class="btn btn-sm btn-secondary btn-wide" (click)="saveReport = false" i18n="@@continueSubmission">Continue Submission</button>
+				<button type="button" class="btn btn-sm btn-primary btn-wide" (click)="sendFees(1)" i18n="@@continueSubmissionLater">Continue Submission Later</button>
+			</div>
+			<div class="bs-xs-30"></div>
+		</div>
+    </ng-container>
+</app-popup>
+
+<app-popup  class="popupMainWrapper" *ngIf="openTerms" [@animationPopup]="openTerms ? 'popupOpened' : 'popupClosed'" (close)="openTerms = false" size="4">
+    <ng-container content>
+        <div class="popup-header">
+        	<div class="h6" i18n="@@licenseTerms">License Terms &amp; Conditions</div>
+        </div>
+        <div class="bs-xs-30"></div>
+        <div class="padd-30">
+        	<p class="text"><span i18n="@@licenseText10a5g1">The legal terms that govern your SOCAN license are set out below as well as in the tariff (including the General Provisions) approved by the Copyright Board. If you have any questions or require a copy the tariff, please contact us at</span>&nbsp;<a href="mailto:license@entandemlicensing.com" class="link-text">license@entandemlicensing.com</a>&nbsp;<span i18n="@@or">or</span>&nbsp;<a href="tel:18669446223">1-866-944-6223</a>.</p>
+        	<div class="bs-xs-30"></div>
+        	<ul class="text">
+        		<li>
+        			<span>1.&nbsp;&nbsp;</span>
+        			<span i18n="@@licenseText10a5g2">“You”, “your” and “licensee” refer to the person or company submitting this form for the purpose of obtaining a SOCAN license or filing a report as required by the tariff. “SOCAN” refers to Society of Composers, Authors and Music Publishers of Canada. “Works” means any or all of the musical works in SOCAN’s repertoire.</span>
+        		</li>
+        		<li>
+        			<span>2.&nbsp;&nbsp;</span>
+        			<span i18n="@@licenseText10b5f1">The license allows you to perform the Works in public (and to authorize same) by marching bands or floats with music participating in the parades listed on this form.</span>
+        		</li>
+        		<li>
+        			<span>3.&nbsp;&nbsp;</span>
+        			<span i18n="@@licenseText10a5g4">The license fee is calculated according to the tariff based on information from your report or audit conducted by SOCAN and is subject to adjustment to reflect any subsequent reports, audits and approved tariffs. Applicable taxes are payable on all license fee amounts.</span>
+        		</li>
+        		<li>
+        			<span>4.&nbsp;&nbsp;</span>
+        			<span i18n="@@licenseText10a5g5">If the tariff for a particular year is not approved by January 1 of that year, the most recent approved tariff applies to that year until a new tariff is approved, at which time license fees will be adjusted to reflect the newly approved tariff.</span>
+        		</li>
+        		<li>
+        			<span>5.&nbsp;&nbsp;</span>
+        			<span i18n="@@licenseText10a5g6">You will submit the license fee, applicable taxes and report to Entandem at the end of the calendar quarter in which the performance occurred.</span>
+        		</li>
+        		<li>
+        			<span>6.&nbsp;&nbsp;</span>
+        			<span i18n="@@licenseText10a5g7">You will pay to Entandem any additional amount found due (including applicable taxes) as a result of any adjustment made to any fees within 10 days of being invoiced by Entandem.</span>
+        		</li>
+        		<li>
+        			<span>7.&nbsp;&nbsp;</span>
+        			<span i18n="@@licenseText10a5g8">You will keep records of all information necessary for the calculation of the license fees.</span>
+        		</li>
+        	</ul>
+		</div>
+		<div class="bs-xs-30"></div>
+	</ng-container>
+</app-popup>
+
+
+<div class="save-button">
+	<button class="btn btn-secondary btn-sm" (click)="saveReport = true" i18n="@@saveAndClose">Save and close</button>
+</div>
+
+

@@ -1,0 +1,26 @@
+<div class="provinceWrapper">
+  <mat-form-field class="example-full-width" [ngClass]="{'active': this.selectedValue.value}">
+    <mat-label>{{title}}</mat-label>
+    <mat-select (selectionChange)="onSelect()" [formControl]="selectedValue" [required]="isrequired" #addProv="ngForm" #matSelect>
+      <mat-option value="AB" i18n="@@province1">Alberta</mat-option>
+      <mat-option value="BC" i18n="@@province2">British Columbia</mat-option>
+      <mat-option value="MB" i18n="@@province3">Manitoba</mat-option>
+      <mat-option value="NB" i18n="@@province4">New Brunswick</mat-option>
+      <mat-option value="NL" i18n="@@province5">Newfoundland and Labrador</mat-option>
+      <mat-option value="NT" i18n="@@province6">Northwest Territories</mat-option>
+      <mat-option value="NS" i18n="@@province7">Nova Scotia</mat-option>
+      <mat-option value="NU" i18n="@@province8">Nunavut</mat-option>
+      <mat-option value="ON" i18n="@@province9">Ontario</mat-option>
+      <mat-option value="PE" i18n="@@province10">Prince Edward Island</mat-option>
+      <mat-option value="QC" i18n="@@province11">Quebec</mat-option>
+      <mat-option value="SK" i18n="@@province12">Saskatchewan</mat-option>
+      <mat-option value="YT" i18n="@@province13">Yukon</mat-option>
+    </mat-select>
+    <mat-icon matSuffix class="invalid">warning</mat-icon>
+    <mat-error *ngIf="selectedValue.hasError('required')" i18n="@@fielRequired">
+      This field is required
+    </mat-error>
+  </mat-form-field>
+  <mat-icon style="position: absolute; top: 13px; right: 3px; z-index: 1;" matSuffix class="btn-simple" *ngIf="selectedValue.value && hideIcon" (click)="clearValue()"><img src="assets/img/close.svg" alt=""></mat-icon>
+
+</div>

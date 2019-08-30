@@ -1,0 +1,17 @@
+<div [ngClass]="{'header-opened': headerOpened, 'no-transition': noTransition, 'impersonationHeaderShow': impersonationModeActive}">
+  <ng-container *ngIf="impersonationModeActive">
+    <app-impersonation-header ></app-impersonation-header>
+  </ng-container>
+
+  <app-header *ngIf="displayNav"></app-header>
+  <app-admin-header *ngIf="displayAdmin"></app-admin-header>
+  <div id="content-block" [ngClass]="{'phone': userAgentPhone, 'loading':isLoading}">
+    <div [@routerAnimation]="getRouteAnimation(route)">
+      <router-outlet #route="outlet"></router-outlet>
+    </div>
+    <div class="spinner active" id="loader-wrapper" [ngClass]="{disabled: isLoaded}"></div>
+  </div>
+
+</div>
+
+

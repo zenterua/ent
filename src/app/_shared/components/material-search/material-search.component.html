@@ -1,0 +1,50 @@
+
+<div class="input-wrapper-material input-wrapper-search" (clickElsewhere)="onClose()" [ngClass]="{'typed': f.value, 'focus': pickerOpened}">
+    <div class="placeholder"></div>
+    <form [formGroup]="searchForm">
+      <input type="text" hidden formControlName="ID">
+      <input type="text" hidden formControlName="TEXT">
+      <input class="m-si" type="text" formControlName="TITLE" #f (focus)="onOpen()" readonly />
+    </form>
+    <div class="icon" (click)="onOpen()"><img src="assets/img/admin/angle.svg" alt="" style="width: 10px;" /></div>
+    <label>{{title}}</label>
+    <div class="toggle-si" *ngIf="pickerOpened">
+        <div class="align">
+            <div class="input-wrapper-material toggle-si-input" [ngClass]="{'active': tableSearch}">
+
+				<mat-form-field class="example-full-width seachInput">
+					<input class="m-si" matInput type="text" i18n-placeholder="@@search" placeholder="Search"  value="" clickInput #f (keyup)="onSearch(f.value)">
+					<div class="clearInput"></div>
+				</mat-form-field>
+				<div class="link" (click)="addNewTemplate()" i18n="@@addNewTemplate">Add New Template</div>
+            </div>
+            <div class="align-scroll">
+              <ng-container *ngIf="itemsOriginal.length">
+                <ng-container *ngFor="let item of itemsOriginal">
+                  <div class="searchContent">
+                    <div class="contentInfo">
+                      <a class="link-si"  (click)="onSelect(item)">
+                        <b *ngIf="f.value">{{f.value + '...'}}&nbsp;</b>
+                        {{item.TITLE}}
+                      </a>
+                      <p class="text sm grey">{{item.TEXT}}</p>
+                    </div>
+                    <div class="contentMenu">
+                      <div class="btn-icon icon-border iconColor iconNoBorder" (click)="editReminders(item)">
+                        <img src="assets/img/admin/edit.svg" alt="">
+                      </div>
+                      <div class="btn-icon icon-border iconColor iconNoBorder" (click)="removeReminders(item)">
+                        <img src="assets/img/admin/remove.svg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="!itemsOriginal.length">
+                <h5 class="h5 nothingFoundMessage" i18n="@@nothingFound">Nothing found</h5>
+              </ng-container>
+
+            </div>
+        </div>
+    </div>
+</div>

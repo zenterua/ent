@@ -1,0 +1,15 @@
+<ng-container *ngIf="type == 'M'">
+	<img src="assets/img/master.png" width="36px" alt="" class="row-lmar-10">
+</ng-container>
+<ng-container *ngIf="type == 'V'">
+	<img src="assets/img/visa.svg" width="36px" alt="" class="row-lmar-10">
+</ng-container>
+<ng-container *ngIf="type == 'AX'">
+	<img src="assets/img/amex.png" width="36px" alt="" class="row-lmar-10">
+</ng-container>
+<ng-container *ngIf="type == 'NO' || type == 'DS'">
+	<img src="assets/img/discover.png" width="36px" alt="" class="row-lmar-10">
+</ng-container>
+<ng-container *ngIf="type !== 'NO' && type !== 'DS' && type !== 'AX' && type !== 'V' && type !== 'M'">
+  <img src="assets/img/empty-card.png" width="36px" alt="" class="row-lmar-10">
+</ng-container>

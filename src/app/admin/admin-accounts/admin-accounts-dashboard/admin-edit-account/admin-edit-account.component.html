@@ -1,0 +1,37 @@
+<div class="container-fluid containerNoPadding">
+  <div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="editAdmin"  (ngSubmit)="submitEditAccount();" class="text-center">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" i18n-placeholder="@@firstName" placeholder="First Name" formControlName="firstName">
+              <mat-icon matSuffix class="invalid" >warning</mat-icon>
+              <mat-error *ngIf="editAdmin.get('firstName').hasError('required')" i18n="@@fielRequired">
+                This field is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" i18n-placeholder="@@lastName" placeholder="Last Name" formControlName="lastName">
+              <mat-icon matSuffix class="invalid" >warning</mat-icon>
+              <mat-error *ngIf="editAdmin.get('lastName').hasError('required')" i18n="@@fielRequired">
+                This field is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12">
+            <div class="bs-xs-25"></div>
+            <button type="submit" class="btn btn-primary btn-lg btn-wide" [disabled]="editAdmin.invalid" i18n="@@editAccount">Edit Account</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="spinner z10 semitransparent" [ngClass]="{'active': loaderIsVisible}"></div>
+
+<app-snack-bar></app-snack-bar>

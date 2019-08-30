@@ -1,0 +1,76 @@
+<div class="mainTableWrapper style2" [ngClass]="{'showTableSelected': assignedCounter > 0}">
+      <div class="spinner semitransparent tableSpiner" [ngClass]="{'active': loadingData}">
+        <img src="assets/img/spinner.gif" alt="">
+      </div>
+      <h5 *ngIf="nothingFound" class="h5 nothingFoundMessage" i18n="@@nothingFound">Nothing found</h5>
+      <h5 *ngIf="tableDataError" class="h5 nothingFoundMessage" i18n="@@errorOccurred">An Unexpected Error Occurred</h5>
+      <h5 *ngIf="tableServerError" class="h5 nothingFoundMessage" i18n="@@unexpectedServerError">An Unexpected Server Error Occurred</h5>
+
+    <div class="tableHeader">
+      <div class="responsiveTableHeader">
+      <button class="btn-icon icon-border iconColor iconNoBorder" (click)="tableHeaderToggle()">
+      <img src="assets/img/admin/filter.svg" alt="">
+      </button>
+      </div>
+
+      <div class="tableSelected">
+        <p>{{assignedCounter}} <span i18n="@@accountsSelected">Accounts Selected </span></p>
+        <button class="btn btn btn-sm btn-primary" (click)="assignLicenseesToOwner()" i18n="@@assingLicensee">Assign Licensee</button>
+      </div>
+      <div class="bs-xs-20"></div>
+      <div class="tableLine"></div>
+      <div class="bs-xs-20"></div>
+      <form class="tableForm" [formGroup]="tableForm" [ngClass]="{'responsiveActive': responsiveTableHeader}">
+        <div class="tableSearch" [ngClass]="{'active': tableSearch}">
+          <button class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSearchToggle();">
+            <img src="assets/img/admin/search.svg" alt="">
+          </button>
+          <div class="tableSearchContent">
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" i18n-placeholder="@@search" formControlName="tableSearch" placeholder="Search">
+              <button *ngIf="tableForm.get('tableSearch').value" matSuffix class="btn-simple clearInput" (click)="tableSearchToggle();">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <table mat-table [dataSource]="licenseesList" #ownerSelectTable matSort class="table-custome">
+
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                  (change)="$event ? editChildAssigned($event, row, i) : null"
+                  [checked]="isChecked(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+        <td mat-cell *matCellDef="let row" data-name="User ID"> <a class="color" [routerLink]="['/admin/user-management']">{{row.ACCT_NO}}</a> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th i18n="@@firstName" mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+        <td mat-cell *matCellDef="let row" data-name="FirstName"> {{row.FIRST_NAME}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="business">
+        <th i18n="@@business" mat-header-cell *matHeaderCellDef mat-sort-header> Business </th>
+        <td mat-cell *matCellDef="let row" data-name="Business"> {{row.NAME}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th i18n="@@email" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let row" data-name="Email"> {{row.EMAIL}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+    </table>
+    <mat-paginator class="custome-pagination" [length]="tableLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>

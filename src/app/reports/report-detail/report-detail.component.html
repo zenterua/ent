@@ -1,0 +1,135 @@
+<div class="page-padding" [ngClass]="{'downloading': isLoading}">
+    <div class="bs-xs-20"></div>
+	<div class="container-custome">
+		<back-button>
+			<button class="btn-icon type-xs icon-border">
+				<img src="assets/img/back.svg" alt="">
+			</button>
+		</back-button>
+		<div class="bs-xs-20"></div>
+	    <div class="caption-align donotprint">
+			<h2 class="h1">
+				<ng-container *ngIf="localeId === 'en-US'">{{tariffDetail?.TRFF_NAME_ENG}}</ng-container>
+				<ng-container *ngIf="localeId === 'fr'">{{tariffDetail?.TRFF_NAME_FR}}</ng-container>
+			</h2>
+			<div class="btn-wrapper">
+				<button class="btn-icon icon-border" (click)="getFilePdf('print')"><img src="assets/img/print.svg" alt=""></button>
+				<a (click)="getFilePdf('download')" class="btn-icon icon-border"><img src="assets/img/download-color.svg" alt=""></a>
+<!--				<button class="btn btn-secondary" (click)="reportAgain()" i18n="@@reportAgain">Report Again</button>-->
+			</div>
+		</div>
+		<div class="bs-xs-20"></div>
+		
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@contact2">Contact:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{tariffDetail?.SIGNER_NAME ? tariffDetail?.SIGNER_NAME : tariffDetail?.SUPPLIER_NAME}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@submitted2">Submitted:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{tariffDetail?.TRANS_DATE | date: 'MMM d, yyyy'}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@amount2">Amount:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">${{totalAmount | number:'1.2-2'}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@reportId2">Report #:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{tariffDetail?.REPORT_ID ? tariffDetail?.REPORT_ID : tariffDetail?.REPORT_NO}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@musicUsage2">Music Usage:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{tariffDetail?.TRFF_NAME_ENG}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@acceptedBy">Accepted by:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{tariffDetail?.SIGNER_NAME ? tariffDetail?.SIGNER_NAME : tariffDetail?.SUPPLIER_NAME}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@date2">Date:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{tariffDetail?.TRANS_DATE | date: 'MMM d, yyyy'}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+		<div class="bs-sm"></div>
+		<h5 class="h5" i18n="@@businessInformation">Business Information</h5>
+			<div class="bs-xs-5"></div>
+			<div class="divider"></div>
+			<div class="bs-xs-30"></div>
+		    <div class="row">
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@businessName">Business Name:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@legalName2">Legal Name:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@email">Email:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.EMAIL}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@phone2">Phone:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.PHONE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@addr2">Address:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.ADDRESS}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@city2">City:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.CITY}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@provinceDot">Province:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.PROVINCE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@postalCode">Postal Code:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.POSTAL_CODE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    </div>
+		    <div class="bs-sm"></div>
+
+			<ng-template #dynamic></ng-template>
+
+		    <div class="bs-lg"></div>	
+	</div>
+</div>
+<div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>

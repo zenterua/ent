@@ -1,0 +1,85 @@
+@import 'src/app/variables.scss';
+
+.welcomeBack {
+	position: relative;
+	padding: 30px;
+	border-radius: 4px;
+	background-color: rgba($textColor, .75);
+	.welcomeInfo {
+		max-width: 50%;
+		p {
+			padding-right: 15px;
+		}
+		&.light {
+			color: #fff;
+			.as {
+				color: #fff;
+			}
+		}
+	}
+	.as {
+		margin-bottom: 10px;
+	}
+	.welcomePattern {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50%;
+		height: 100%;
+		.bgPattern {
+			height: 100%;
+			background-position: 50% 40%;
+		}
+
+	}
+	@media (max-width: 991px) {
+		.welcomePattern {
+			display: none;
+		}
+	}
+}
+
+.adminDashboard {
+	position: relative;
+	text-align: center;
+	border: 1px solid #DEDEDE;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	color: $greyColor;
+	padding: 25px;
+	box-shadow: 0 4px 8px 0 rgba(62,66,84,0.15);
+	.iconImg {
+		width: 76px;
+		height: 76px;
+		margin: 0 auto 24px;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	.as {
+		margin-bottom: 10px;
+	}
+	p {
+		margin-bottom: 20px;
+	}
+}
+
+.dashNav {
+	>*[class*="col-"] {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 991px) {
+	.welcomeBack {
+		padding-left: 15px;
+		padding-right: 15px;
+		.welcomeInfo {
+			max-width: 100%;
+		}
+	}
+	.adminDashboard {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}

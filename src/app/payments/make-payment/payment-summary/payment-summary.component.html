@@ -1,0 +1,138 @@
+<div class="page-padding" [ngClass]="{'downloading': isLoading}">
+    <div class="bs-xs-20"></div>
+	<div class="container-custome">
+	    <div class="bs-lg"></div>
+	    <ng-container *ngIf="serverError">
+			<div class="text-center" [@itemAnimation]>
+				<h2 class="h1" i18n="@@anUnexpectedError">An Unexpected Error Occurred</h2>
+				<div class="bs-xs-30"></div>
+				<a class="btn btn-primary btn-wide-1" [routerLink]="['/payments/make-payment']" i18n="@@retry">Retry</a>
+			</div>
+		</ng-container> 
+		<div class="max-560 text-center" *ngIf="!serverError">
+			<div class="page-content-entry" >
+		      <ng-container *ngIf="payStatusUnsuccess">
+		      	  <div class="row-padd-60">
+				    <div class="bs-xs-30 bs-sm-50"></div>
+				    	<h4 class="h4" i18n="@@paymentUnsuccessful">Payment Unsuccessful</h4>
+						<div class="bs-xs-10"></div>
+						<p class="text grey" i18n="@@paymentUnsuccessfulDesc">We could not complete your transaction. Please re-enter your payment information.</p>
+						<div class="bs-xs-20"></div>
+						<div class="divider"></div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@transactionNumber2">Transaction Number:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text">{{paymentData?.AUTHORIZATION_NO}}</p>
+						</div>
+						<div class="bs-xs-30 bs-sm-50"></div>
+						<a class="btn btn-primary btn-wide-1" [routerLink]="['/payments/make-payment']" [queryParams]="{amount: payAmount}" i18n="@@retry">Retry</a>
+						<div class="bs-xs-30 bs-sm-50"></div>
+				  </div>
+			  </ng-container>
+			  
+			  <ng-container *ngIf="payStatusSuccess">
+				<div class="row-padd-60">
+				    <div class="bs-xs-30 bs-sm-50"></div>
+					<img src="assets/img/checked-icon.svg" alt="" class="img-full">
+						<div class="bs-xs-10"></div>
+						<h4 class="h4" i18n="@@paymentSuccessful">Payment Successful!</h4>
+						<div class="bs-xs-10"></div>
+						<p class="text grey" i18n="@@paymentSuccessfulDesc">Thank you for ensuring that songwriters, composers, performers and music publishers are compensated for their work.</p>
+						<div class="bs-xs-30"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@transactionNumber2">Transaction Number:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">{{paymentData?.AUTHORIZATION_NO}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@amountPaid2">Amount Paid:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">${{paymentData?.PAYMENT_AMT | number:'1.2-2'}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@paymentMethod2">Payment Method:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<div class="inline-align">
+								<p class="text lg" i18n="@@creditCard2">Credit Card:</p>
+								<card-detail-type [type]="paymentData?.PAYMENT_TYPE"></card-detail-type>
+							</div>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@cardNumber2">Card Number:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">**** **** **** {{paymentData?.LASTFOUR}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="divider"></div>
+						<div class="bs-xs-20"></div>
+						<div class="text-left">
+						<h5 class="h6" i18n="@@wouldYouCopy">Would you like a copy of this receipt?</h5>
+						<div class="bs-xs-15"></div>
+						<form [formGroup]="receiptForm" #formCopy="ngForm">
+							<mat-checkbox formControlName="copyToMe" i18n="@@sendCopyToMe">Send a copy to me</mat-checkbox>
+							<div class="bs-xs-10"></div>
+							<ng-container *ngIf="contacts.length">
+							<mat-checkbox formControlName="copyToOther" i18n="@@sendCopyToOther">Send a copy to others</mat-checkbox>
+							<div class="bs-xs-20"></div>
+							<div *ngIf="receiptForm.get('copyToOther').value">
+							<mat-form-field class="example-full-width">
+							  <mat-label i18n="@@emailOrName">Select name or email</mat-label>
+							  <mat-select formControlName="licensingContacts" multiple>
+							    <mat-select-trigger>
+								  {{receiptForm.get('licensingContacts').value ? receiptForm.get('licensingContacts').value[0] : ''}}
+								  <span *ngIf="receiptForm.get('licensingContacts').value?.length > 1" class="text sm grey">
+									(+{{receiptForm.get('licensingContacts').value.length - 1}} {{receiptForm.get('licensingContacts').value?.length === 2 ? 'other' : 'others'}})
+								  </span>
+								</mat-select-trigger>
+								<mat-option *ngFor="let item of contacts" [value]="item.E_MAIL">
+								  <p class="text">{{item.CONTACT_FIRST_NAME}} {{item.CONTACT_LAST_NAME}}</p> 
+								  <p class="text sm grey">{{item.E_MAIL}}</p>
+								</mat-option>
+							  </mat-select>
+							</mat-form-field>
+							</div>
+<!--
+							<div *ngIf="receiptForm.get('licensingContacts').value">
+							<h6 class="h6">Send receipt to:</h6>
+							<div class="bs-xs-10"></div>
+							<div class="checkbox-bg" *ngFor="let copy of usersCopy">
+								<mat-checkbox>
+									<p class="text sm grey">{{copy.CONTACT_FIRST_NAME}} {{copy.CONTACT_LAST_NAME}}</p>
+									<p class="text lg">{{copy.E_MAIL}}</p>
+								</mat-checkbox>
+							</div>
+							</div>
+-->
+							</ng-container>
+						</form>
+						
+						</div>
+						<div class="bs-xs-30"></div>
+						<button type="button" class="btn btn-primary btn-wide" (click)="sendCopy()" [disabled]="!isSendCopy()" i18n="@@sendCopy">Send copy</button>
+						<div class="bs-xs-20"></div>
+						<a class="link" [routerLink]="['/payments/payment-history']" i18n="@@myPayments">My Payments</a>
+						<div class="bs-xs-30 bs-sm-50"></div>
+				</div>
+			  </ng-container>	
+			  <div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+			</div>
+		</div>
+		<div class="bs-lg"></div>
+	</div>
+</div>
+
+<app-snack-bar></app-snack-bar>

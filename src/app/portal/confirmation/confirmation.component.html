@@ -1,0 +1,51 @@
+<div class="portal-left">
+
+  <div class="fullscreen-align">
+   <div class="bs-xs-100"></div>
+    <div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+    
+    <div class="login-card" *ngIf="confirmed">
+	  <div class="text-center" [@itemAnimation]>
+		<img src="assets/img/checked-icon.svg" alt="" class="img-full">
+		<div class="bs-xs-10"></div>
+		<h2 class="h1" i18n="@@accountConfirmed">Account Confirmed</h2>
+		<div class="bs-xs-10"></div>
+		<p class="text grey" i18n="@@successfullyCreatedAnAccount">You successfully created an account, please&nbsp;<a class="link-text" [routerLink]="['/auth/login']" i18n="@@clickHere">click here</a>&nbsp;<span i18n="@@toLoginAndComplete">to log in and complete your registration.</span> </p>
+	  </div>
+    </div>
+    
+    <div class="login-card" *ngIf="expired && !confirmed">
+	  <div class="text-center" [@itemAnimation]>
+		<h2 class="h1" i18n="@@linkHasExpired">This link has expired</h2>
+		<div class="bs-xs-10"></div>
+		<p class="text grey" i18n="@@resetLinkHasExpire">Your reset link has expired after 24 hours. Re send verification link</p>
+		<div class="bs-xs-30"></div>
+		<a class="link" (click)="resendLink()" i18n="@@resendVarificationLink">Resend Verification Link</a>
+	  </div>
+    </div>
+    
+    <div class="login-card" *ngIf="serverError && !confirmed">
+	  <div class="text-center" [@itemAnimation]>
+		<h2 class="h1" i18n="@@errorOccurred">An Unexpected Error Occurred</h2>
+		<div class="bs-xs-10"></div>
+		<p class="text grey" i18n="@@duringConfirmation">During confirmation there was an error. Please try again.</p>
+	  </div>
+    </div>
+    
+    <ng-container *ngIf="linkResend && !expired">
+	  <div [@itemAnimation]>
+		<div class="text-center vertical-align">
+			<img src="assets/img/checked-icon.svg" alt="" class="img-full">
+			<div class="bs-xs-10"></div>
+			<h2 class="h1" i18n="@@thankYou">Thank You!</h2>
+			<div class="bs-xs-10"></div>
+			<p class="text grey" i18n="@@sentVerificationLink">We have sent you a verification email. Please check your inbox to confirm your account. </p>
+			<div class="bs-xs-30"></div>
+		    <a class="link" (click)="resendLink()" i18n="@@resendVarificationLink">Resend Verification Link</a>	
+		</div>
+	  </div>
+	</ng-container>
+    
+    <div class="bs-xs-100"></div>
+  </div>
+</div>

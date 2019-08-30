@@ -1,0 +1,121 @@
+
+<div class="page-content-entry type-2 padd-20">
+    <div class="bs-xs-25"></div>
+ <div class="row">
+    <div class="col-md-4">
+      <p class="text sm grey" i18n="@@reportYear">Report Year</p>
+      <div class="bs-xs-5"></div>
+      <p class="text lg">{{reportsArr[0].VALID_YEAR}}</p>
+      <div class="bs-xs-15"></div>
+    </div>
+  </div>
+    <ng-container *ngIf="zeroReport">
+		<div class="text-center">
+			<div class="bs-md"></div>
+			<div class="h3" i18n="@@iHaveNoEeventToReport">I have no events to report</div>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="!zeroReport">
+	<div class="bs-xs-20"></div>
+	<table class="table-custome td-bg table-custome-border">
+			<thead>
+				<tr>
+					<th i18n="@@concertAct">Concert Act</th>
+					<th i18n="@@venue">Venue</th>
+					<th i18n="@@venueAddress">Venue Address</th>
+					<th i18n="@@attendance">Attendance</th>
+					<th i18n="@@promoterName">Promoter Name</th>
+					<th i18n="@@promoterAddress">Promoter Address</th>
+					<th i18n="@@date">Date</th>
+					<th><span i18n="@@grossSales">Gross Sales</span>/<br> <span i18n="@@feeCad">Fee (CAD$)</span></th>
+					<th><span i18n="@@performerSales">Performer</span><br> <span i18n="@@feeCad">Fee (CAD$)</span></th>
+				</tr>
+			</thead>
+			<tbody *ngFor="let row of sortedArr">
+					<td data-name="Concert Act" i18n-data-name="@@concertAct">{{row.CONCERT_ACT}}</td>
+					<td data-name="Venue" i18n-data-name="@@venue">{{row.VENUE_NAME}}</td>
+					<td data-name="Venue Address" i18n-data-name="@@venueAddress">{{row.VENUE_ADDRESS}}, {{row.VENUE_PROVINCE}}, {{row.VENUE_CITY}}, {{row.VENUE_POSTAL}}</td>
+					<td data-name="Attendance" i18n-data-name="@@attendance">{{row.ATTENDANCE}}</td>
+					<td data-name="Promoter Name" i18n-data-name="@@promoterName">{{row.PROMOTER_NAME}}</td>
+					<td data-name="Promoter Address" i18n-data-name="@@promoterAddress">{{row.PROMOTER_ADDRESS}}, {{row.PROMOTER_PROVINCE}}, {{row.PROMOTER_CITY}}, {{row.PROMOTER_POSTAL}}</td>
+					<td data-name="Date" i18n-data-name="@@date">{{row.DATE | date: 'MMM d, yyyy'}}</td>
+					<td data-name="Gross Sales/Fees (CAD$)" i18n-data-name="@@grossSalesFee">
+						<div *ngIf="row.IS_PERFORMER_FEE == 0">
+							{{row.FEE | number:'1.2-2'}}
+						</div>
+					</td>
+					<td data-name="Performer Fee (CAD$)" i18n-data-name="@@performerSalesFee">
+						<div *ngIf="row.IS_PERFORMER_FEE == 1">
+							{{row.FEE | number:'1.2-2'}}
+						</div>
+					</td>
+			</tbody>
+		</table>
+	</ng-container>
+	<div class="bs-md"></div>
+</div>
+
+<div class="bs-xs-20"></div>
+<div class="max-330 text-center">
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@rsLicense">RE:SOUND license</span>:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{resoundFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@scLicense">SOCAN license</span>:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{socanFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<ng-container *ngIf="hstTaxCode">
+	<div class="divider"></div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@hst">HST</span>:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{hstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="pstTaxCode">
+<div class="divider"></div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p *ngIf="province == 'QC'"><span i18n="@@qst">QST</span>:</p>
+			<p *ngIf="province !== 'QC'"><span i18n="@@pst">PST</span>:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{pstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="gstTaxCode">
+			<div class="divider"></div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@gst">GST</span>:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{gstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<div class="bs-xs-15"></div>
+	<div class="divider"></div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<h3 class="h3"><ng-container i18n="@@totalPayment">Total Payment</ng-container>:</h3>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<h3 class="h3">$ {{totalFees | number:'1.2-2'}}</h3>
+	</div>
+</div>
+

@@ -1,0 +1,159 @@
+<div class="page-padding">
+    <div class="bs-md"></div>
+	<div class="container-custome">
+		<div class="caption-align no-flex-sm">
+			<h2 class="h1 title">
+			    <span i18n="@@myInvoices">My Invoices</span>
+				<div class="bs-xs-30 bs-sm-0"></div> 
+			</h2>
+			<div class="inline-align inline-align-clear-sm">
+	            <ng-container *ngIf="tableLength">
+					<div class="inline-align inline-align-clear-sm">
+						<div class="text-left row-lmar-30 lmar-sm-0">
+							<p class="text sm grey"><span i18n="@@currentBalance">Current Balance:</span></p>
+							<div class="bs-xs-5"></div>
+							<p class="text lg">CAD$ {{total | number:'1.2-2'}}</p>
+							<div class="bs-xs-10 bs-sm-0"></div>
+						</div>
+						<div class="text-left row-lmar-30 lmar-sm-0">
+							<p class="text sm grey"><span i18n="@@dueDate2">Due Date:</span></p>
+							<div class="bs-xs-5"></div>
+							<p class="text lg">--</p>
+							<div class="bs-xs-20 bs-sm-0"></div>
+						</div>
+					</div>	
+				</ng-container>
+				<ng-container *ngIf="!tableLength">
+				    <div class="text-left row-lmar-30 lmar-sm-0">
+						<p class="text sm grey"><span i18n="@@currentBalance">Current Balance:</span> $0.00</p>
+						<div class="bs-xs-20 bs-sm-0"></div>
+					</div>
+				</ng-container>
+				<div class="row-lmar-30 lmar-sm-0">
+					<button class="btn btn-sm btn-primary" [routerLink]="['/payments/make-payment']" i18n="@@makePayment">Make a payment</button>
+				</div>
+			</div>
+		</div>
+		<div class="bs-xs-20"></div>
+		<div class="page-content-entry">
+		<div *ngIf="!tableLength">
+		    <div class="bs-xs-30 bs-sm-50"></div> 
+			<div class="text-center max-330">
+				<img src="assets/img/reports_icon.svg" alt="">
+				<div class="bs-xs-15"></div> 
+				<h3 class="h3" i18n="@@noInvoices">No Invoices</h3>
+				<div class="bs-xs-20"></div> 
+				<p class="text grey" i18n="@@invoicesWillAppear">Invoices will appear here. You do not have any invoices.</p>
+				<div class="bs-xs-30"></div>
+			</div>
+		</div>
+        <div [hidden]="!tableLength">
+		<form [formGroup]="filterForm" class="filter-item">
+		    <div class="filter-icon-mb" (click)="bothPart = !bothPart">
+				<div class="btn-icon">
+					<img src="assets/img/filter.svg" alt="">
+				</div>
+			</div>
+			<div class="valign-middle around-align filter-item-wrapper" [ngClass]="{'open-filter':bothPart}"> 
+			<div class="search-wrap" [ngClass]="{'open-filter':leftPart}">
+				<div class="search-icon" (click)="leftPart = true; rightPart = false;">
+					<div class="btn-icon">
+						<img src="assets/img/search.svg" alt="">
+					</div>
+				</div>
+				<div class="filter-fields">
+					<mat-form-field class="example-full-width">
+					  <input matInput type="text" formControlName="number" placeholder="Search" i18n-placeholder="@@searchPl">
+					  <button *ngIf="filterForm.get('number').value" matSuffix class="btn-simple" (click)="filterForm.get('number').setValue(null); leftPart = false;">
+						 <mat-icon>close</mat-icon>
+					  </button>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="filter-wrap valign-middle around-align no-flex-md" [ngClass]="{'open-filter':rightPart}">
+			    <div class="filter-fields">
+					<div class="row">
+						<div class="col-md-4">
+							<mat-form-field class="example-full-width">
+							  <mat-label i18n="@@status">Status</mat-label>
+							  <mat-select formControlName="status" multiple>
+								<multi-select [values]="optionsList" [model]="filterForm.get('status')">
+								</multi-select>
+								<mat-option *ngFor="let item of optionsList" [value]="item">
+								  {{item.value}}
+								</mat-option>
+							  </mat-select>
+							</mat-form-field>
+						</div>
+						<div class="col-md-4 col-sm-6">
+						    <app-datepicker title="Start Date" i18n-title="@@startDate" formControlName="startDate" filter="true"></app-datepicker>
+						</div>
+						<div class="col-md-4 col-sm-6">
+						    <app-datepicker title="End Date" i18n-title="@@endDate" formControlName="endDate" filter="true"></app-datepicker>
+						</div>
+					</div>
+					<div class="bs-xs-30 bs-sm-30 bs-md-0"></div> 
+				</div>
+				<div class="filter-icon" (click)="leftPart = false; rightPart = !rightPart;">
+					<div class="btn-icon">
+						<img src="assets/img/filter.svg" alt="">
+					</div>
+				</div>
+			</div>
+			</div>
+		</form>
+		<table mat-table [dataSource]="invoicesList" matSort class="table-custome">
+	      <ng-container matColumnDef="date">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@dueDate">Due Date</th>
+			<td mat-cell *matCellDef="let row" i18n-data-name="@@dueDate" data-name="Due Date">{{row.INVCHEAD_INVOICEDATE | date: 'MMM d, yyyy'}}</td>
+		  </ng-container>
+		  <ng-container matColumnDef="number">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@invoiceNo">Invoice #</th>
+			<td mat-cell *matCellDef="let row" i18n-data-name="@@invoiceNo" data-name="Invoice #">{{row.INVCHEAD_INVOICENUM}}</td>
+		  </ng-container>
+		  <ng-container matColumnDef="statementId">
+			<th mat-header-cell *matHeaderCellDef i18n="@@statementNo">Statement #</th>
+			<td mat-cell *matCellDef="let row" i18n-data-name="@@statementNo" data-name="Statement #">--</td>
+		  </ng-container>
+		  <ng-container matColumnDef="total">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@AmountCAD">Amount (CAD$)</th>
+			<td mat-cell *matCellDef="let row" i18n-data-name="@@AmountCAD" data-name="Amount (CAD$)">{{row.INVCHEAD_INVOICEAMT | number:'1.2-2'}} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="status">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@status">Status</th>
+			<td mat-cell *matCellDef="let row" i18n-data-name="@@status" data-name="Status">
+			     <ng-container *ngIf="row.INVCHEAD_OPENINVOICE == 'Y'">
+					<span class="grey text" i18n="@@paid">Paid</span>
+				</ng-container>
+				<ng-container *ngIf="row.INVCHEAD_OPENINVOICE == 'N'">
+					<span class="grey text" i18n="@@unpaid">Unpaid</span>
+				</ng-container>
+			</td>
+		  </ng-container>
+		  <ng-container matColumnDef="menu">
+			<th mat-header-cell *matHeaderCellDef></th>
+			<td mat-cell *matCellDef="let row; let i = index" class="table-option">
+			  <div class="text-right">
+				<button class="btn-icon type-xs menu-table" [matMenuTriggerFor]="menu">
+					<img src="assets/img/more-actions.svg" alt="">
+				</button>
+				<mat-menu #menu="matMenu">
+				  <button mat-menu-item i18n="@@print">Print</button>
+				</mat-menu>
+			   </div>	
+			</td>
+		  </ng-container>
+		  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+		</table>
+		<mat-paginator class="custome-pagination" [length]="tableLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+		</div>
+
+		<div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+		</div>
+		<div class="bs-lg"></div>
+	</div>
+</div>
+
+
+

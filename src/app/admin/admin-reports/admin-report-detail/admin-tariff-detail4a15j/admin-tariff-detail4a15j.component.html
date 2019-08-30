@@ -1,0 +1,126 @@
+<div class="page-content-entry type-2 padd-20">
+	<div class="bs-xs-25"></div>
+	<div class="row">
+		<div class="col-md-4">
+			<p class="text sm grey">Year of Reporting</p>
+			<div class="bs-xs-5"></div>
+			<p class="text lg">{{reportsArr[0].VALID_YEAR}}</p>
+			<div class="bs-xs-15"></div>
+		</div>
+		<div class="col-md-4" *ngIf="numberOfResound">
+			<p class="text sm grey">Number of concerts with recorded music</p>
+			<div class="bs-xs-5"></div>
+			<p class="text lg">{{numberOfResound}}</p>
+			<div class="bs-xs-15"></div>
+		</div>
+	</div>
+    <ng-container *ngIf="zeroReport">
+		<div class="text-center">
+			<div class="bs-md"></div>
+			<div class="h3">There are no events for this year</div>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="!zeroReport">
+	<div class="bs-xs-20"></div>
+	<h6 class="h6">Number of event details</h6>
+	<div class="bs-xs-20"></div>
+	<table class="table-custome td-bg table-custome-border">
+			<thead>
+				<tr>
+					<th>Concert Act</th>
+					<th>Venue</th>
+					<th>Attendance</th>
+					<th>Promoter Name</th>
+					<th>Promoter Address</th>
+					<th>Date</th>
+					<th>Gross Sales/<br> Fees (CAD$)</th>
+					<th>Performer<br> Fee (CAD$)</th>
+				</tr>
+			</thead>
+			<tbody *ngFor="let row of sortedArr">
+				<tr>
+					<td data-name="Concert Act">{{row.CONCERT_ACT}}</td>
+					<td data-name="Venue">{{row.VENUE_NAME}}</td>
+					<td data-name="Attendance">{{row.ATTENDANCE}}</td>
+					<td data-name="Promoter Name">{{row.PROMOTER_NAME}}</td>
+					<td data-name="Promoter Address">{{row.PROMOTER_ADDRESS}}, {{row.PROMOTER_PROVINCE}}, {{row.PROMOTER_CITY}}, {{row.PROMOTER_POSTAL}}</td>
+					<td data-name="Date">{{row.DATE | date: 'MMM d, yyyy'}}</td>
+					<td data-name="Gross Sales/Fees (CAD$)">
+						<div *ngIf="row.IS_PERFORMER_FEE == 0">
+							{{row.FEE | number:'1.2-2'}}
+						</div>
+					</td>
+					<td data-name="Performer Fee (CAD$)">
+						<div *ngIf="row.IS_PERFORMER_FEE == 1">
+							{{row.FEE | number:'1.2-2'}}
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</ng-container>
+	<div class="bs-md"></div>
+</div>
+
+<div class="bs-xs-20"></div>
+<div class="max-330 text-center">
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p>SOCAN Licensing Fees:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{socanFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p>Re:Sound Licensing Fees:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{resoundFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="divider"></div>
+	<ng-container *ngIf="hstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p>HST:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{hstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="pstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p *ngIf="province == 'QC'">QST:</p>
+			<p *ngIf="province !== 'QC'">PST:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{pstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="gstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p>GST:</p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{gstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<div class="bs-xs-15"></div>
+	<div class="divider"></div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<h3 class="h3">Total Fees:</h3>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<h3 class="h3">$ {{totalFees | number:'1.2-2'}}</h3>
+	</div>
+
+</div>

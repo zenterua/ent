@@ -1,0 +1,56 @@
+<div class="page-wrapper" style="background: #FFF;">
+    <div class="login-header">
+        <div class="portal-logo">
+        	 <a [routerLink]="['/auth/login']">
+                <img src="assets/img/logo.svg" alt="" class="img-full"/>
+             </a>
+        </div>
+        <div class="lang-wrap">
+            <div class="inline-align">
+            	<p class="text grey hidden-md hidden-sm hidden-xs" *ngIf="routerUrl.includes('/auth/register')"><span i18n="@@alreadyRegist">Already registered?</span>&nbsp;<a [routerLink]="['/auth/login']" class="link" i18n="@@logIn">Log in</a></p>
+				<app-languages class="row-lpadd-40"></app-languages>
+				<div class="row-lpadd-40 app-languages">
+
+<!--
+				    <a class="link" [ngClass]="{'active': localeId =='en-US'}" [attr.href]="languages[0].url">EN</a>
+					<a class="link" [ngClass]="{'active': localeId =='fr'}" (click)="frenchPopupOpened = true">FR</a>
+-->
+					<a class="link" [ngClass]="{'active': localeId =='en-US'}" [attr.href]="languages[0].url">EN</a>
+					<a class="link" [ngClass]="{'active': localeId =='fr'}" [attr.href]="languages[1].url">FR</a>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div [@routerAnimation]="getRouteAnimation(route)">
+        <router-outlet #route="outlet"></router-outlet>
+    </div>
+    <div class="portal-right" style="background: linear-gradient(0deg, #FF8E5B 0%, #EE5B2F 100%);">
+        <div class="bg-entry bgimg" style="background-image: url(assets/img/poster.jpg);"></div>
+        <video class="bgvid" muted loop #bgvid poster="assets/img/poster.jpg">
+			<source type="video/mp4" src="assets/login.mp4">
+		</video>
+    </div>
+</div>
+
+
+<app-popup class="popupMainWrapper" *ngIf="frenchPopupOpened" [@animationPopup]="frenchPopupOpened ? 'popupOpened' : 'popupClosed'" (close)="frenchPopupOpened = false" size="1">
+    <ng-container content>
+        <div class="bs-xs-50"></div>
+        <div class="divider"></div>
+        <div class="padd-50">
+            <div class="bs-xs-30"></div>
+			<div class="text-center">
+		        <img src="assets/img/logo-part.png" alt="" class="img-full" width="30px">
+		        <div class="bs-xs-30"></div>
+			    <h2 class="h2">Notre portail francophone OUVRIRA BIENTÔT!</h2>
+			    <div class="bs-xs-15"></div>
+				<p class="grey text">Si vous avez questions, veuillez nous joindre à l’adresse</p>
+				<div class="bs-xs-0"></div>
+				<a href="mailto:info@entandemlicensing.com" class="link-text">info@entandemlicensing.com</a>
+				<div class="bs-xs-10"></div>
+				<p class="grey text">Vous voulez en savoir plus sur le service de délivrance de licences Entandem? Visitez notre <a href="https://www.entandemlicensing.com/fr/#faqs" class="link-text" target="_blank">FAQ.</a></p>
+			</div>
+			<div class="bs-xs-50"></div>
+		</div>
+    </ng-container>
+</app-popup>

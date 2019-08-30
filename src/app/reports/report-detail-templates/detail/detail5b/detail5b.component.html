@@ -1,0 +1,138 @@
+<h5 class="h5" i18n="@@tariffDescription">Tariff Description</h5>
+<div class="bs-xs-5"></div>
+<div class="divider"></div>
+<div class="bs-xs-30"></div>
+<div class="row">
+	<div class="col-md-10">
+		<div class="inline-align">
+			<img alt="" src="assets/img/tariff-title-2.svg" width="30px">
+			<span class="text row-lmar-10">
+				<ng-container *ngIf="localeId === 'en-US'">{{reportsArr[0]?.TRFF_NAME_ENG}}</ng-container>
+				<ng-container *ngIf="localeId === 'fr'">{{reportsArr[0]?.TRFF_NAME_FR}}</ng-container>
+			</span>
+		</div>
+		<div class="bs-xs-10"></div>
+		<p class="text grey">
+			<ng-container *ngIf="localeId === 'en-US'">{{reportsArr[0]?.TRFF_DESC_ENG}}</ng-container>
+			<ng-container *ngIf="localeId === 'fr'">{{reportsArr[0]?.TRFF_DESC_FR}}</ng-container>
+		</p>
+		<div class="bs-xs-15"></div>
+		<p class="text sm grey" i18n="@@tariffUnit"><span>Tariff Unit</span>:</p>
+		<div class="bs-xs-5"></div>
+		<p class="text lg">{{reportsArr[0]?.ROOM_NAME}}</p>
+		<div class="bs-xs-15"></div>
+	</div>
+</div>
+<div class="bs-sm"></div>
+<h5 class="h5" i18n="@@reportingDetails">Report Details</h5>
+<div class="bs-xs-5"></div>
+<div class="divider"></div>
+<div class="bs-xs-30"></div>
+
+ <div class="row">
+	<div class="col-md-4">
+		<p class="text sm grey" i18n="@@reportYear">Report Year</p>
+		<div class="bs-xs-5"></div>
+		<p class="text lg">{{reportsArr[0].VALID_YEAR}}</p>
+		<div class="bs-xs-15"></div>
+	</div>
+</div>
+<div class="page-content-entry type-2 padd-20">
+    <ng-container *ngIf="zeroReport">
+		<div class="text-center">
+			<div class="bs-md"></div>
+			<div class="h3" i18n="@@iHaveNoEeventToReport">I have no events to report</div>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="!zeroReport">
+	<div class="bs-xs-20"></div>
+	<table class="table-custome td-bg table-custome-border">
+		<thead>
+			<tr>
+				<th i18n="@@concertAct">Concert Act</th>
+				<th i18n="@@promoterName">Promoter Name</th>
+				<th i18n="@@date">Date</th>
+				<th i18n="@@grossPerConcert">Gross Receipts for Concert (CAD$)</th>
+				<th i18n="@@grossAdultGround">Gross Adult Grounds Admission (CAD$)</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let row of sortedArr">
+			<tr>
+				<td data-name="Concert Act" i18n-data-name="@@concertAct">{{row.CONCERT_ACT}}</td>
+				<td data-name="Promoter Name" i18n-data-name="@@promoterName">{{row.PROMOTER_NAME}}</td>
+				<td data-name="Date" i18n-data-name="@@date">{{row.DATE | date: 'MMM d, yyyy'}}</td>
+				<td data-name="Gross Receipts for Concert (CAD$)" i18n-data-name="@@grossPerConcert">
+				   {{row.GROSS | number:'1.2-2'}}
+				</td>
+				<td data-name="Gross Adult Grounds Admission (CAD$)" i18n-data-name="@@grossAdultGround">
+				   {{row.GROSS_ADULT | number:'1.2-2'}}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</ng-container>
+	<div class="bs-md"></div>
+</div>
+
+<div class="bs-xs-20"></div>
+<div class="max-330 text-center">
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@rsLicense">RE:SOUND license:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{resoundFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@scLicense">SOCAN license:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{socanFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="divider"></div>
+	<ng-container *ngIf="hstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@hst">HST:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{hstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="pstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p *ngIf="province == 'QC'"><span i18n="@@qst">QST:</span></p>
+			<p *ngIf="province !== 'QC'"><span i18n="@@pst">PST:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{pstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="gstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@gst">GST:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{gstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<div class="bs-xs-15"></div>
+	<div class="divider"></div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<h3 class="h3" i18n="@@totalPayment2">Total Payment:</h3>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<h3 class="h3">$ {{totalFees | number:'1.2-2'}}</h3>
+	</div>
+</div>
+

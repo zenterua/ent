@@ -1,0 +1,5 @@
+<mat-checkbox class="mat-option" [indeterminate]="isIndeterminate()"
+[checked]="isChecked()" (click)="$event.stopPropagation()"
+    (change)="toggleSelection($event)">
+    <span i18n="@@selectAll">Select All</span>
+</mat-checkbox>

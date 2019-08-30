@@ -1,0 +1,499 @@
+<div class="save-button">
+	<button class="btn btn-secondary btn-sm" (click)="saveReport = true" i18n="@@saveAndClose" [disabled]="!calcForm.valid">Save and close</button>
+</div>
+<div class="page-content-entry type-2 no-top-border">
+	<div class="bs-xs-15"></div>
+	<div class="padd-20">
+		<div class="caption-align more-desc">
+			<img src="assets/img/tariff-title-2.svg" alt="" style="max-width: 30px;">
+			<p class="text row-lmar-10" *ngIf="localeId === 'en-US'">{{tariffDetail?.TRFF_NAME_ENG}}</p>
+			<p class="text row-lmar-10" *ngIf="localeId === 'fr'">{{tariffDetail?.TRFF_NAME_FR}}</p>
+			<img src="assets/img/more-info.svg" alt="" (click)="openDesc = !openDesc" class="more-desc-icon">
+		</div>
+		<div [@slideUpDown]="(openDesc)?'active':'inactive'">
+			<div class="bs-xs-15"></div>
+			<p class="text grey" *ngIf="localeId === 'en-US'" [innerHtml]="tariffDetail?.TRFF_DESC_ENG"></p>
+			<p class="text grey" *ngIf="localeId === 'fr'" [innerHtml]="tariffDetail?.TRFF_DESC_FR"></p>
+			<div class="bs-xs-20"></div>
+			<p class="text sm grey" i18n="@@tariffUnit">Tariff Unit:</p>
+			<div class="bs-xs-5"></div>
+			<p class="text lg">{{tariffSeq?.roomName}}</p>
+		</div>
+		<div class="bs-xs-20"></div>
+	</div>
+</div>
+
+<ng-container *ngIf="!serverError">
+<div class="bs-xs-30 bs-sm-50"></div>
+<h5 class="h5" i18n="@@eventDetails2">Details</h5>
+<div class="bs-xs-5"></div>
+<div class="divider"></div>
+<div class="bs-xs-30"></div>
+<div class="page-content-entry type-2 padd-20">
+    <div class="bs-xs-25"></div>
+		<form [formGroup]="calcForm">
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<mat-form-field class="example-full-width">
+						<mat-label i18n="@@reportYear">Report Year</mat-label>
+						<mat-select formControlName="year">
+							<mat-option *ngFor="let item of years" [value]="item">
+								{{item}}
+							</mat-option>
+						</mat-select>
+						<mat-icon matSuffix class="invalid">warning</mat-icon>
+						<mat-error *ngIf="calcForm.get('year').hasError('required')" i18n="@@fielRequired">
+							This field is required
+						</mat-error>
+					</mat-form-field>
+					<div class="bs-xs-10"></div>
+				</div>
+			</div>
+			<div class="divider"></div>
+			<div class="bs-xs-30"></div>
+			<div class="caption-align no-flex-sm">
+				<h6 class="h6"><span i18n="@@addEventInform">Please add your event information</span>
+					<div class="bs-xs-15 bs-sm-0"></div>
+				</h6>
+				<ng-container *ngIf="eventList.data.length">
+			    	<a class="btn btn-secondary btn-xs" (click)="addEventPopup()" i18n="@@moreEventPlus">+ MORE EVENTS</a>
+				</ng-container>
+			</div>
+			<div class="bs-xs-15"></div>
+				<table mat-table [dataSource]="eventList" matSort class="table-custome">
+			      <ng-container matColumnDef="Concert Act">
+					<th mat-header-cell *matHeaderCellDef i18n="@@concertAct">Concert Act</th>
+					<td mat-cell *matCellDef="let row" data-name="Concert Act" i18n-data-name="@@concertAct">{{row.CONCERT_ACT}}</td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Venue">
+					<th mat-header-cell *matHeaderCellDef i18n="@@venue">Venue</th>
+					<td mat-cell *matCellDef="let row" data-name="Venue" i18n-data-name="@@venue">{{row.VENUE_NAME}}</td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Venue Address" i18n="@@venueAddress">
+					<th mat-header-cell *matHeaderCellDef>Venue Address</th>
+					<td mat-cell *matCellDef="let row" data-name="Venue Address" i18n-data-name="@@venueAddress">{{row.VENUE_ADDRESS}}, {{row.VENUE_PROVINCE}}, {{row.VENUE_CITY}}, {{row.VENUE_POSTAL}}</td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Attendance">
+					<th mat-header-cell *matHeaderCellDef i18n="@@attendance">Attendance</th>
+					<td mat-cell *matCellDef="let row" data-name="Attendance" i18n-data-name="@@attendance">{{row.ATTENDANCE}}</td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Promoter Name">
+					<th mat-header-cell *matHeaderCellDef i18n="@@promoterName">Promoter Name</th>
+					<td mat-cell *matCellDef="let row" data-name="Promoter Name" i18n-data-name="@@promoterName">{{row.PROMOTER_NAME}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Promoter Address">
+					<th mat-header-cell *matHeaderCellDef i18n="@@promoterAddress">Promoter Address</th>
+					<td mat-cell *matCellDef="let row" data-name="Promoter Address" i18n-data-name="@@promoterAddress">{{row.PROMOTER_ADDRESS}}, {{row.PROMOTER_PROVINCE}}, {{row.PROMOTER_CITY}}, {{row.PROMOTER_POSTAL}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Date">
+					<th mat-header-cell *matHeaderCellDef i18n="@@date">Date</th>
+					<td mat-cell *matCellDef="let row" data-name="Date" class="no-wrap" i18n-data-name="@@date">{{row.DATE | date: 'MMM d, yyyy'}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Gross Sales/ Fees (CAD$)">
+					<th mat-header-cell *matHeaderCellDef ><span i18n="@@grossSales">Gross Sales</span>/<br> <span i18n="@@feeCad">Fee (CAD$)</span></th>
+					<td mat-cell *matCellDef="let row" data-name="Gross Sales/ Fees (CAD$)" i18n-data-name="@@grossSalesFee">
+						<div *ngIf="row.IS_PERFORMER_FEE == 0">
+							{{row.FEE | number:'1.2-2'}}
+						</div>
+                    </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Performer Fee (CAD$)">
+					<th mat-header-cell *matHeaderCellDef ><span i18n="@@performerSales">Performer</span><br> <span i18n="@@feeCad">Fee (CAD$)</span></th>
+					<td mat-cell *matCellDef="let row" data-name="Performer Fee (CAD$)" i18n-data-name="@@performerSalesFee">
+						<div *ngIf="row.IS_PERFORMER_FEE == 1">
+							{{row.FEE | number:'1.2-2'}}
+						</div>
+					</td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="menu">
+					<th mat-header-cell *matHeaderCellDef></th>
+					<td mat-cell *matCellDef="let row; let i = index" class="table-option">
+					  <div class="text-right">
+						<button class="btn-icon type-xs menu-table" [matMenuTriggerFor]="menu">
+							<img src="assets/img/more-actions.svg" alt="">
+						</button>
+						<mat-menu #menu="matMenu">
+						  <button mat-menu-item (click)="editEvent(i, row)" i18n="@@edit">Edit</button>
+						  <button mat-menu-item (click)="removeEvent(i)" i18n="@@delete">Delete</button>
+						</mat-menu>
+					   </div>
+					</td>
+				  </ng-container>
+				  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+				</table>
+				<div [hidden]="!eventList.data.length">
+					<mat-paginator class="custome-pagination" [pageSizeOptions]="[5, 10, 25, 100]" [length]="eventList.data.length"></mat-paginator>
+				</div>
+				<ng-container *ngIf="!eventList.data.length">
+					<div class="text-center">
+				       <div class="row">
+				       	<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12">
+							<div class="bs-xs-30"></div>
+							<h3 class="h3" i18n="@@noEventsYet">No Events Yet</h3>
+							<div class="bs-xs-15"></div>
+							<p class="text grey" i18n="@@eventsWillAppearHere">Events will appear here. You have not created any events to report. If you had no events during this reporting period, click “REVIEW YOUR REPORT.”</p>
+							<div class="bs-xs-20"></div>
+							<button class="btn btn-primary btn-xs" [disabled]="!calcForm.valid" (click)="addEventPopup()" i18n="@@eventPlus">+ EVENT</button>
+							<div class="bs-xs-30"></div>
+				       	</div>
+				       </div>
+					</div>
+				</ng-container>
+		</form>
+	<div class="bs-xs-15"></div>
+	<app-slide-toggle [slideVisible]="false" class="slide-toggle-type-2">
+		<ng-container slide-title>
+		   <div class="inline-wrapper">
+			<a class="link" i18n="@@howCalculateFees">how to calculate fees </a>
+		  </div>
+		</ng-container>
+		<ng-container slide-toggle>
+		    <div class="bs-xs-15"></div>
+			<div class="wrap">
+				<div class="inline-align">
+					<p class="text sm"><span i18n="@@feesFrom">Fees from</span>:</p>
+					<div class="fee-item s-color s-border-color row-lmar-10" i18n="@@sc">SOCAN</div>
+				</div>
+				<div class="bs-xs-20"></div>
+				<div class="row">
+				    <div class="col-md-7">
+				       <div class="bs-xs-30"></div>
+				   		<p class="text sm grey" i18n="@@calcDesc4b">1.56% of gross receipts from ticket sales or fees paid to performers during a free concert ($35 minimum fee).</p>
+				   		<div class="bs-xs-30"></div>
+				    </div>
+					<div class="col-md-5">
+						<div class="row">
+							<div class="col-xs-4">
+					            <div class="bs-xs-25"></div>
+								<p class="text" i18n="@@concert">Concert</p>
+								<div class="bs-xs-25"></div>
+								<p class="text" i18n="@@minFee">Minimum Fee</p>
+								<div class="bs-xs-20"></div>
+							</div>
+							<div class="col-xs-8">
+					            <div class="bs-xs-20"></div>
+								<div class="inline-wrapper s-color s-border-color">
+									<div class="fee-item">
+									{{tariffDetailValues[0]?.PERCENT}}% Gross<br>
+									${{tariffDetailValues[0]?.FEE_MINIMUM | number:'1.2-2'}}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bs-xs-30"></div>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+	</app-slide-toggle>
+    <div class="bs-xs-15"></div>
+    <div class="spinner" [ngClass]="{'active': !loaderIsVisible}"></div>
+</div>
+<div class="bs-xs-30"></div>
+<div class="max-330 text-center">
+	<div class="caption-align">
+		<div class="text sm grey">
+		    <p i18n="@@rsLicense"><span i18n="@@rsLicense">RE:SOUND license:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{resoundFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+		    <p i18n="@@scLicense"><span i18n="@@scLicense">SOCAN license:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{socanFees | number:'1.2-2'}}</p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+		    <p><span i18n="@@subtotal2">Subtotal:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg"><b class="bold">$ {{socanFees + resoundFees | number:'1.2-2'}}</b></p>
+	</div>
+	<div class="bs-xs-15"></div>
+	<div class="divider"></div>
+	<ng-container *ngIf="hstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@hst">HST:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{hstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="pstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p *ngIf="province == 'QC'"><span i18n="@@qst">QST:</span></p>
+			<p *ngIf="province !== 'QC'"><span i18n="@@pst">PST:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{pstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="gstTaxCode">
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+			<p><span i18n="@@gst">GST:</span></p>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<p class="text lg">$ {{gstFees | number:'1.2-2'}}</p>
+	</div>
+	</ng-container>
+	<div class="bs-xs-15"></div>
+	<div class="divider"></div>
+	<div class="bs-xs-15"></div>
+	<div class="caption-align">
+		<div class="text sm grey">
+		    <h3 class="h3"><ng-container i18n="@@totalPayment">Total Payment:</ng-container></h3>
+			<div class="bs-xs-15 bs-sm-0"></div>
+		</div>
+		<h3 class="h3">$ {{totalFees | number:'1.2-2'}}</h3>
+	</div>
+	<div class="bs-md"></div>
+	<button type="button" class="btn btn-primary btn-wide" (click)="sendFees('next')" [disabled]="!calcForm.valid"  i18n="@@reviewYourReport">Review your Report</button>
+</div>
+
+</ng-container>
+
+<ng-container *ngIf="serverError">
+    <div class="bs-md"></div>
+	<div class="text-center" [@itemAnimation]>
+		<h2 class="h1" i18n="@@errorOccurred" *ngIf="!impersionateModeError">An Unexpected Error Occurred</h2>
+		<h2 class="h1" *ngIf="impersionateModeError">Action is not allowed in Impersonation mode</h2>
+		<div class="bs-xs-30"></div>
+		<a class="btn btn-primary btn-lg" type="button" (click)="serverError = false" i18n="@@goBack">Go Back</a>
+	</div>
+	<div class="bs-md"></div>
+</ng-container>
+
+<app-popup class="popupMainWrapper" *ngIf="saveReport" [@animationPopup]="saveReport ? 'popupOpened' : 'popupClosed'" (close)="saveReport = false" size="4">
+    <ng-container content>
+        <div class="padd-50">
+            <div class="bs-xs-40"></div>
+			<div class="text-center">
+				<p class="grey text"><span i18n="@@saveReportText1">Your report has been saved. To access your report, navigate to </span>&nbsp;<b class="bold" i18n="@@drafts">Drafts</b>&nbsp;<span i18n="@@saveReportText2">in the main menu.</span></p>
+			</div>
+			<div class="bs-xs-25"></div>
+			<div class="btn-wrapper text-center">
+				<button type="button" class="btn btn-sm btn-secondary" (click)="saveReport = false" i18n="@@continueSubmission">Continue Submission</button>
+				<button type="button" class="btn btn-sm btn-primary" (click)="sendFees('close')" i18n="@@continueSubmissionLater">Continue Submission Later</button>
+			</div>
+			<div class="bs-xs-30"></div>
+		</div>
+    </ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="popupEvent" [@animationPopup]="popupEvent ? 'popupOpened' : 'popupClosed'" (close)="closePopupEvent()" size="1">
+    <ng-container content>
+        <div class="popup-header">
+        	<div class="h6" i18n="@@addEventInfo">Add Event Info</div>
+        </div>
+        <div class="bs-xs-30"></div>
+        <div class="padd-30">
+            <form [formGroup]="addEventForm" #addEvent="ngForm">
+            	<mat-form-field class="example-full-width">
+				  <input matInput type="text" placeholder="Concert Act" i18n-placeholder="@@concertAct" formControlName="CONCERT_ACT" >
+				  <mat-icon matSuffix class="invalid">warning</mat-icon>
+				  <mat-error *ngIf="addEventForm.get('CONCERT_ACT').hasError('required')" i18n="@@fielRequired">
+					   This field is required
+				  </mat-error>
+				</mat-form-field>
+				<div class="bs-xs-20"></div>
+          		<mat-form-field class="example-full-width">
+				  <input matInput type="text" placeholder="Venue Name" i18n-placeholder="@@venueName" formControlName="VENUE_NAME" >
+				  <mat-icon matSuffix class="invalid">warning</mat-icon>
+				  <mat-error *ngIf="addEventForm.get('VENUE_NAME').hasError('required')" i18n="@@fielRequired">
+					   This field is required
+				  </mat-error>
+				</mat-form-field>
+				<div class="bs-xs-20"></div>
+          		<mat-form-field class="example-full-width">
+				  <input matInput type="text" placeholder="Venue Address" i18n-placeholder="@@venueAddress" formControlName="VENUE_ADDRESS" >
+				  <mat-icon matSuffix class="invalid">warning</mat-icon>
+				  <mat-error *ngIf="addEventForm.get('VENUE_ADDRESS').hasError('required')" i18n="@@fielRequired">
+					   This field is required
+				  </mat-error>
+				</mat-form-field>
+				<div class="bs-xs-20"></div>
+          		<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<app-provinces formControlName="VENUE_PROVINCE" i18n-title="@@province" title="Province"></app-provinces>
+						<div class="bs-xs-10"></div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<mat-form-field class="example-full-width">
+							<input matInput type="text" placeholder="City" i18n-placeholder="@@city" formControlName="VENUE_CITY">
+							<mat-icon matSuffix class="invalid">warning</mat-icon>
+							<mat-error *ngIf="addEventForm.get('VENUE_CITY').hasError('required')" i18n="@@fielRequired">
+								This field is required
+							</mat-error>
+						</mat-form-field>
+						<div class="bs-xs-10"></div>
+					</div>
+				</div>
+         		<div class="row">
+					<div class="col-md-6">
+						<mat-form-field class="example-full-width">
+							<input matInput type="text" placeholder="Postal Code" i18n-placeholder="@@postalCode" formControlName="VENUE_POSTAL">
+							<mat-hint align="start" i18n="@@postalHint"> <p class="text sm grey" i18n="@@postalHint">Postal code format: A1A1A1</p></mat-hint>
+							<mat-icon matSuffix class="invalid">warning</mat-icon>
+							<mat-error
+								*ngIf="addEventForm.get('VENUE_POSTAL').hasError('required')" i18n="@@fielRequired">
+								This field is required
+							</mat-error>
+							<mat-error *ngIf="addEventForm.get('VENUE_POSTAL').hasError('pattern')" i18n="@@invalidFormat">
+								Invalid format
+							</mat-error>
+						</mat-form-field>
+						<div class="bs-xs-20"></div>
+					</div>
+				</div>
+          		<div class="divider"></div>
+          		<div class="bs-xs-20"></div>
+          		<div class="row">
+         			<div class="col-md-6">
+         				<mat-form-field class="example-full-width">
+						  <input matInput type="text" placeholder="Attendance" i18n-placeholder="@@attendance" formControlName="ATTENDANCE" >
+						  <mat-icon matSuffix class="invalid">warning</mat-icon>
+						  <mat-error *ngIf="addEventForm.get('ATTENDANCE').hasError('required')" i18n="@@fielRequired">
+							   This field is required
+						  </mat-error>
+						  <mat-error *ngIf="addEventForm.get('ATTENDANCE').hasError('pattern')" i18n="@@validNumber">
+							This value should be a valid number
+						  </mat-error>
+						</mat-form-field>
+						<div class="bs-xs-20"></div>
+         			</div>
+         		</div>
+          		<div class="divider"></div>
+          		<div class="bs-xs-20"></div>
+          		<mat-form-field class="example-full-width">
+				  <input matInput type="text" placeholder="Promoter Name" i18n-placeholder="@@promoterName" formControlName="PROMOTER_NAME" >
+				  <mat-icon matSuffix class="invalid">warning</mat-icon>
+				  <mat-error *ngIf="addEventForm.get('PROMOTER_NAME').hasError('required')" i18n="@@fielRequired">
+					   This field is required
+				  </mat-error>
+				</mat-form-field>
+				<div class="bs-xs-20"></div>
+          		<mat-form-field class="example-full-width">
+				  <input matInput type="text" placeholder="Promoter Address" i18n-placeholder="@@promoterAddress" formControlName="PROMOTER_ADDRESS" >
+				  <mat-icon matSuffix class="invalid">warning</mat-icon>
+				  <mat-error *ngIf="addEventForm.get('PROMOTER_ADDRESS').hasError('required')" i18n="@@fielRequired">
+					   This field is required
+				  </mat-error>
+				</mat-form-field>
+				<div class="bs-xs-20"></div>
+          		<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<app-provinces formControlName="PROMOTER_PROVINCE" i18n-title="@@province" title="Province"></app-provinces>
+						<div class="bs-xs-10"></div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<mat-form-field class="example-full-width">
+							<input matInput type="text" placeholder="City" i18n-placeholder="@@city" formControlName="PROMOTER_CITY">
+							<mat-icon matSuffix class="invalid">warning</mat-icon>
+							<mat-error *ngIf="addEventForm.get('PROMOTER_CITY').hasError('required')" i18n="@@fielRequired">
+								This field is required
+							</mat-error>
+						</mat-form-field>
+						<div class="bs-xs-10"></div>
+					</div>
+				</div>
+         		<div class="row">
+					<div class="col-md-6">
+						<mat-form-field class="example-full-width">
+							<input matInput type="text" placeholder="Postal Code" i18n-placeholder="@@postalCode" formControlName="PROMOTER_POSTAL">
+							<mat-hint align="start" i18n="@@postalHint"> <p class="text sm grey"> Postal code format: A1A1A1</p></mat-hint>
+							<mat-icon matSuffix class="invalid">warning</mat-icon>
+							<mat-error
+								*ngIf="addEventForm.get('PROMOTER_POSTAL').hasError('required')" i18n="@@fielRequired">
+								This field is required
+							</mat-error>
+							<mat-error *ngIf="addEventForm.get('PROMOTER_POSTAL').hasError('pattern')" i18n="@@invalidFormat">
+								Invalid format
+							</mat-error>
+						</mat-form-field>
+						<div class="bs-xs-20"></div>
+					</div>
+				</div>
+          		<div class="divider"></div>
+          		<div class="bs-xs-20"></div>
+           		<div class="row">
+					<div class="col-md-6">
+						<app-datepicker title="Date of the Event" i18n-title="@@dateOfEvent" formControlName="DATE" required="true" [max]="eventMaxDate"></app-datepicker>
+						<div class="bs-xs-20"></div>
+					</div>
+           		</div>
+                <div class="divider"></div>
+          		<div class="bs-xs-20"></div>
+                <p class="text sm grey" i18n-title="@@selectAnOption">Select an option</p>
+                <div class="bs-xs-15"></div>
+                <mat-radio-group aria-label="" formControlName="IS_PERFORMER_FEE" (change)="grossLessZero = false">
+				  <mat-radio-button value="0" i18n="@@gSaleFee">Gross Sales Fees</mat-radio-button>
+				  <mat-radio-button value="1" i18n="@@gSaleFeePer">Gross Performer Fees</mat-radio-button>
+				</mat-radio-group>
+               <div class="bs-xs-20"></div>
+               <mat-form-field class="example-full-width">
+					<input matInput type="text" i18n-placeholder="@@grossFeeCad" placeholder="Gross Fee (CAD $)" formControlName="FEE" (focus)="grossLessZero = false">
+					<mat-icon matSuffix class="invalid">warning</mat-icon>
+					<mat-error
+						*ngIf="addEventForm.get('FEE').hasError('required')" i18n="@@fielRequired">
+						This field is required
+					</mat-error>
+					<mat-error *ngIf="addEventForm.get('FEE').hasError('pattern')" i18n="@@validNumber">
+						This value should be a valid number
+					</mat-error>
+				</mat-form-field>
+				<ng-container *ngIf="grossLessZero && addEventForm.get('IS_PERFORMER_FEE').value == '0'">
+					<span i18n="@@grossMoreZero" class="text sm alert-color">Gross Fee must be more than 0</span>
+				</ng-container>
+				<ng-container *ngIf="grossLessZero && addEventForm.get('IS_PERFORMER_FEE').value == '1'">
+					<span i18n="@@grossMoreZero" class="text sm alert-color">Gross Fee must be more than 0</span>
+				</ng-container>
+				<div class="bs-xs-20"></div>
+                <div class="text-center">
+                	<button type="button" (click)="onAddEvent()" class="btn btn-primary btn-wide" [disabled]="!addEventForm.valid" *ngIf="editedEventIndex < 0" i18n="@@addEvent">Add Event</button>
+                	<button type="button" (click)="onEditEvent()" class="btn btn-primary btn-wide" [disabled]="!addEventForm.valid" *ngIf="editedEventIndex >= 0" i18n="@@editEvent">Edit Event</button>
+                </div>
+            </form>
+			<div class="bs-md"></div>
+        </div>
+    </ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="eventRemove" [@animationPopup]="eventRemove ? 'popupOpened' : 'popupClosed'" (close)="eventRemove = false" size="2">
+    <ng-container content>
+        <div class="padd-50">
+            <div class="bs-xs-40"></div>
+			<div class="text-center">
+				<p class="grey text" i18n="@@removeEventConfirm"> Are you sure you want to remove event?</p>
+			</div>
+			<div class="bs-xs-25"></div>
+			<div class="btn-wrapper text-center">
+				<button type="button" class="btn btn-sm btn-secondary" (click)="eventRemove = false" i18n="@@cancel">Cancel</button>
+				<button type="button" class="btn btn-sm btn-primary" (click)="consfirmRemove()" i18n="@@remove">Remove</button>
+			</div>
+			<div class="bs-xs-30"></div>
+		</div>
+    </ng-container>
+</app-popup>
+
+

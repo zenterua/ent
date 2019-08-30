@@ -1,0 +1,1 @@
+export const floatNumberPattern:string = "^[0-9]+(.[0-9]{0,2})?$";

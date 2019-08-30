@@ -1,0 +1,105 @@
+<div class="page-padding">
+    <div class="bs-xs-20"></div>
+	<div class="container-custome">
+        <a class="btn-icon type-xs icon-border" [routerLink]="['/reports/new-report/', reportId]">
+			<img src="assets/img/back.svg" alt="">
+		</a>
+		<div class="bs-xs-20"></div>
+	    <div class="caption-align">
+			<h2 class="h1" i18n="@@reviewAndConfirm">Review your report</h2>
+		</div>
+		<div class="bs-xs-20"></div>
+		<h5 class="h5" i18n="@@estDetails">Establishment Details</h5>
+			<div class="bs-xs-5"></div>
+			<div class="divider"></div>
+			<div class="bs-xs-30"></div>
+		    <div class="row">
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@businessName">Business Name:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@legalName2">Legal Name:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@email">Email:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.EMAIL}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@phone2">Phone:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.PHONE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@addr2">Address:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.ADDRESS}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@city2">City:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.CITY}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@provinceDot">Province:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.PROVINCE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@postalCode">Postal Code:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.POSTAL_CODE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    </div>
+			<div class="bs-sm"></div>
+			<h5 class="h5" i18n="@@reportingDetails">Report Details</h5>
+			<div class="bs-xs-5"></div>
+			<div class="divider"></div>
+			<div class="bs-xs-30"></div>
+			
+   
+	        <div *ngIf="!isSubmitted">
+	        
+		    <ng-template #dynamic></ng-template>
+		    
+		    </div>
+		    
+		    <div *ngIf="isSubmitted">
+		         <div class="bs-md"></div>
+				 <div class="text-center">
+					<h2 class="h1" i18n="@@alreadySubmitted">This report is already submitted.</h2>
+					<div class="bs-xs-30"></div>
+					<a class="btn btn-primary btn-lg" [routerLink]="['/reports/submitted-reports']" i18n="@@goToSubmittedReports">Go To Submitted Reports</a>
+				 </div>
+				 <div class="bs-md"></div>
+		    </div>
+		    
+		    <div *ngIf="reportNotExist">
+		         <div class="bs-md"></div>
+				 <div class="text-center">
+					<h2 class="h1" i18n="@@reportDoNotExist">This report do not exist.</h2>
+					<div class="bs-xs-30"></div>
+					<a class="btn btn-primary btn-lg" [routerLink]="['/reports/submitted-reports']" i18n="@@goToSubmittedReports">Go To Submitted Reports</a>
+				 </div>
+				 <div class="bs-md"></div>
+		    </div>
+		
+		    <div class="bs-lg"></div>	
+	</div>
+</div>
+
+<div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>	

@@ -1,0 +1,317 @@
+<div class="page-padding">
+    <div class="bs-md"></div>
+	<div class="container-custome type-2">
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
+				<div class="page-content-entry type-2" *ngIf="userData">
+					<div class="row inline-align">
+						<div class="col-lg-7 col-md-12 col-xs-12">
+						    <div class="row-padd-60">
+								<div class="bs-xs-25 bs-sm-35"></div>
+								<h2 class="h1" i18n="@@welcomeBack">Welcome back!</h2>
+								<div class="bs-xs-10"></div>
+								<p class="text sm grey" i18n="@@heresAnOverview">Here's an overview of your current reports, payments, and balance.</p>
+								<div class="bs-xs-20"></div>
+								<div class="row">
+									<div class="col-md-6">
+										<p class="text sm grey" i18n="@@businessName">Business Name:</p>
+										<div class="bs-xs-5"></div>
+										<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+										<div class="bs-xs-10"></div>
+									</div>
+									<div class="col-md-6">
+										<p class="text sm grey" i18n="@@contactName">Contact Name:</p>
+										<div class="bs-xs-5"></div>
+										<p class="text lg">{{userData.FIRST_NAME}}</p>
+										<div class="bs-xs-10"></div>
+									</div>
+								</div>
+								<p class="text sm grey" i18n="@@emailAddress">Email Address:</p>
+								<div class="bs-xs-5"></div>
+								<p class="text lg">{{userData.EMAIL}}</p>
+								<div class="bs-xs-10"></div>
+								<p class="text sm grey" i18n="@@account">Account #:</p>
+								<div class="bs-xs-5"></div>
+								<p class="text lg">{{userData.ACCT_NO}}</p>
+							<div class="bs-xs-25 bs-sm-35"></div>
+							</div>
+						</div>
+						<div class="col-lg-5 col-xs-12">
+							<div class="text-center fr visible-lg">
+								<img src="assets/img/dasboard-user.png" alt="" class="img-full" style="float: right; max-width: 350px;">
+								<div class="vertical-align">
+								    <p class="text white" i18n="@@amount">Amount:</p>
+								    <div class="bs-xs-10"></div>
+								    <h2 class="h1 white">${{userData?.BALANCE | number:'1.2-2'}}</h2>
+								    <div class="bs-xs-25"></div>
+									<a [routerLink]="['/payments/make-payment']" class="btn-contrast btn-xs btn" i18n="@@payNow">Pay Now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="page-content-entry type-3 dashboard-item" *ngIf="!userData">
+					 <div class="bs-xs-25"></div>
+					 <h2 class="h2" i18n="@@welcome">Welcome</h2>
+					 <div class="bs-xs-10"></div>
+					 <p class="text sm grey" i18n="@@getFamiliarDashboard">Get familiar with the dashboard, here are some ways to get started.</p>
+					 <div class="bs-xs-25"></div>
+					 <div class="bg-entry bg-entry-dashboard" style="background-image: url(assets/img/dasboard-start.png)"></div>
+					 <div class="bg-entry bg-entry-dashboard" style="background-image: url(assets/img/dashboard-pattern.png)"></div>
+				</div>
+				<div class="bs-xs-30"></div>
+			</div>
+			<div class="hidden-lg col-md-6">
+				<div class="text-center page-content-entry type-2 minh-315">
+					<div class="bg-entry" style="background-image: url(assets/img/dasboard-user.png)"></div>
+					<div class="vertical-align">
+						<p class="text white" i18n="@@amount">Amount:</p>
+						<div class="bs-xs-10"></div>
+						<h2 class="h1 white">${{userData?.BALANCE | number:'1.2-2'}}</h2>
+						<div class="bs-xs-25"></div>
+						<a [routerLink]="['/payments/make-payment']" class="btn-contrast btn-xs btn" i18n="@@payNow">Pay Now</a>
+					</div>
+				</div>
+				<div class="bs-xs-30"></div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="page-content-entry type-2 row-padd-20 minh-315">
+					<div class="bs-xs-25"></div>
+			        <div class="caption-align no-flex-sm">
+			        	<h4 class="h4">
+			        	    <span i18n="@@reminders">Reminders</span>
+			        	    <div class="bs-xs-30 bs-sm-0"></div>
+			        	</h4>
+			        	<div class="pagination-wrapp" *ngIf="reminders" [ngClass]="{'sliderBtnDisabled':sliderBtnDisable}">
+			        	    <div class="pagination-count text">
+			        	    	{{count}} of {{reminders.length}}
+			        	    </div>
+			        		<div class="slider-btn slide-btn-left row-lmar-10" (click)="slidePrev()" [ngClass]="{'disabled':leftDisabled}">
+			        			<div class="toggle-icon"></div>
+			        		</div>
+					  		<div class="slider-btn slide-btn-right" (click)="slideNext()" [ngClass]="{'disabled':rightDisabled}">
+		        				<div class="toggle-icon"></div>
+		        			</div>
+			        	</div>
+			        </div>
+				    <ng-container *ngIf="!reminders">
+						<div class="bs-xs-30 bs-sm-50"></div>
+						<div class="text-center max-170">
+							<img src="assets/img/notification.svg" alt="">
+							<div class="bs-xs-25"></div>
+							<p class="text grey" i18n="@@noRemindersYet">You have no reminders for Entandem yet.</p>
+						</div>
+						<div class="bs-xs-40"></div>
+				    </ng-container>
+				    <div [hidden]="!reminders">
+		              <div class="bs-xs-25"></div>
+			          <div class="img-slider-container">
+						<div class="img-slider-wrapper" #wrapper [ngStyle]="{'transform': 'translateX(-' + transform + '%)', 'transition-duration':'300ms'}">
+							<div class="img-slide" *ngFor="let item of reminders">
+								<div class="bs-xs-20"></div>
+								<div class="scrolled-content">
+								<p class="text">{{item.TITLE}}</p>
+								<div class="bs-xs-20"></div>
+								<p class="text grey">{{item.TEXT}}</p>
+								<div class="bs-xs-20"></div>
+								</div>
+							</div>
+						</div>
+					  </div>
+					  <div class="bs-xs-20"></div>
+					  <div class="text-center">
+						  <a class="btn btn-primary btn-wide-1" [routerLink]="['/reports/new-report']" i18n="@@reportNow">Report Now</a>
+					  </div>
+					  <div class="bs-xs-35"></div>
+					</div>
+				</div>
+				<div class="bs-xs-30"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-content-entry type-2 minh-315">
+				    <div class="bs-xs-25"></div>
+				    <h4 class="h4 padd-20" i18n="@@myPayments">My Payments</h4>
+				    <div class="bs-xs-20"></div>
+					<div [hidden]="tableLength">
+						<div class="text-center max-420">
+							<img src="assets/img/payment_icon.svg" alt="">
+							<div class="bs-xs-15"></div>
+							<h3 class="h3" i18n="@@noPaymentsDue">You have 0 payments due</h3>
+							<div class="bs-xs-20"></div>
+							<p class="text grey" i18n="@@goToAssignTariffs">To submit a new report, go to Assign Tariffs.</p>
+							<div class="bs-xs-30"></div>
+						</div>
+					</div>
+					<div [hidden]="!tableLength">
+						<table mat-table [dataSource]="paymentsList" class="table-custome">
+						  <ng-container matColumnDef="date">
+							<th mat-header-cell *matHeaderCellDef i18n="@@date">Date</th>
+							<td mat-cell *matCellDef="let row" data-name="Date" i18n-data-name="@@date">{{setDate(row.PAYMENT_DATE)}}</td>
+						  </ng-container>
+						  <ng-container matColumnDef="time">
+							<th mat-header-cell *matHeaderCellDef i18n="@@time">Time</th>
+							<td mat-cell *matCellDef="let row" data-name="Time" i18n-data-name="@@time">{{ setTime(row.PAYMENT_DATE)}}</td>
+						  </ng-container>
+						  <ng-container matColumnDef="id">
+							<th mat-header-cell *matHeaderCellDef i18n="@@payNo">Pay #</th>
+							  <td mat-cell *matCellDef="let row" data-name="Pay #" i18n-data-name="@@payNo"><a [routerLink]="['/payments/payment-detail/', row.AUTHORIZATION_NO]" class="color table-link">{{row.AUTHORIZATION_NO}}</a></td>
+						  </ng-container>
+						  <ng-container matColumnDef="name">
+							<th mat-header-cell *matHeaderCellDef i18n="@@paidBy">Paid by</th>
+							<td mat-cell *matCellDef="let row" data-name="Paid by" i18n-data-name="@@paidBy">{{row.FIRST_NAME}} {{row.LAST_NAME}}</td>
+						  </ng-container>
+						  <ng-container matColumnDef="type">
+							<th mat-header-cell *matHeaderCellDef i18n="@@type">Type</th>
+							<td mat-cell *matCellDef="let row" data-name="Type" i18n="@@creditCard">Credit Card</td>
+						  </ng-container>
+						  <ng-container matColumnDef="total">
+							<th mat-header-cell *matHeaderCellDef i18n="@@AmountCAD">Amount (CAD$)</th>
+							<td mat-cell *matCellDef="let row" data-name="Amount (CAD$)" i18n-data-name="@@AmountCAD">{{row.PAYMENT_AMT | number:'1.2-2'}} </td>
+						  </ng-container>
+						  <ng-container matColumnDef="status">
+							<th mat-header-cell *matHeaderCellDef i18n="@@status">Status</th>
+							<td mat-cell *matCellDef="let row" data-name="Status" i18n-data-name="@@status">
+								<span class="success" *ngIf="row.PAYMENT_STATUS == 1" i18n="@@confirmed">Confirmed</span>
+								<span class="invalid" *ngIf="row.PAYMENT_STATUS == 0" i18n="@@failed">Failed</span>
+							</td>
+						  </ng-container>
+						  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+						</table>
+					</div>
+					<div class="bs-xs-20"></div>
+					<div class="text-center padd-20">
+						<a [routerLink]="['/payments/payment-history']" class="link" i18n="@@seeAllPast">See All Past Payments</a>
+					</div>
+					<div class="bs-xs-20"></div>
+				<div class="spinner" [ngClass]="{'active': loaderIsVisiblePay}"></div>
+				</div>
+				<div class="bs-xs-30"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
+				<div class="page-content-entry type-2 minh-315">
+			       <div class="bs-xs-25"></div>
+				   <h4 class="h4 padd-20" i18n="@@recentDrafts">Recent Drafts</h4>
+				   <div class="bs-xs-20"></div>
+					<div [hidden]="tableLengthRepo">
+						<div class="text-center max-420">
+							<img src="assets/img/reports_icon.svg" alt="">
+							<div class="bs-xs-15"></div>
+							<h3 class="h3" i18n="@@noIncompleteReports">You have 0 incomplete reports</h3>
+							<div class="bs-xs-20"></div>
+							<p class="text grey" i18n="@@goToAssignTariffs">To submit a new report, go to Assign Tariffs.</p>
+							<div class="bs-xs-20"></div>
+							<button class="btn btn-primary" [routerLink]="['/assign-tariff']" i18n="@@assignTariffs">Assign Tariffs</button>
+							<div class="bs-xs-30"></div>
+						</div>
+					</div>
+					<div [hidden]="!tableLengthRepo">
+					<table mat-table [dataSource]="reportList" class="table-custome">
+					  <ng-container matColumnDef="draft">
+						<th mat-header-cell *matHeaderCellDef></th>
+						<td mat-cell *matCellDef="let row"><a [routerLink]="['/reports/new-report', row.REPORT_ID ? row.REPORT_ID : row.REPORT_NO]" class="color table-link"> [<span i18n="@@draft">Draft</span>] </a></td>
+					  </ng-container>
+					  <ng-container matColumnDef="name">
+						<th mat-header-cell *matHeaderCellDef i18n="@@contact">Contact</th>
+						<td mat-cell *matCellDef="let row" data-name="Submitter" i18n-data-name="@@contact">
+							 {{row.SIGNER_NAME ? row.SIGNER_NAME : row.SUPPLIER_NAME}}
+						</td>
+					  </ng-container>
+					  <ng-container matColumnDef="musicUsage">
+						<th mat-header-cell *matHeaderCellDef i18n="@@musicUsage">Music Usage </th>
+						<td mat-cell *matCellDef="let row" data-name="Music Usage" i18n-data-name="@@musicUsage">
+						  <ng-container *ngIf="localeId == 'en-US'">
+							 {{row.TRFF_NAME_ENG}}
+						  </ng-container>
+						  <ng-container *ngIf="localeId == 'fr'">
+							 {{row.TRFF_NAME_FR}}
+						  </ng-container>
+						</td>
+					  </ng-container>
+					  <ng-container matColumnDef="total">
+						<th mat-header-cell *matHeaderCellDef i18n="@@AmountCAD">Amount (CAD$)</th>
+						<td mat-cell *matCellDef="let row" data-name="Amount (CAD$)" i18n-data-name="@@AmountCAD"> {{row.TOTAL | number:'1.2-2'}} </td>
+					  </ng-container>
+					  <ng-container matColumnDef="date">
+						<th mat-header-cell *matHeaderCellDef i18n="@@lastUpdate">Last Update</th>
+						<td mat-cell *matCellDef="let row" data-name="Last Update" i18n-data-name="@@lastUpdate"> {{row.TRANS_DATE | date: 'MMM d, yyyy'}} </td>
+					  </ng-container>
+					  <tr mat-header-row *matHeaderRowDef="displayedColumnsReports"></tr>
+					  <tr mat-row *matRowDef="let row; columns: displayedColumnsReports;" class="hover-menu-row"></tr>
+					</table>
+					<div class="bs-xs-20"></div>
+					<div class="text-center padd-20">
+						<a [routerLink]="['/reports/draft-reports']" class="link" i18n="@@seeAllDrafts">See all drafts</a>
+					</div>
+					</div>
+					<div class="bs-xs-20"></div>
+					<div class="spinner" [ngClass]="{'active': loaderIsVisibleDraf}"></div>
+				</div>
+				<div class="bs-xs-30"></div>
+			</div>
+			<div class="col-lg-4 col-md-12">
+			  <div class="row">
+			  	<div class="col-lg-12 col-md-6 col-sm-12">
+			  		<div class="page-content-entry type-2 padd-20">
+					   <div class="bs-xs-25"></div>
+					   <h4 class="h4" i18n="@@latestInvoice">Latest Invoice</h4>
+					   <div class="bs-xs-20"></div>
+					   <ng-container *ngIf="tableLengthInv">
+						   <div class="row">
+								<div class="col-md-6">
+									<p class="text sm grey" i18n="@@invoiceNumber">Invoice Number:</p>
+									<div class="bs-xs-5"></div>
+									<p class="text lg">{{lastInvoice?.INVCHEAD_INVOICENUM}}</p>
+									<div class="bs-xs-15"></div>
+								</div>
+								<div class="col-md-6">
+									<p class="text sm grey" i18n="@@amount">Amount:</p>
+									<div class="bs-xs-5"></div>
+									<p class="text lg">{{lastInvoice?.INVCHEAD_INVOICEAMT | number:'1.2-2'}}</p>
+									<div class="bs-xs-25"></div>
+								</div>
+						   </div>
+					   </ng-container>
+					   <ng-container *ngIf="!tableLengthInv">
+							<div class="bs-xs-10"></div>
+							<p class="text grey" i18n="@@invoicesFromPayments">Invoices from payments will appear here</p>
+							<div class="bs-xs-30"></div>
+					   </ng-container>
+					   <div class="spinner" [ngClass]="{'active': loaderIsVisibleInv}"></div>
+					</div>
+			  		<div class="bs-xs-30"></div>
+			  	</div>
+			  	<div class="col-lg-12 col-md-6 col-sm-12">
+			  		<div class="page-content-entry type-2 padd-20">
+					   <div class="bs-xs-25"></div>
+					   <h4 class="h4" i18n="@@statements">Statements</h4>
+					   <div class="bs-xs-20"></div>
+						<ng-container *ngIf="lastInvoice">
+							<p class="text sm grey" i18n="@@statementNumber">Statement Number:</p>
+							<div class="bs-xs-5"></div>
+							<p class="text lg">{{lastInvoice.statementId}}</p>
+							<div class="bs-xs-15"></div>
+							<p class="text sm grey" i18n="@@period">Period:</p>
+							<div class="bs-xs-5"></div>
+							<p class="text lg">{{lastInvoice.dateCreate | date: 'MMM d, yyyy'}} to {{lastInvoice.dateDue | date: 'MMM d, yyyy'}}</p>
+							<div class="bs-xs-25"></div>
+						</ng-container>
+						<ng-container *ngIf="!lastInvoice">
+							<div class="bs-xs-10"></div>
+							<p class="text grey" i18n="@@statementsWillAppear">Statements will appear here. You do not have any statements.</p>
+							<div class="bs-xs-30"></div>
+						</ng-container>
+					   <div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+					</div>
+			  	</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="bs-lg"></div>
+</div>

@@ -1,0 +1,86 @@
+<div class="page-padding">
+    <div class="bs-xs-20"></div>
+	<div class="container-custome">		
+		<div class="bs-xs-20"></div>
+		<div class="max-560 text-center">
+			<div class="page-content-entry">
+				<div class="row-padd-60">
+				    <div class="bs-xs-30 bs-sm-50"></div>
+					<img src="assets/img/checked-icon.svg" alt="" class="img-full">
+						<div class="bs-xs-10"></div>
+						<h4 class="h4" i18n="@@repSubSuccess">Report submitted successfully!</h4>
+						<div class="bs-xs-30"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@resFeeTxt">RE:SOUND license:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text">${{resoundFees | number:'1.2-2'}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@socFeeTxt">SOCAN license:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text">${{socanFees | number:'1.2-2'}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="divider"></div>
+						<ng-container *ngIf="hstTaxCode">
+						<div class="bs-xs-20"></div>
+						<div class="caption-align">
+							<div class="text sm grey">
+								<p><span i18n="@@hst">HST:</span></p>
+								<div class="bs-xs-15 bs-sm-0"></div>
+							</div>
+							<p class="text lg">${{hstFees | number:'1.2-2'}}</p>
+						</div>
+						</ng-container>
+						<ng-container *ngIf="pstTaxCode">
+						<div class="bs-xs-20"></div>
+						<div class="caption-align">
+							<div class="text sm grey">
+								<p *ngIf="province == 'QC'"><span i18n="@@qst">QST:</span></p>
+								<p *ngIf="province !== 'QC'"><span i18n="@@pst">PST:</span></p>
+								<div class="bs-xs-15 bs-sm-0"></div>
+							</div>
+							<p class="text lg">${{pstFees | number:'1.2-2'}}</p>
+						</div>
+						</ng-container>
+						<ng-container *ngIf="gstTaxCode">
+						<div class="bs-xs-20"></div>
+						<div class="caption-align">
+							<div class="text sm grey">
+								<p><span i18n="@@gst">GST:</span></p>
+								<div class="bs-xs-15 bs-sm-0"></div>
+							</div>
+							<p class="text lg">${{gstFees | number:'1.2-2'}}</p>
+						</div>
+						</ng-container>
+						<div class="bs-xs-20"></div>
+						<div class="divider"></div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<h3 class="h3">
+								<span i18n="@@totalAmountDue">Total Amount Due:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</h3>
+							<h3 class="h3">${{totalFees | number:'1.2-2'}}</h3>
+						</div>
+						<div class="bs-xs-30 bs-sm-50"></div>
+						<ng-container *ngIf="+totalToPay > 0">
+						<div class="text-center">
+							<a type="button" class="btn btn-primary btn-wide" [routerLink]="['/payments/make-payment']" [queryParams]="{amount: totalToPay}" i18n="@@makePayNow">Make a Payment Now</a>
+						</div>
+						<div class="bs-xs-20"></div>
+						</ng-container>
+						<p class="text sm grey" i18n="@@payDesc">Note: All amounts are subject to changes in any pending Tariff(s) once approved. Reports will be subject to review.</p>
+						<div class="bs-xs-30"></div>
+				</div>
+			    <div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>	
+			</div>
+		</div>
+	</div>
+	<div class="bs-lg"></div>
+</div>

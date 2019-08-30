@@ -1,0 +1,22 @@
+<mat-form-field class="example-full-width">
+  <input matInput 
+  		type="text" 
+        readonly 
+        #f="matInput"
+        [placeholder]="title"
+        [matDatepicker]="picker" 
+        (click)="picker.open()" 
+        (dateChange)="onDateChanged($event)" 
+        [value]="inputValue"
+        [min]="min"
+        [max]="max" [disabled]="isDisabled">
+  <mat-icon matSuffix class="color cursor-pointer" *ngIf="!hideIcon" (click)="picker.open()"><img src="assets/img/calendar.svg" alt=""></mat-icon>
+  <mat-icon matSuffix class="btn-simple" *ngIf="inputValue && hideIcon" (click)="clearValue()"><img src="assets/img/close.svg" alt=""></mat-icon>
+  
+  <mat-datepicker 
+        (opened)="onPickerOpened()"
+        (closed)="onPickerClosed()"
+        [startAt]="startAt"
+        #picker>
+  </mat-datepicker>
+</mat-form-field>

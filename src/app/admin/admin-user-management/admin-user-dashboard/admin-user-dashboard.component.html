@@ -1,0 +1,171 @@
+<div class="page-title" i18n="@@AdminPortal">
+	Admin Portal
+</div>
+<div class="page-padding" >
+	<div class="adminWrapperContent" style="background-color: #F5F4F4;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="sectionTitle">
+						<h1 class="h1 as" i18n="@@userManagement">User Management</h1>
+					</div>
+					<div class="bs-xs-20"></div>
+
+					<div class="mainTableWrapper" [ngClass]="{'showTableSelected': this.selection.selected.length}">
+						<div class="spinner semitransparent tableSpiner" [ngClass]="{'active': loadingData}">
+              <img src="assets/img/spinner.gif" alt="">
+            </div>
+            <h5 *ngIf="nothingFound" class="h5 nothingFoundMessage" i18n="@@nothingFound">Nothing found</h5>
+            <h5 *ngIf="tableDataError" class="h5 nothingFoundMessage" i18n="@@errorOccurred">An Unexpected Error Occurred</h5>
+            <h5 *ngIf="tableServerError" class="h5 nothingFoundMessage" i18n="@@unexpectedServerError">An Unexpected Server Error Occurred</h5>
+
+						<div class="tableHeader">
+							<div class="responsiveTableHeader">
+                <div class="btn-icon icon-border iconColor iconNoBorder" (click)="tableHeaderToggle()">
+                  <img src="assets/img/admin/filter.svg" alt="">
+                </div>
+							</div>
+
+							<div class="tableSelected">
+								<p>{{this.selection.selected.length}} <span i18n="@@accountsSelectedDownload"> Accounts Selected to Download </span>  </p>
+                <div class="btn-icon icon-border iconColor iconNoBorder tableIcon downloadSelected" (click)="exportUsers()">
+                  <img src="assets/img/admin/download.svg" alt="">
+                </div>
+
+							</div>
+							<form class="tableForm" [formGroup]="tableForm" [ngClass]="{'responsiveActive': responsiveTableHeader}">
+								<div class="tableSearch" [ngClass]="{'active': tableSearch}">
+                  <div class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSearchToggle();">
+                    <img src="assets/img/admin/search.svg" alt="">
+                  </div>
+									<div class="tableSearchContent">
+										<mat-form-field class="example-full-width">
+											<input matInput type="text" i18n-placeholder="@@search" formControlName="tableSearch" placeholder="Search">
+											<button *ngIf="tableForm.get('tableSearch').value" matSuffix class="btn-simple clearInput" (click)="tableSearchToggle();">
+												<mat-icon>close</mat-icon>
+											</button>
+										</mat-form-field>
+									</div>
+								</div>
+
+								<div class="tableSorting" [ngClass]="{'active': tableSorting}">
+                  <div class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSortingToggle()">
+                    <img src="assets/img/admin/filter.svg" alt="">
+                  </div>
+
+									<div class="tableSortingContent">
+										<mat-form-field class="example-full-width tableSelector">
+											<mat-label i18n="@@status">Status</mat-label>
+											<mat-select formControlName="tableSearhStatus" multiple>
+												<multi-select [model]="tableForm.get('tableSearhStatus')" [values]="optionsList">
+												</multi-select>
+												<mat-option *ngFor="let item of optionsList" [value]="item">
+													{{item.value}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+										<app-datepicker formControlName="startDate" class="tableCalendar" i18n-title="@@startDate" filter="true" title="Start Date" ></app-datepicker>
+										<app-datepicker formControlName="endDate" class="tableCalendar" i18n-title="@@endDate" filter="true" title="End Date" ></app-datepicker>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="responsiveTable">
+							<table mat-table [dataSource]="users" matSort class="table-custome">
+								<ng-container matColumnDef="select">
+									<th mat-header-cell *matHeaderCellDef>
+										<mat-checkbox (change)="$event ? masterToggle() : null"
+													  [checked]="selection.hasValue() && isAllSelected()"
+													  [indeterminate]="selection.hasValue() && !isAllSelected()"
+													  [aria-label]="checkboxLabel()">
+										</mat-checkbox>
+									</th>
+									<td mat-cell *matCellDef="let row">
+										<mat-checkbox (click)="$event.stopPropagation()"
+													  (change)="$event ? selection.toggle(row) : null"
+													  [checked]="selection.isSelected(row)"
+													  [aria-label]="checkboxLabel(row)">
+										</mat-checkbox>
+									</td>
+								</ng-container>
+
+								<ng-container matColumnDef="id">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@userID" data-name="User ID"> <a class="color" [routerLink]="['user-detail', row.AZURE_ID]">{{row.ACCT_NO}}</a> </td>
+								</ng-container>
+
+								<ng-container matColumnDef="business">
+									<th i18n="@@business" mat-header-cell *matHeaderCellDef mat-sort-header> Business </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@business" data-name="Business"> {{row.BUSINESS_NAME}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="firstName">
+									<th i18n="@@firstName" mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@firstName" data-name="FirstName"> {{row.FIRST_NAME}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="lastName">
+									<th i18n="@@lastName" mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@lastName" data-name="LastName"> {{row.LAST_NAME}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="email">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@email" data-name="Email"> {{row.EMAIL}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="date">
+									<th i18n="@@created" mat-header-cell *matHeaderCellDef mat-sort-header> Created </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@date" data-name="Date">  {{row.CREATED_AT | date: 'MMM d, y'}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="status">
+									<th i18n="@@status" mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@status" data-name="Status">
+										<ng-container *ngIf="row.ACTIVE === 1">
+											<span class="success" i18n="@@active">Active</span>
+										</ng-container>
+
+										<ng-container *ngIf="row.ACTIVE === 0">
+											<span class="invalid style2" i18n="@@inactive">Inactive</span>
+										</ng-container>
+									</td>
+								</ng-container>
+
+								<ng-container matColumnDef="menu">
+									<th mat-header-cell *matHeaderCellDef> </th>
+									<td mat-cell *matCellDef="let row; let i = index" class="table-option">
+										<div class="text-right">
+											<button class="btn-icon type-xs menu-table" [matMenuTriggerFor]="menu">
+												<img src="assets/img/more-actions.svg" alt="">
+											</button>
+											<mat-menu #menu="matMenu">
+												<button mat-menu-item (click)="resetPassword(row);" i18n="@@resetPassword">Reset Password</button>
+												<button mat-menu-item (click)="toggleAccoutStatus(row);">
+												<ng-container *ngIf="row.ACTIVE === 0">
+													<span i18n="@@activateAccount">Activate Account</span>
+												</ng-container>
+												<ng-container *ngIf="row.ACTIVE === 1">
+													<span i18n="@@deactivateAccount">Deactivate Account</span>
+												</ng-container>
+												</button>
+											</mat-menu>
+										</div>
+									</td>
+								</ng-container>
+
+								<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+								<tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+							</table>
+						</div>
+						<mat-paginator class="custome-pagination" [length]="tableLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="spinner semitransparent" [ngClass]="{'active': loaderIsVisible}"></div>
+
+<app-snack-bar></app-snack-bar>

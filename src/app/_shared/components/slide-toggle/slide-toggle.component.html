@@ -1,0 +1,7 @@
+<div class="slide-title" (click)="onToggle()">
+    <ng-content select="[slide-title]"></ng-content>
+    <div class="toggle-icon" [ngClass]="{'active': slideVisible}"></div>
+</div>
+<div class="slide-toggle" [@slideUpDown]="(slideVisible)?'active':'inactive'">
+    <ng-content select="[slide-toggle]"></ng-content>
+</div>

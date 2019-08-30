@@ -1,0 +1,115 @@
+<div class="portal-left">
+
+    <div class="fullscreen-align">
+       <div class="bs-xs-100"></div>
+        <div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+        <div class="login-card">
+
+            <ng-container *ngIf="!expired && serverError">
+                <div class="text-center" [@itemAnimation]>
+                    <h2 class="h1" i18n="@@errorOccurred">An Unexpected Error Occurred</h2>
+                    <div class="bs-xs-10"></div>
+                    <p class="text grey" i18n="@@passwordNotMatch">The username or password you entered did not match our records.</p>
+                    <div class="bs-xs-30"></div>
+                    <a class="btn btn-primary btn-lg" (click)="serverError = false" i18n="@@goBack">Go Back</a>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="expired && !serverError">
+                <div class="text-center" [@itemAnimation]>
+                    <h2 class="h1" i18n="@@linkHasExpired">This link has expired</h2>
+                    <div class="bs-xs-10"></div>
+                    <p class="text grey" i18n="@@resetExpiredAfter24">Your reset link expired after 24 hours or has already been used. </p>
+                    <div class="bs-xs-30"></div>
+                     <a class="btn btn-primary btn-lg" (click)="expired = false" i18n="@@goBack">Go Back</a>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="locked && !serverError">
+                <div class="text-center" [@itemAnimation]>
+                    <h2 class="h1" i18n="@@anUnexpectedError">An Unexpected Error Occurred</h2>
+                    <div class="bs-xs-10"></div>
+                    <p class="text grey" i18n="@@youCantAccess">You can’t access your account at this time. Please contact us: </p>
+                    <div class="bs-xs-30"></div>
+                    <a href="mailto:support@entandemlicensing.com" class="ink-text">support@entandemlicensing.com</a>
+                    <div class="bs-xs-10"></div>
+                    <p class="text grey" i18n="@@or">OR</p>
+                    <div class="bs-xs-10"></div>
+                    <a href="tel:18669446223" class="ink-text">1-866-944-6223</a>
+                    <div class="bs-xs-30"></div>
+                    <a class="btn btn-primary btn-lg" (click)="locked = false" i18n="@@goBack">Go Back</a>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="!serverError && !userError && !confirmEmail">
+               <div [@itemAnimation]>
+                <div *ngIf="!resetPassword && !confirmEmail">
+                <h1 class="h1" i18n="@@logIn">Log in</h1>
+                </div>
+                <div *ngIf="emailChanged">
+					<h1 class="h1" i18n="@@emailChanged">Email changed</h1>
+					<div class="bs-xs-5"></div>
+					<p class="text" i18n="@@emailSuccessChanged">Your email was successfully changed! Please log in.</p>
+				</div>
+                <div *ngIf="resetPassword">
+					<h1 class="h1" i18n="@@passCreated">Password Created</h1>
+					<div class="bs-xs-5"></div>
+					<p class="text" i18n="@@passSuccessCreated">Your password was successfully created! Please log in.</p>
+				</div>
+                <div *ngIf="confirmEmail">
+                <h1 class="h1" i18n="@@emailVerified">Email Verified</h1>
+                <div class="bs-xs-5"></div>
+                <p class="text" i18n="@@pleaseLogin">Please log in.</p>
+				</div>
+                <div class="bs-xs-30"></div>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
+                    <mat-form-field class="example-full-width">
+					  <input matInput type="email" placeholder="Email Address" formControlName="email" i18n-placeholder="@@emailLoginAddress">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="loginForm.get('email').hasError('pattern')" i18n="@@emailAddressNotValid">
+						   Email address not valid.
+					  </mat-error>
+					  <mat-error *ngIf="loginForm.get('email').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+
+					</mat-form-field>
+                    <div class="bs-xs-10"></div>
+                    <mat-form-field class="example-full-width">
+					  <input matInput [attr.type]="(passwordVisible)?'text':'password'" placeholder="Password" formControlName="password" i18n-placeholder="@@password">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-icon matSuffix class="passsword" [ngClass]="{'active':passwordVisible}">
+				  	    <div class="inline">
+					  	  <img src="assets/img/icon-view.svg" alt="" (click)="showPassword()">
+					  	</div>
+					  </mat-icon>
+					  <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					</mat-form-field>
+                    <div class="bs-xs-10 bs-sm-30"></div>
+                    <div class="row vertical-aligned-columns-sm">
+                        <div class="col-sm-6">
+                            <mat-checkbox formControlName="remember" (change)="rememberMe($event)" i18n="@@keepMeLoggedIn">Keep me logged in</mat-checkbox>
+                        </div>
+                        <div class="col-sm-6 text sm col-sm-text-right hidden-xs">
+                            <a class="link" [routerLink]="['/auth/forgotpassword']" i18n="@@forgotPassword">Forgot your password?</a>
+                        </div>
+                    </div>
+                    <div class="bs-xs-30 bs-sm-60"></div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg btn-wide" [disabled]="!loginForm.valid" i18n="@@logIn">Log in</button>
+                        <div class="bs-xs-30 bs-sm-40"></div>
+                        <p class="grey"><span i18n="@@notRegistered">Not registered yet?</span>&nbsp;<a class="link" [routerLink]="['/auth/register']" i18n="@@registerNow">Register Now</a></p>
+                    </div>
+                </form>
+                <div class="visible-xs text-center">
+                    <div class="bs-xs-25"></div>
+                    <a class="link" [routerLink]="['/auth/forgotpassword']" i18n="@@forgotPassword">Forgot your password?</a>
+                </div>
+              </div>
+            </ng-container>
+        </div>
+        <div class="bs-xs-100"></div>
+    </div>
+</div>

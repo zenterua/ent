@@ -1,0 +1,142 @@
+<div class="page-padding">
+    <div class="bs-md"></div>
+	<div class="container-custome">
+		<div class="caption-align">
+			<h2 class="h1 title" i18n="@@payments">Payments
+				<div class="bs-xs-30 bs-sm-0"></div>
+			</h2>
+		</div>
+		<div class="bs-xs-20"></div>
+		<div class="page-content-entry">
+		<div [hidden]="tableLength">
+		    <div class="bs-xs-30 bs-sm-50"></div>
+			<div class="text-center max-330">
+				<img src="assets/img/payment_icon.svg" alt="">
+				<div class="bs-xs-15"></div>
+				<h3 class="h3" i18n="@@noPaymentsDue">You have 0 payments due</h3>
+				<div class="bs-xs-20"></div>
+				<p class="text grey" i18n="@@beforeMakingPaymen">Before making a payment, you must assign a tariff and create a report.</p>
+				<div class="bs-xs-30"></div>
+			</div>
+		</div>
+        <div [hidden]="!tableLength">
+		<form [formGroup]="filterForm" class="filter-item">
+		    <div class="filter-icon-mb" (click)="bothPart = !bothPart">
+				<div class="btn-icon">
+					<img src="assets/img/filter.svg" alt="">
+				</div>
+			</div>
+			<div class="valign-middle around-align filter-item-wrapper" [ngClass]="{'open-filter':bothPart}">
+			<div class="search-wrap" [ngClass]="{'open-filter':leftPart}">
+				<div class="search-icon" (click)="leftPart = true; rightPart = false;">
+					<div class="btn-icon">
+						<img src="assets/img/search.svg" alt="">
+					</div>
+				</div>
+				<div class="filter-fields">
+					<mat-form-field class="example-full-width">
+					  <input matInput type="text" formControlName="name" placeholder="Search" i18n-placeholder="@@searchPl">
+					  <button *ngIf="filterForm.get('name').value" matSuffix class="btn-simple" (click)="filterForm.get('name').setValue(null); leftPart = false;">
+						<mat-icon>close</mat-icon>
+					  </button>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="filter-wrap valign-middle around-align no-flex-md" [ngClass]="{'open-filter':rightPart}">
+			    <div class="filter-fields">
+					<div class="row">
+						<div class="col-md-4">
+							<mat-form-field class="example-full-width">
+							  <mat-label i18n="@@status">Status</mat-label>
+							  <mat-select formControlName="status" multiple>
+								<multi-select [model]="filterForm.get('status')" [values]="optionsList">
+								</multi-select>
+								<mat-option *ngFor="let item of optionsList" [value]="item">
+								  {{item.value}}
+								</mat-option>
+							  </mat-select>
+							</mat-form-field>
+						</div>
+						<div class="col-md-4 col-sm-6">
+						    <app-datepicker title="Start Date" i18n-title="@@startDate" formControlName="startDate" filter="true"></app-datepicker>
+						</div>
+						<div class="col-md-4 col-sm-6">
+						    <app-datepicker title="End Date" i18n-title="@@endDate" formControlName="endDate" filter="true"></app-datepicker>
+						</div>
+					</div>
+					<div class="bs-xs-30 bs-sm-30 bs-md-0"></div>
+				</div>
+				<div class="filter-icon" (click)="leftPart = false; rightPart = !rightPart;">
+					<div class="btn-icon">
+						<img src="assets/img/filter.svg" alt="">
+					</div>
+				</div>
+			</div>
+			</div>
+		</form>
+		<div *ngIf="nothingFound">
+	      <div class="text-center max-330">
+		    <div class="bs-md"></div>
+			<img src="assets/img/reports_icon.svg" alt="">
+			<div class="bs-xs-15"></div>
+			<h3 class="h3" i18n="@@pNotFound">No Payment Found</h3>
+			<div class="bs-md"></div>
+		  </div>
+		</div>
+        <div [hidden]="nothingFound">
+		<table mat-table [dataSource]="paymentsList" matSort class="table-custome">
+	      <ng-container matColumnDef="date">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@date">Date</th>
+			<td mat-cell *matCellDef="let row" data-name="Date" i18n-data-name="@@date">{{setDate(row.PAYMENT_DATE)}}</td>
+		  </ng-container>
+		  <ng-container matColumnDef="time">
+			<th mat-header-cell *matHeaderCellDef i18n="@@time">Time</th>
+			<td mat-cell *matCellDef="let row" data-name="Time" i18n-data-name="@@time">{{ setTime(row.PAYMENT_DATE)}}</td>
+		  </ng-container>
+		  <ng-container matColumnDef="id">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@payNo">Pay #</th>
+			  <td mat-cell *matCellDef="let row" data-name="Pay #" i18n-data-name="@@payNo"><a [routerLink]="['/payments/payment-detail/', row.AUTHORIZATION_NO]" class="color table-link">{{row.AUTHORIZATION_NO}}</a></td>
+		  </ng-container>
+		  <ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@paidBy">Paid by</th>
+			<td mat-cell *matCellDef="let row" data-name="Paid by" i18n-data-name="@@paidBy">{{row.FIRST_NAME}} {{row.LAST_NAME}}</td>
+		  </ng-container>
+		  <ng-container matColumnDef="type">
+			<th mat-header-cell *matHeaderCellDef i18n="@@type">Type</th>
+			<td mat-cell *matCellDef="let row" data-name="Type" i18n="@@creditCard">Credit Card</td>
+		  </ng-container>
+		  <ng-container matColumnDef="total">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@AmountCAD">Amount (CAD$)</th>
+			<td mat-cell *matCellDef="let row" data-name="Amount (CAD$)" i18n-data-name="@@AmountCAD">{{row.PAYMENT_AMT | number:'1.2-2'}} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="status">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@status">Status</th>
+			<td mat-cell *matCellDef="let row" data-name="Status" i18n-data-name="@@status">
+				<span class="success" *ngIf="row.PAYMENT_STATUS == 1" i18n="@@confirmed">Confirmed</span>
+				<span class="invalid" *ngIf="row.PAYMENT_STATUS == 0" i18n="@@failed">Failed</span>
+			</td>
+		  </ng-container>
+		  <ng-container matColumnDef="menu">
+			<th mat-header-cell *matHeaderCellDef></th>
+			<td mat-cell *matCellDef="let row; let i = index" class="table-option">
+			  <div class="text-right">
+				<button class="btn-icon type-xs menu-table" [matMenuTriggerFor]="menu">
+					<img src="assets/img/more-actions.svg" alt="">
+				</button>
+				<mat-menu #menu="matMenu">
+				  <button mat-menu-item (click)="print(row.AUTHORIZATION_NO)">Print</button>
+				</mat-menu>
+			   </div>
+			</td>
+		  </ng-container>
+		  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+		</table>
+		<mat-paginator class="custome-pagination" [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10" [length]="tableLength"></mat-paginator>
+		</div>
+		</div>
+		<div class="spinner" [ngClass]="{'active': !loaderIsVisible}"></div>
+		</div>
+		<div class="bs-lg"></div>
+	</div>
+</div>

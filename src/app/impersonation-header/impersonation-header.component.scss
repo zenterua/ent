@@ -1,0 +1,70 @@
+@import "src/app/variables.scss";
+
+.impersonationHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: $color;
+  padding: 10px 20px 10px 10px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .svgIcon {
+    display: inline-block;
+    vertical-align: middle;
+    fill: #fff;
+  }
+  .impersonationTitle {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 27px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .impersonateInfo {
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    padding-left: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    span {
+      margin: 0 15px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .impersonationNav {
+    display: inline-block;
+    vertical-align: middle;
+    &:hover {
+      .btn-icon {
+        box-shadow: 0 2px 8px 0 rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    display: block;
+    .impersonationTitle {
+      padding-left: 10px;
+    }
+    .impersonateInfo {
+      display: block;
+      padding-left: 42px;
+      span:first-child {
+        margin-left: 0;
+      }
+    }
+    .leftBlock {
+      margin-bottom: 10px;
+    }
+  }
+
+}

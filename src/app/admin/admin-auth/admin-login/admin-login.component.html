@@ -1,0 +1,124 @@
+<section class="contentWrapper loginWrapper" style="background: #FFF;">
+	<div class="loginHeader">
+		<a class="logo" [routerLink]="['/admin/login']">
+			<img src="assets/img/logo.svg" alt=""/>
+		</a>
+
+		<div class="lang-wrap">
+      <div class="app-languages">
+        <a class="link" [ngClass]="{'active': localeId =='en-US'}" [attr.href]="languages[0].url">EN</a>
+        <a class="link" [ngClass]="{'active': localeId =='fr'}" [attr.href]="languages[1].url">FR</a>
+      </div>
+		</div>
+	</div>
+
+	<div class="leftSide">
+		<div class="fullscreenAlign">
+			<div class="loginCard">
+				<div class="spinner semitransparent" [ngClass]="{'active': loaderIsVisible}"></div>
+
+				<ng-container *ngIf="serverError">
+					<div class="text-center" [@itemAnimation]>
+						<div class="bs-xs-60 bs-sm-100"></div>
+						<h2 class="h1" i18n="@@errorOccurred">An Unexpected Error Occurred</h2>
+						<div class="bs-xs-10"></div>
+						<h4 class="h4" i18n="@@serverError">Server Error</h4>
+						<div class="bs-xs-30"></div>
+						<a class="btn btn-primary btn-lg" (click)="serverError = false" i18n="@@goBack">Go Back</a>
+					</div>
+				</ng-container>
+
+				<ng-container  *ngIf="loginError">
+				<div class="text-center" [@itemAnimation]>
+					<h2 class="h1" i18n="@@errorOccurred">An Unexpected Error Occurred</h2>
+					<div class="bs-xs-10"></div>
+					<p class="text grey" i18n="@@passwordNotMatch">The username or password you entered did not match our records.</p>
+					<div class="bs-xs-30"></div>
+					<a class="btn btn-primary btn-lg" (click)="loginError = false" i18n="@@goBack">Go Back</a>
+				</div>
+				</ng-container>
+
+				<ng-container *ngIf="inactiveAccount">
+					<div class="text-center" [@itemAnimation]>
+						<div class="bs-xs-60 bs-sm-100"></div>
+						<h2 class="h1" i18n="@@errorOccurred">An Unexpected Error Occurred</h2>
+						<div class="bs-xs-10"></div>
+						<p class="text grey" i18n="@@cantAccess">You can’t access your account at this time. Please, contact us:</p>
+						<div class="bs-xs-30"></div>
+						<a href="mailto:support@entandem.ca" class="link-text">support@entandem.ca</a>
+						<div class="bs-xs-10"></div>
+						<p class="text grey" i18n="@@OR">OR</p>
+						<div class="bs-xs-10"></div>
+						<a href="tel:18775758208" class="link-text">1-877-575-8208</a>
+						<div class="bs-xs-30"></div>
+						<a class="btn btn-primary btn-lg" (click)="inactiveAccount = false;" i18n="@@goBack">Go Back</a>
+						<div class="bs-xs-60 bs-sm-100"></div>
+					</div>
+				</ng-container>
+
+				<ng-container *ngIf="!serverError && !loginError && !inactiveAccount" >
+					<div [@itemAnimation]>
+						<div class="sectionTitle text">
+							<h1 class="h1 as" i18n="@@adminLogin">Admin Login</h1>
+							<p i18n="@@enterCredentials">Please enter your credentials below.</p>
+						</div>
+
+						<div class="bs-xs-15 bs-sm-20"></div>
+
+						<form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+							<mat-form-field class="example-full-width">
+								<input matInput type="email" i18n-placeholder="@@emailLoginAddress" placeholder="Email Address" formControlName="email">
+								<mat-icon matSuffix class="invalid">warning</mat-icon>
+								<mat-error *ngIf="loginForm.get('email').hasError('pattern')" i18n="@@emailAddressNotValid">
+									Email address not valid.
+								</mat-error>
+								<mat-error *ngIf="loginForm.get('email').hasError('required')" i18n="@@fielRequired">
+									This field is required
+								</mat-error>
+							</mat-form-field>
+
+							<div class="bs-xs-10"></div>
+
+							<mat-form-field class="example-full-width">
+								<input matInput [type]="passwordVisible ? 'text': 'password'" i18n-placeholder="@@passwordLogin" placeholder="Password" formControlName="password">
+                <mat-icon matSuffix class="invalid">warning</mat-icon>
+                <mat-icon matSuffix class="passsword" [ngClass]="{'active':passwordVisible}">
+                  <div class="inline">
+                    <img src="assets/img/icon-view.svg" alt="" (click)="showPassword()">
+                  </div>
+                </mat-icon>
+                <mat-error *ngIf="loginForm.get('password').hasError('required')" i18n="@@fielRequired">
+                  This field is required
+                </mat-error>
+							</mat-form-field>
+
+							<div class="bs-xs-20 bs-sm-30"></div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<mat-checkbox [checked]="remember" (change)="rememberMe($event)" i18n="@@keepMeLoggedIn">Keep me logged in</mat-checkbox>
+									<div class="bs-xs-15 bs-md-0"></div>
+								</div>
+								<div class="col-sm-6 text sm col-sm-text-right">
+									<a class="link" [routerLink]="['/admin/forgotpassword']" i18n="@@forgotPassword">Forgot your password?</a>
+								</div>
+							</div>
+
+							<div class="bs-xs-30 bs-sm-60"></div>
+
+							<div class="text-center">
+								<button type="submit" class="btn btn-primary btn-lg btn-wide" [disabled]="!loginForm.valid" i18n="@@login">LOG IN</button>
+							</div>
+						</form>
+					</div>
+				</ng-container>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="rightSide fixed">
+		<div class="bgImage" style="background-color: #6C6F7C;"></div>
+		<div class="bgPattern" style="background-image: url(assets/img/admin/admin-login-bg.png);"></div>
+	</div>
+</section>

@@ -1,0 +1,3320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+     <trans-unit id="TYPOGRAPHY" datatype="html">
+        <source>Typography</source>
+        <target>TypographyFR</target>
+      </trans-unit>
+      <trans-unit id="AdminPortal" datatype="html">
+        <source>Admin Portal</source>
+        <target>Portail d’administration</target>
+        </trans-unit>
+      <trans-unit id="licensingPortal" datatype="html">
+        <source>Licensing Portal</source>
+        <target>Licensing Portal FR</target>
+      </trans-unit>
+       <trans-unit id="errorOccurred" datatype="html">
+        <source>An Unexpected Error Occurred</source>
+        <target>Une erreur s’est produite</target>
+       </trans-unit>
+       <trans-unit id="serverError" datatype="html">
+        <source>Server Error</source>
+        <target>Erreur du serveur</target>
+       </trans-unit>
+       <trans-unit id="passwordNotMatch" datatype="html">
+         <source>The username or password you entered did not match our records.</source>
+         <target>Le nom d’utilisateur ou le mot de passe saisi ne correspond pas à celui à nos dossiers.</target>
+       </trans-unit>
+       <trans-unit id="goBack" datatype="html">
+          <source>Go Back</source>
+          <target>Retour</target>
+       </trans-unit>
+       <trans-unit id="cantAccess" datatype="html">
+         <source>You can’t access your account at this time. Please, contact us:</source>
+         <target>Vous ne pouvez pas vous connecter à votre compte pour l’instant. Veuillez communiquer avec nous :</target>
+       </trans-unit>
+       <trans-unit id="OR" datatype="html">
+          <source>OR</source>
+          <target>OU</target>
+       </trans-unit>
+       <trans-unit id="adminLogin" datatype="html">
+         <source>Admin Login</source>
+         <target>Connexion administrateur</target>
+       </trans-unit>
+       <trans-unit id="enterCredentials" datatype="html">
+          <source>Please enter your credentials below.</source>
+          <target>Veuillez saisir vos identifiants ci-dessous.</target>
+       </trans-unit>
+       <trans-unit id="emailAddressNotValid" datatype="html">
+          <source>Email address not valid</source>
+          <target>Adresse courriel invalide</target>
+       </trans-unit>
+       <trans-unit id="fielRequired" datatype="html">
+          <source>This field is required</source>
+          <target>Ce champ est obligatoire</target>
+        </trans-unit>
+        <trans-unit id="keepMeLoggedIn" datatype="html">
+           <source>Keep me logged in</source>
+           <target>Rester connecter</target>
+        </trans-unit>
+        <trans-unit id="forgotPassword" datatype="html">
+          <source>Forgot your password?</source>
+          <target>Mot de passe oublié?</target>
+        </trans-unit>
+        <trans-unit id="login" datatype="html">
+           <source>LOG IN</source>
+           <target>CONNEXION</target>
+        </trans-unit>
+        <trans-unit id="resetLink" datatype="html">
+          <source>Reset Link Sent</source>
+          <target>Lien de réinitialisation envoyé</target>
+        </trans-unit>
+        <trans-unit id="resetLinkHasBeenSent" datatype="html">
+           <source>Your password reset link has been sent to your inbox.</source>
+           <target>Envoi de la réinitialisation du mot de passe réussi.</target>
+        </trans-unit>
+         <trans-unit id="provideAccountEmail" datatype="html">
+            <source>Please provide your account email to request a reset link.</source>
+            <target>Veuillez saisir l’adresse courriel associée à votre compte pour obtenir un lien de réinitialisation.</target>
+         </trans-unit>
+         <trans-unit id="sendResetLink" datatype="html">
+           <source>Send reset link</source>
+           <target>ENVOYER LE LIEN DE RÉINITIALISATION</target>
+         </trans-unit>
+         <trans-unit id="backToLogin" datatype="html">
+            <source>Go Back to Login</source>
+            <target>Retour à l’écran de connexion</target>
+         </trans-unit>
+         <trans-unit id="linkHasExpired" datatype="html">
+            <source>This link has expired.</source>
+            <target>Ce lien est expiré.</target>
+         </trans-unit>
+         <trans-unit id="resetExpiredAfter24" datatype="html">
+             <source>Your reset link expired after 24 hours or has already been used.</source>
+             <target>Le lien de réinitialisation expire après 24 heures.</target>
+          </trans-unit>
+         <trans-unit id="requestPasswordLink" datatype="html">
+            <source>Request a Password Reset Link</source>
+            <target>DEMANDER UN LIEN DE RÉINITIALISATION DE MOT DE PASSE</target>
+         </trans-unit>
+         <trans-unit id="newPasswordCreated" datatype="html">
+           <source>New password successfully created</source>
+           <target>Votre nouveau mot de passe a été créé avec succès !</target>
+         </trans-unit>
+         <trans-unit id="createNewPassword" datatype="html">
+          <source>Create New Password</source>
+          <target>Créez un nouveau mot de passe</target>
+         </trans-unit>
+         <trans-unit id="enterPassword" datatype="html">
+           <source>Please enter your new password.</source>
+           <target>Veuillez saisir votre nouveau mot de passe.</target>
+         </trans-unit>
+         <trans-unit id="passwordNotMutch" datatype="html">
+           <source>Password does not match</source>
+           <target>Le mot de passe n’est pas le bon.</target>
+         </trans-unit>
+         <trans-unit id="createPassword" datatype="html">
+           <source>Create Password</source>
+           <target>Créez un mot de passe</target>
+         </trans-unit>
+         <trans-unit id="welcomeBack" datatype="html">
+          <source>Welcome back!</source>
+          <target>Rebienvenue !</target>
+         </trans-unit>
+         <trans-unit id="manageAccountsAndMore" datatype="html">
+           <source>Manage accounts and access reports, payment history and more.</source>
+           <target>Ici, vous pourrez gérer vos comptes et avoir accès à vos rapports, à votre historique de paiement et bien plus.</target>
+         </trans-unit>
+         <trans-unit id="ownerAccounts" datatype="html">
+           <source>Owner Accounts</source>
+           <target>Comptes propriétaire</target>
+          </trans-unit>
+         <trans-unit id="userImpersonation" datatype="html">
+           <source>User Impersonation</source>
+           <target>Mandataire</target>
+         </trans-unit>
+         <trans-unit id="reports" datatype="html">
+            <source>Reports</source>
+            <target>Rapports</target>
+         </trans-unit>
+         <trans-unit id="paymentHistory" datatype="html">
+           <source>Payment History</source>
+           <target>Historique de paiements</target>
+         </trans-unit>
+         <trans-unit id="manageUsers" datatype="html">
+           <source>Manage Users</source>
+           <target>GÉRER LES UTILISATEURS</target>
+         </trans-unit>
+         <trans-unit id="manageOwners" datatype="html">
+           <source>Manage Owners</source>
+           <target>MANAGE OWNERS</target>
+         </trans-unit>
+         <trans-unit id="manageAdmin" datatype="html">
+           <source>Manage Admin</source>
+           <target>GÉRER LE COMPTE ADMINISTRATEUR</target>
+         </trans-unit>
+         <trans-unit id="impersonationMode" datatype="html">
+           <source>Impersonation Mode</source>
+           <target>MODE MANDATAIRE</target>
+         </trans-unit>
+         <trans-unit id="allLicenseesReports" datatype="html">
+           <source>All Licensee Reports</source>
+           <target>TOUS LES RAPPORTS DE LICENCIÉS</target>
+         </trans-unit>
+         <trans-unit id="seePaymentsHistory" datatype="html">
+           <source>See Payment History</source>
+           <target>VOIR L’HISTORIQUE DE PAIEMENT</target>
+         </trans-unit>
+         <trans-unit id="resetMyPassword" datatype="html">
+           <source>Reset My Password</source>
+           <target>Réinitialiser le mot de passe</target>
+         </trans-unit>
+         <trans-unit id="adminAccounts" datatype="html">
+           <source>Admin Accounts</source>
+           <target>Comptes administrateur</target>
+         </trans-unit>
+         <trans-unit id="signOut" datatype="html">
+           <source>Sign Out</source>
+           <target>Déconnexion</target>
+         </trans-unit>
+         <trans-unit id="dashboard" datatype="html">
+            <source>Dashboard</source>
+            <target>Tableau de bord</target>
+          </trans-unit>
+          <trans-unit id="userManagement" datatype="html">
+           <source>User Management</source>
+           <target>Gestion des utilisateurs</target>
+         </trans-unit>
+          <trans-unit id="impersonation" datatype="html">
+           <source>Impersonation</source>
+           <target>Mandataire</target>
+         </trans-unit>
+         <trans-unit id="reminders" datatype="html">
+          <source>Reminders</source>
+          <target>Rappels</target>
+         </trans-unit>
+		 <trans-unit id="reminders2" datatype="html">
+          <source>Reminders:</source>
+          <target>Rappels :</target>
+         </trans-unit>
+         <trans-unit id="youSureToSignOut" datatype="html">
+            <source>Are you sure you want to sign out? Unsaved data will be lost </source>
+            <target>Êtes-vous certain de vouloir vous déconnecter ? Les données non sauvegardées seront perdues </target>
+          </trans-unit>
+          <trans-unit id="cancel" datatype="html">
+           <source>Cancel</source>
+           <target>ANNULER</target>
+         </trans-unit>
+         <trans-unit id="logOut" datatype="html">
+          <source>Log Out</source>
+          <target>DÉCONNEXION</target>
+        </trans-unit>
+         <trans-unit id="createAccount" datatype="html">
+          <source>Create Account</source>
+          <target>CRÉER COMPTE</target>
+        </trans-unit>
+        <trans-unit id="nothingFound" datatype="html">
+          <source>Nothing found</source>
+          <target>Rien n’a été trouvé</target>
+        </trans-unit>
+        <trans-unit id="unexpectedServerError" datatype="html">
+        <source>An Unexpected Server Error Occurred</source>
+        <target>Une erreur du serveur s’est produite</target>
+      </trans-unit>
+      <trans-unit id="accountsSelected" datatype="html">
+        <source>Accounts Selected</source>
+        <target>Comptes Sélectionnés</target>
+      </trans-unit>
+      <trans-unit id="activate" datatype="html">
+        <source>Activate</source>
+        <target>ACTIVER</target>
+      </trans-unit>
+      <trans-unit id="deactivate" datatype="html">
+        <source>Deactivate</source>
+        <target>DÉSACTIVER</target>
+      </trans-unit>
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <target>SUPPRIMER</target>
+      </trans-unit>
+      <trans-unit id="status" datatype="html">
+        <source>Status</source>
+        <target>Statut</target>
+      </trans-unit>
+      <trans-unit id="ID" datatype="html">
+        <source>ID</source>
+        <target>Identifiant</target>
+      </trans-unit>
+      <trans-unit id="name" datatype="html">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="created" datatype="html">
+        <source>Created</source>
+        <target>Créé le</target>
+      </trans-unit>
+      <trans-unit id="active" datatype="html">
+        <source>Active</source>
+        <target>Actif</target>
+      </trans-unit>
+      <trans-unit id="inactive" datatype="html">
+        <source>Inactive</source>
+        <target>Inactif</target>
+      </trans-unit>
+      <trans-unit id="createAdminAccount" datatype="html">
+        <source>Create Account</source>
+        <target>CRÉER COMPTE</target>
+      </trans-unit>
+      <trans-unit id="editAdminAccount" datatype="html">
+        <source>Edit Admin Account</source>
+        <target>Modifier le compte administrateur</target>
+      </trans-unit>
+      <trans-unit id="sureDeleteAccount" datatype="html">
+        <source>Are you sure you want to delete this account?</source>
+        <target>Êtes-vous sûr de vouloir supprimer ce compte ?</target>
+      </trans-unit>
+      <trans-unit id="delateAccount" datatype="html">
+        <source>Delete Account</source>
+        <target>SUPPRIMER COMPTE</target>
+      </trans-unit>
+      <trans-unit id="edit" datatype="html">
+        <source>Edit</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="editAccount" datatype="html">
+        <source>Edit Account</source>
+        <target>Modifier le compte</target>
+      </trans-unit>
+      <trans-unit id="staffAdminDetails" datatype="html">
+        <source>Staff Admin Details</source>
+        <target>Détails de l’administrateur</target>
+      </trans-unit>
+      <trans-unit id="deactive" datatype="html">
+        <source>Deactivate</source>
+        <target>Désactiver</target>
+      </trans-unit>
+      <trans-unit id="profileInformation" datatype="html">
+        <source>Profile Information</source>
+        <target>Information de profil</target>
+      </trans-unit>
+      <trans-unit id="createdDate" datatype="html">
+        <source>Date Created:</source>
+        <target>Date de création :</target>
+      </trans-unit>
+      <trans-unit id="account" datatype="html">
+        <source>Account #:</source>
+        <target>Compte # :</target>
+      </trans-unit>
+      <trans-unit id="leaveAccount" datatype="html">
+        <source>Leave Account</source>
+        <target>Quitter le compte</target>
+      </trans-unit>
+      <trans-unit id="licensee" datatype="html">
+        <source>Licensee</source>
+        <target>Licencié</target>
+      </trans-unit>
+      <trans-unit id="userImpersonate" datatype="html">
+        <source>User Impersonation</source>
+        <target>Mandataire</target>
+      </trans-unit>
+      <trans-unit id="impersonationListEmpty" datatype="html">
+        <source>Impersonation user list is empty</source>
+        <target>La liste de mandataires est vide</target>
+      </trans-unit>
+      <trans-unit id="province" datatype="html">
+        <source>Province</source>
+        <target>Province</target>
+      </trans-unit>
+	  <trans-unit id="provinceDot" datatype="html">
+        <source>Province:</source>
+        <target>Province :</target>
+      </trans-unit>
+      <trans-unit id="company" datatype="html">
+        <source>Company</source>
+        <target>Organisation</target>
+      </trans-unit>
+      <trans-unit id="activeImpersonation" datatype="html">
+        <source>Activate Impersonation</source>
+        <target>Activer le mandataire</target>
+      </trans-unit>
+      <trans-unit id="business" datatype="html">
+        <source>Business</source>
+        <target>Entreprise</target>
+      </trans-unit>
+      <trans-unit id="firstName" datatype="html">
+        <source>First Name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="lastName" datatype="html">
+        <source>Last Name</source>
+        <target>Nom de famille</target>
+      </trans-unit>
+      <trans-unit id="city" datatype="html">
+        <source>City</source>
+        <target>Ville</target>
+      </trans-unit>
+	  <trans-unit id="city2" datatype="html">
+        <source>City:</source>
+        <target>Ville :</target>
+      </trans-unit>
+      <trans-unit id="assignLicensees" datatype="html">
+        <source>Assign Licensees</source>
+        <target>Licenciés affectés</target>
+      </trans-unit>
+      <trans-unit id="createAccountOwner" datatype="html">
+        <source>Create Account Owner</source>
+        <target>Créer un compte propriétaire</target>
+      </trans-unit>
+      <trans-unit id="phoneNotValid" datatype="html">
+        <source>Phone number not valid</source>
+        <target>Le numéro de téléphone n’est pas valide</target>
+      </trans-unit>
+      <trans-unit id="createOwner" datatype="html">
+        <source>Create Owner</source>
+        <target>CRÉER UN PROPRIÉTAIRE</target>
+      </trans-unit>
+      <trans-unit id="LicenseesForOwner" datatype="html">
+        <source>Select Licensees for this Owner</source>
+        <target>Licenciés affectés pour ce propriétaire</target>
+      </trans-unit>
+      <trans-unit id="assingLicensee" datatype="html">
+        <source>ASSIGN LICENSEE</source>
+        <target>LICENCIÉS AFFECTÉS</target>
+      </trans-unit>
+      <trans-unit id="owneraAccountDetails" datatype="html">
+        <source>Owner Account Details</source>
+        <target>Détails du compte propriétaire</target>
+      </trans-unit>
+      <trans-unit id="businessName" datatype="html">
+        <source>Business Name:</source>
+        <target>Nom de l’entreprise :</target>
+      </trans-unit>
+	  <trans-unit id="businessName2" datatype="html">
+        <source>Business Name</source>
+        <target>Nom de l’entreprise</target>
+      </trans-unit>
+
+      <trans-unit id="address" datatype="html">
+        <source>Address:</source>
+        <target>Adresse :</target>
+      </trans-unit>
+      <trans-unit id="primaryContact" datatype="html">
+        <source>Primary Contact</source>
+        <target>CONTACT PRINCIPAL</target>
+      </trans-unit>
+	  <trans-unit id="primaryContact2" datatype="html">
+        <source>Primary Contact:</source>
+        <target>Contact principal :</target>
+      </trans-unit>
+      <trans-unit id="legalName" datatype="html">
+        <source>Legal Name</source>
+        <target>Nom légal</target>
+      </trans-unit>
+	  <trans-unit id="legalName2" datatype="html">
+        <source>Legal Name:</source>
+        <target>Nom légal :</target>
+      </trans-unit>
+      <trans-unit id="phoneNumber" datatype="html">
+        <source>Phone Number:</source>
+        <target>Numéro de téléphone :</target>
+      </trans-unit>
+	  <trans-unit id="phoneNumber2" datatype="html">
+        <source>Phone Number</source>
+        <target>Numéro de téléphone</target>
+      </trans-unit>
+      <trans-unit id="createDate" datatype="html">
+        <source>Date Created:</source>
+        <target>Date de création :</target>
+      </trans-unit>
+      <trans-unit id="ownerChildAssigned" datatype="html">
+        <source>Owner Parent - Child Assigned</source>
+        <target>Société mère — Société affiliée</target>
+      </trans-unit>
+      <trans-unit id="assignLicenseesOwner" datatype="html">
+        <source>Assign Licensees for this Owner</source>
+        <target>Licenciés affectés pour ce propriétaire</target>
+      </trans-unit>
+      <trans-unit id="removeLicensee" datatype="html">
+        <source>Remove licensee</source>
+        <target>Supprimer le licencié</target>
+      </trans-unit>
+      <trans-unit id="removeFormOwner" datatype="html">
+        <source>Remove form Owner</source>
+        <target>Supprimer le propriétaire du formulaire</target>
+      </trans-unit>
+      <trans-unit id="editAccountOwner" datatype="html">
+        <source>Edit Account Owner</source>
+        <target>Modifier le propriétaire du compte</target>
+      </trans-unit>
+      <trans-unit id="sureWantDeleteOwners" datatype="html">
+        <source>Are you sure you want to delete this owners?</source>
+        <target>Êtes-vous certain de vouloir supprimer ce propriétaire ?</target>
+      </trans-unit>
+      <trans-unit id="delateOwner" datatype="html">
+        <source>Delete Owner</source>
+        <target>Supprimer le propriétaire</target>
+      </trans-unit>
+      <trans-unit id="paymentHistoryTitle" datatype="html">
+        <source>Payment History</source>
+        <target>Historique de paiements</target>
+      </trans-unit>
+      <trans-unit id="accountsSelectedExport" datatype="html">
+        <source>Accounts Selected for export</source>
+        <target>Comptes sélectionnés pour l’exportation</target>
+      </trans-unit>
+      <trans-unit id="AmountCAD" datatype="html">
+        <source>Amount (CAD$)</source>
+        <target>Montant ($CAD)</target>
+      </trans-unit>
+      <trans-unit id="date" datatype="html">
+        <source>Date</source>
+        <target>Date</target>
+      </trans-unit>
+	  <trans-unit id="date2" datatype="html">
+        <source>Date:</source>
+        <target>Date :</target>
+      </trans-unit>
+      <trans-unit id="time" datatype="html">
+        <source>Time</source>
+        <target>Heure</target>
+      </trans-unit>
+      <trans-unit id="confirmed" datatype="html">
+        <source>Confirmed</source>
+        <target>Confirmée</target>
+      </trans-unit>
+      <trans-unit id="noConfirmed" datatype="html">
+        <source>No confirmed</source>
+        <target>Non confirmé</target>
+      </trans-unit>
+      <trans-unit id="export" datatype="html">
+        <source>Export</source>
+        <target>Exportation</target>
+      </trans-unit>
+      <trans-unit id="automatedReminders" datatype="html">
+        <source>Automated Reminders</source>
+        <target>Rappels automatisés</target>
+      </trans-unit>
+      <trans-unit id="createReminders" datatype="html">
+        <source>Create Reminders</source>
+        <target>CRÉER DES RAPPELS</target>
+      </trans-unit>
+      <trans-unit id="reminderName" datatype="html">
+        <source>Reminder Name</source>
+        <target>Nom du rappel</target>
+      </trans-unit>
+      <trans-unit id="dueDate" datatype="html">
+        <source>Due Date</source>
+        <target>Paiement dû le</target>
+      </trans-unit>
+	  <trans-unit id="dueDate2" datatype="html">
+        <source>Due Date:</source>
+        <target>Paiement dû le :</target>
+      </trans-unit>
+      <trans-unit id="language" datatype="html">
+        <source>Language</source>
+        <target>Langue</target>
+      </trans-unit>
+      <trans-unit id="territories" datatype="html">
+        <source>Territories</source>
+        <target>Territoires</target>
+      </trans-unit>
+      <trans-unit id="industry" datatype="html">
+        <source>Industry</source>
+        <target>Industrie</target>
+      </trans-unit>
+      <trans-unit id="balanceDueDate" datatype="html">
+        <source>Balance Due Date</source>
+        <target>Date d’échéance du solde</target>
+      </trans-unit>
+      <trans-unit id="remove" datatype="html">
+        <source>Remove</source>
+        <target>Retirer</target>
+      </trans-unit>
+      <trans-unit id="newReminder" datatype="html">
+        <source>New Reminder</source>
+        <target>Nouveau rappel</target>
+      </trans-unit>
+      <trans-unit id="remindersDetails" datatype="html">
+        <source>Reminder Details</source>
+        <target>Détails du rappel</target>
+      </trans-unit>
+      <trans-unit id="previewTemplate" datatype="html">
+        <source>PREVIEW TEMPLATE</source>
+        <target>VISUALISER LE MODÈLE</target>
+      </trans-unit>
+      <trans-unit id="monthly" datatype="html">
+        <source>Monthly</source>
+        <target>Mensuel</target>
+      </trans-unit>
+      <trans-unit id="quarterly" datatype="html">
+        <source>Quarterly</source>
+        <target>Trimestriel</target>
+      </trans-unit>
+      <trans-unit id="annually" datatype="html">
+        <source>Annually</source>
+        <target>Annuelle</target>
+      </trans-unit>
+      <trans-unit id="selectedTariffsRemainder" datatype="html">
+        <source>Select a Tariff to Set a Reminder</source>
+        <target>Sélectionner pour quel tarif envoyer un rappel</target>
+      </trans-unit>
+      <trans-unit id="tariffSelected" datatype="html">
+        <source>Tariff Selected</source>
+        <target>Tarif sélectionné</target>
+      </trans-unit>
+      <trans-unit id="removeTariffs" datatype="html">
+        <source>Remove Tariffs</source>
+        <target>Supprimer des tarifs</target>
+      </trans-unit>
+      <trans-unit id="tariff" datatype="html">
+        <source>Tariff</source>
+        <target>Tarif</target>
+      </trans-unit>
+	  <trans-unit id="tariff2" datatype="html">
+        <source>Tariff:</source>
+        <target>Tarif :</target>
+      </trans-unit>
+      <trans-unit id="accountsBalance" datatype="html">
+        <source>Accounts Balance:</source>
+        <target>Solde du compte :</target>
+      </trans-unit>
+      <trans-unit id="withBalanceDue" datatype="html">
+        <source>With a balance due</source>
+        <target>Avec solde</target>
+      </trans-unit>
+      <trans-unit id="withbalanceUpDate" datatype="html">
+        <source>With a balance up to date</source>
+        <target>Avec solde à jour</target>
+      </trans-unit>
+      <trans-unit id="missingReportPeriodOnly" datatype="html">
+        <source>Missing Report Period Only</source>
+        <target>Période de rapport manquante seulement</target>
+      </trans-unit>
+      <trans-unit id="removeReminders" datatype="html">
+        <source>Remove Reminders</source>
+        <target>SUPPRIMER DES RAPPELS</target>
+      </trans-unit>
+      <trans-unit id="previewRemindersTemplate" datatype="html">
+        <source>Preview Reminders Template</source>
+        <target>Voir les modèles de rappels</target>
+      </trans-unit>
+      <trans-unit id="templateTitle" datatype="html">
+        <source>RE: Re:Sound Quarterly Reporting (October to December) - Tariff 5.B Account: [Account Num] – [Business Name] – [Business Address], [City], [Prov]</source>
+        <target>RE: Re:Sound Quarterly Reporting (October to December) - Tariff 5.B Account: [Account Num] – [Business Name] – [Business Address], [City], [Prov] FR</target>
+      </trans-unit>
+      <trans-unit id="templateDescription" datatype="html">
+        <source>Dear [Contact Name], This email is a reminder that the quarter is almost over and it is time to report and pay for your venue’s use of recorded music to accompany events such as receptions (including weddings), conventions, assemblies, and fashion shows. Reporting and payment for this quarter are due no later than January 31, 2019.  You may visit our website at http://www.resound.ca/music-use-reporting-form/ to complete and submit your reporting form. If you have any questions or wish to speak to a Re:Sound representative, please contact our Licensing department at 1-877-309-5770 or at licensing@resound.ca. Additional information about Re:Sound is available at www.resound.ca or on the Copyright Board of Canada’s website, www.cb-cda.gc.ca. To read about the benefits of music and how you can use music to achieve your business goals, please visit musichasvalue.ca. If your reporting information and payment have already been submitted or are en route, please  disregard this email. Thank you,</source>
+        <target> [Contact Name], This email is a reminder that the quarter is almost over and it is time to report and pay for your venue’s use of recorded music to accompany events such as receptions (including weddings), conventions, assemblies, and fashion shows. Reporting and payment for this quarter are due no later than January 31, 2019.  You may visit our website at http://www.resound.ca/music-use-reporting-form/ to complete and submit your reporting form. If you have any questions or wish to speak to a Re:Sound representative, please contact our Licensing department at 1-877-309-5770 or at licensing@resound.ca. Additional information about Re:Sound is available at www.resound.ca or on the Copyright Board of Canada’s website, www.cb-cda.gc.ca. To read about the benefits of music and how you can use music to achieve your business goals, please visit musichasvalue.ca. If your reporting information and payment have already been submitted or are en route, please  disregard this email. Thank you, FR</target>
+      </trans-unit>
+      <trans-unit id="selectTariffReminders" datatype="html">
+        <source>Tariffs Selected for a Reminder</source>
+        <target>Tarif sélectionné pour un rappel</target>
+      </trans-unit>
+      <trans-unit id="tariffsSelected" datatype="html">
+        <source>Tariffs Selected</source>
+        <target>tarifs sélectionnés</target>
+      </trans-unit>
+      <trans-unit id="newRemindersTemplate" datatype="html">
+        <source>New Reminder Template</source>
+        <target>Nouveau modèle de rappel</target>
+      </trans-unit>
+       <trans-unit id="reminderMessage" datatype="html">
+          <source>Reminder Message</source>
+          <target>Message du rappel</target>
+        </trans-unit>
+        <trans-unit id="discart" datatype="html">
+        <source>Discard</source>
+        <target>SUPPRIMER</target>
+      </trans-unit>
+      <trans-unit id="save" datatype="html">
+        <source>Save</source>
+        <target>SAUVEGARDER</target>
+      </trans-unit>
+      <trans-unit id="selectCadence" datatype="html">
+        <source>Select Cadence:</source>
+        <target>Sélectionner fréquence :</target>
+      </trans-unit>
+      <trans-unit id="reportId" datatype="html">
+        <source>Report #</source>
+        <target>Rapport #</target>
+      </trans-unit>
+	  <trans-unit id="reportId2" datatype="html">
+        <source>Report #:</source>
+        <target>Rapport # :</target>
+      </trans-unit>
+      <trans-unit id="submitter" datatype="html">
+        <source>Submitter</source>
+        <target>Soumis par</target>
+      </trans-unit>
+	  <trans-unit id="submitter2" datatype="html">
+        <source>Submitter:</source>
+        <target>Soumis par :</target>
+      </trans-unit>
+      <trans-unit id="epicorReport" datatype="html">
+        <source>Epicor Report</source>
+        <target>Rapport Epicor</target>
+      </trans-unit>
+      <trans-unit id="submitted" datatype="html">
+        <source>Submitted</source>
+        <target>Soumis le</target>
+      </trans-unit>
+	  <trans-unit id="submitted2" datatype="html">
+        <source>Submitted:</source>
+        <target>Soumis le :</target>
+      </trans-unit>
+      <trans-unit id="download" datatype="html">
+        <source>Download</source>
+        <target>Télécharger</target>
+      </trans-unit>
+      <trans-unit id="report" datatype="html">
+        <source>Report</source>
+        <target>Rapport</target>
+      </trans-unit>
+      <trans-unit id="acceptedBy" datatype="html">
+        <source>Accepted by:</source>
+        <target>Accepté par :</target>
+      </trans-unit>
+      <trans-unit id="musicUsage" datatype="html">
+        <source>Music Usage</source>
+        <target>Utilisation de musique</target>
+      </trans-unit>
+	  <trans-unit id="musicUsage2" datatype="html">
+        <source>Music Usage:</source>
+        <target>Utilisation de musique :</target>
+      </trans-unit>
+      <trans-unit id="dateAndTime" datatype="html">
+        <source>Date and Time</source>
+        <target>Date et heure</target>
+      </trans-unit>
+	  <trans-unit id="dateAndTime2" datatype="html">
+        <source>Date and Time:</source>
+        <target>Date et heure :</target>
+      </trans-unit>
+      <trans-unit id="establishmentDetails" datatype="html">
+        <source>Establishment Details</source>
+        <target>Détails concernant l’établissement</target>
+      </trans-unit>
+      <trans-unit id="tariffDescription" datatype="html">
+        <source>Tariff Description</source>
+        <target>Description du tarif</target>
+      </trans-unit>
+      <trans-unit id="unitName" datatype="html">
+        <source>Unit Name</source>
+        <target>Nom de l’unité</target>
+      </trans-unit>
+      <trans-unit id="eventDetails" datatype="html">
+        <source>Event Details</source>
+        <target>Détails de l’événement</target>
+      </trans-unit>
+      <trans-unit id="yearReporting" datatype="html">
+        <source>Reporting year:</source>
+        <target>Année du rapport :</target>
+      </trans-unit>
+      <trans-unit id="reportingQuarter" datatype="html">
+        <source>Reporting Quarter</source>
+        <target>Trimestre du rapport </target>
+      </trans-unit>
+      <trans-unit id="NumberEventDetails" datatype="html">
+        <source>Number of event details</source>
+        <target>Détails sur le nombre d’événements</target>
+      </trans-unit>
+      <trans-unit id="roomCapacity" datatype="html">
+        <source>Room Capacity: </source>
+        <target>Capacité de la salle :</target>
+      </trans-unit>
+	  <trans-unit id="roomCapacity2" datatype="html">
+        <source>Room Capacity</source>
+        <target>Capacité de la salle</target>
+      </trans-unit>
+      <trans-unit id="idEventsWithoutDancing" datatype="html">
+        <source># of Events (without dancing):</source>
+        <target>Nombre d’événements (sans danse) :</target>
+      </trans-unit>
+	  <trans-unit id="idEventsWithoutDancing2" datatype="html">
+        <source># of Events (without dancing)</source>
+        <target>Nombre d’événements (sans danse)</target>
+      </trans-unit>
+      <trans-unit id="idEventsWithDancing" datatype="html">
+        <source># of Events (with dancing):</source>
+        <target>Nombre d’événements (avec danse) :</target>
+      </trans-unit>
+	  <trans-unit id="idEventsWithDancing2" datatype="html">
+        <source># of Events (with dancing)</source>
+        <target>Nombre d’événements (avec danse)</target>
+      </trans-unit>
+      <trans-unit id="SOCANFees" datatype="html">
+        <source>SOCAN Licensing Fees:</source>
+        <target>Frais de licence SOCAN :</target>
+      </trans-unit>
+      <trans-unit id="ReSoundFees" datatype="html">
+        <source>Re:Sound Licensing Fees:</source>
+        <target>Frais de licence RÉ:SONNE :</target>
+      </trans-unit>
+      <trans-unit id="totalFees" datatype="html">
+        <source>Total Fees:</source>
+        <target>Total des frais :</target>
+      </trans-unit>
+      <trans-unit id="reportingDetails" datatype="html">
+        <source>Reporting Details</source>
+        <target>Détails du rapport</target>
+      </trans-unit>
+      <trans-unit id="sportsEvents" datatype="html">
+        <source>Sports Events</source>
+        <target>Événements sportifs</target>
+      </trans-unit>
+      <trans-unit id="iHaveNoEeventToReport" datatype="html">
+        <source>I have no events to report</source>
+        <target>Je n’ai aucun événement à rapporter</target>
+      </trans-unit>
+      <trans-unit id="submittingReportConfirm" datatype="html">
+        <source>By submitting this report you confirm that you have total of 0 events to report for this year. </source>
+        <target>En soumettant ce rapport, vous confirmez que vous n’avez aucun événement à rapporter pour cette année.</target>
+      </trans-unit>
+      <trans-unit id="eventName" datatype="html">
+        <source>Event Name:</source>
+        <target>Nom de l’événement :</target>
+      </trans-unit>
+	  <trans-unit id="eventName2" datatype="html">
+        <source>Event Name</source>
+        <target>Nom de l’événement</target>
+      </trans-unit>
+      <trans-unit id="venue" datatype="html">
+        <source>Venue</source>
+        <target>Salle</target>
+      </trans-unit>
+      <trans-unit id="grossReceipts" datatype="html">
+        <source>Gross Receipts</source>
+        <target>Recettes brute</target>
+      </trans-unit>
+      <trans-unit id="subtotal" datatype="html">
+        <source>Subtotal</source>
+        <target>Sous-total</target>
+      </trans-unit>
+	  <trans-unit id="subtotal2" datatype="html">
+        <source>Subtotal:</source>
+        <target>Sous-total :</target>
+      </trans-unit>
+      <trans-unit id="payment" datatype="html">
+        <source>Payment: </source>
+        <target>Paiement :</target>
+      </trans-unit>
+      <trans-unit id="accountsSelectedDownload" datatype="html">
+        <source>Accounts Selected to Download </source>
+        <target>Comptes sélectionnés pour téléchargement</target>
+      </trans-unit>
+      <trans-unit id="activateAccount" datatype="html">
+        <source>Activate Account</source>
+        <target>Activer le compte</target>
+      </trans-unit>
+      <trans-unit id="deactivateAccount" datatype="html">
+        <source>Deactivate Account</source>
+        <target>Désactiver le compte</target>
+      </trans-unit>
+      <trans-unit id="resetPassword" datatype="html">
+        <source>Reset Password</source>
+        <target>Réinitialiser le mot de passe</target>
+      </trans-unit>
+      <trans-unit id="userAccountDetail" datatype="html">
+        <source>User Account Details</source>
+        <target>Détails du compte utilisateur</target>
+      </trans-unit>
+      <trans-unit id="emailAddress" datatype="html">
+        <source>Email Address:</source>
+        <target>Courriel :</target>
+      </trans-unit>
+	  <trans-unit id="emailAddress2" datatype="html">
+        <source>Email Address</source>
+        <target>Courriel</target>
+      </trans-unit>
+      <trans-unit id="emailLoginAddress" datatype="html">
+        <source>Email Address</source>
+        <target>Courriel</target>
+      </trans-unit>
+      <trans-unit id="passwordLogin" datatype="html">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="repaetLoginPassword" datatype="html">
+        <source>Repeat Password</source>
+        <target>Resaisir votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="search" datatype="html">
+        <source>Search</source>
+        <target>Recherche</target>
+      </trans-unit>
+      <trans-unit id="currentEmailAddress" datatype="html">
+        <source>Current Email Address</source>
+        <target>Courriel actuel</target>
+      </trans-unit>
+      <trans-unit id="postalCode" datatype="html">
+        <source>Postal Code:</source>
+        <target>Code postal :</target>
+      </trans-unit>
+	  <trans-unit id="postalCode2" datatype="html">
+        <source>Postal Code</source>
+        <target>Code postal</target>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>Email:</source>
+        <target>Courriel :</target>
+      </trans-unit>
+	  <trans-unit id="email2" datatype="html">
+        <source>Email</source>
+        <target>Courriel</target>
+      </trans-unit>
+      <trans-unit id="addNewTemplate" datatype="html">
+        <source>Add New Template</source>
+        <target>AJOUTER UN MODÈLE</target>
+      </trans-unit>
+      <trans-unit id="reminderTitle" datatype="html">
+        <source>Reminder Title</source>
+        <target>Titre du rappel</target>
+      </trans-unit>
+      <trans-unit id="selectTerritories" datatype="html">
+        <source>Select Territories</source>
+        <target>Sélectionner territoires</target>
+      </trans-unit>
+      <trans-unit id="selectIndustryClass" datatype="html">
+        <source>Select Industry Class</source>
+        <target>Sélectionner catégorie commerciale</target>
+      </trans-unit>
+       <trans-unit id="simpleID" datatype="html">
+          <source>Id</source>
+          <target>Identifiant</target>
+        </trans-unit>
+      <trans-unit id="startDate" datatype="html">
+        <source>Start Date</source>
+        <target>Date de début</target>
+      </trans-unit>
+      <trans-unit id="endDate" datatype="html">
+        <source>End Date</source>
+        <target>Date de fin</target>
+      </trans-unit>
+      <trans-unit id="userID" datatype="html">
+        <source>User ID</source>
+        <target>Nom d’utilisateur</target>
+      </trans-unit>
+      <trans-unit id="amount" datatype="html">
+        <source>Amount</source>
+        <target>Montant</target>
+      </trans-unit>
+	  <trans-unit id="amount2" datatype="html">
+        <source>Amount:</source>
+        <target>Montant :</target>
+      </trans-unit>
+      <trans-unit id="paidBy" datatype="html">
+        <source>Paid By</source>
+        <target>Payé par</target>
+      </trans-unit>
+	  <trans-unit id="paidBy2" datatype="html">
+        <source>Paid By:</source>
+        <target>Payé par :</target>
+      </trans-unit>
+      <trans-unit id="reportID" datatype="html">
+        <source>Report ID</source>
+        <target>D du rapport</target>
+      </trans-unit>
+      <trans-unit id="selectCriteriaTemplate" datatype="html">
+        <source>Select Criteria Template</source>
+        <target>Sélectionner un modèle de critères</target>
+      </trans-unit>
+      <trans-unit id="updateOwner" datatype="html">
+        <source>UPDATE OWNER</source>
+        <target>MISE À JOUR PROPRIÉTAIRE</target>
+      </trans-unit>
+	  <trans-unit id="deleteLicensees" datatype="html">
+        <source>Delete Licensees</source>
+        <target>Supprimer licenciés</target>
+      </trans-unit>
+
+
+
+
+
+
+
+
+	  <trans-unit id="notRegistered" datatype="html">
+        <source>Not registered yet?</source>
+        <target>Vous n’êtes pas encore inscrit ?</target>
+      </trans-unit>
+
+      <trans-unit id="registerNow" datatype="html">
+        <source>Register Now</source>
+        <target>Inscrivez-vous maintenant</target>
+      </trans-unit>
+
+      <trans-unit id="fPassword" datatype="html">
+        <source>Forgot Password</source>
+        <target>Mot de passe oublié</target>
+      </trans-unit>
+
+      <trans-unit id="wereYouPreviously" datatype="html">
+        <source>Were you previously licensed with RE:SOUND and/or SOCAN?</source>
+        <target>Étiez-vous auparavant licencié auprès de RÉ:SONNE et/ou SOCAN ?</target>
+      </trans-unit>
+
+      <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>Non</target>
+      </trans-unit>
+
+      <trans-unit id="yes" datatype="html">
+        <source>Yes</source>
+        <target>Oui</target>
+      </trans-unit>
+
+      <trans-unit id="businessInformation" datatype="html">
+        <source>Business Information</source>
+        <target>Informations sur l’entreprise</target>
+      </trans-unit>
+
+      <trans-unit id="accountInformation" datatype="html">
+        <source>Account Information</source>
+        <target>Informations sur le compte</target>
+      </trans-unit>
+
+      <trans-unit id="emailOrAccount" datatype="html">
+        <source>Email Address or Account Number</source>
+        <target>Courriel ou numéro de compte</target>
+      </trans-unit>
+
+      <trans-unit id="repeatPassword" datatype="html">
+        <source>Repeat Password</source>
+        <target>Resaisir votre mot de passe</target>
+      </trans-unit>
+
+      <trans-unit id="passMustInclude" datatype="html">
+        <source>Password must include:</source>
+        <target>Votre mot de passe doit comprendre :</target>
+      </trans-unit>
+
+      <trans-unit id="lowercaseCharacters" datatype="html">
+        <source>A lowercase character</source>
+        <target>Une lettre minuscule</target>
+      </trans-unit>
+
+      <trans-unit id="numbers" datatype="html">
+        <source>A number</source>
+        <target>Un nombre</target>
+      </trans-unit>
+
+      <trans-unit id="specialCharacters" datatype="html">
+        <source>A special character (!@#$%^&amp;*)</source>
+        <target>Un caractère spécial (!@#$%^&amp;*)</target>
+      </trans-unit>
+
+      <trans-unit id="atLeast" datatype="html">
+        <source>8-20 characters</source>
+        <target>8-20 caractères</target>
+      </trans-unit>
+
+      <trans-unit id="uppercaseCharacters" datatype="html">
+        <source>An uppercase character</source>
+        <target>Une lettre majuscule</target>
+      </trans-unit>
+
+      <trans-unit id="streetAddress" datatype="html">
+        <source>Street Address</source>
+        <target>Adresse postale</target>
+      </trans-unit>
+
+      <trans-unit id="mailingAddressDifferent" datatype="html">
+        <source>My mailing address is different from my business information.</source>
+        <target>Mon adresse postale est différente de celle de mon entreprise.</target>
+      </trans-unit>
+
+      <trans-unit id="personalInformation" datatype="html">
+        <source>Personal Information</source>
+        <target>Informations personnelles</target>
+      </trans-unit>
+
+      <trans-unit id="faxNumber" datatype="html">
+        <source>Fax Number (Optional)</source>
+        <target>Numéro de télécopieur (facultatif)</target>
+      </trans-unit>
+
+      <trans-unit id="thankYou" datatype="html">
+        <source>Thank You!</source>
+        <target>Merci !</target>
+      </trans-unit>
+
+      <trans-unit id="sentVerificationLink" datatype="html">
+        <source>We have sent you a verification email. Please check your inbox to confirm your account.</source>
+        <target>Nous vous avons envoyé un courriel de vérification. Veuillez en prendre connaissance afin de poursuivre votre processus d’inscription.</target>
+      </trans-unit>
+
+      <trans-unit id="haventReceivedEmail" datatype="html">
+        <source>Haven’t received a confirmation email yet?</source>
+        <target>Vous n’avez pas encore reçu le courriel de vérification ?</target>
+      </trans-unit>
+
+      <trans-unit id="resendVarificationLink" datatype="html">
+        <source>Resend Verification Link</source>
+        <target>ENVOYER LE LIEN DE VÉRIFICATION DE NOUVEAU</target>
+      </trans-unit>
+
+      <trans-unit id="emailVerified" datatype="html">
+        <source>Email Verified</source>
+        <target>Adresse courriel confirmée </target>
+      </trans-unit>
+
+      <trans-unit id="resendVarificationLinkTo" datatype="html">
+        <source>Resend verification link to</source>
+        <target>Envoyer le lien de vérification de nouveau à</target>
+      </trans-unit>
+
+      <trans-unit id="logIn" datatype="html">
+        <source>Log in</source>
+        <target>CONNEXION</target>
+      </trans-unit>
+
+      <trans-unit id="anUnexpectedError" datatype="html">
+        <source>An Unexpected Error Occurred</source>
+        <target>Une erreur s’est produite</target>
+      </trans-unit>
+
+      <trans-unit id="youCantAccess" datatype="html">
+        <source>You can’t access your account at this time. Please contact us:</source>
+        <target>Vous ne pouvez pas vous connecter à votre compte pour l’instant</target>
+      </trans-unit>
+
+      <trans-unit id="or" datatype="html">
+        <source>OR</source>
+        <target>OU</target>
+      </trans-unit>
+
+      <trans-unit id="passCreated" datatype="html">
+        <source>Password Created</source>
+        <target>Mot de passe créé</target>
+      </trans-unit>
+
+      <trans-unit id="passSuccessCreated" datatype="html">
+        <source>Your password was successfully created! Please log in.</source>
+        <target>Votre mot de passe a été créé avec succès ! Veuillez vous connecter.</target>
+      </trans-unit>
+
+      <trans-unit id="pleaseLogin" datatype="html">
+        <source>Your email was successfully verified! Please log in.</source>
+        <target>Votre adresse courriel a été confirmée avec succès ! Veuillez vous connecter.</target>
+      </trans-unit>
+
+      <trans-unit id="pleaseProvideAdditional" datatype="html">
+        <source>Please provide additional information (optional)</source>
+        <target>Veuillez des informations additionnelles (facultatif)</target>
+      </trans-unit>
+
+      <trans-unit id="resetLinkSend" datatype="html">
+        <source>Reset Link Sent</source>
+        <target>Lien de réinitialisation envoyé</target>
+      </trans-unit>
+
+	  <trans-unit id="checkYourInbox" datatype="html">
+        <source>Please check your inbox to confirm your account.</source>
+        <target>Veuillez en prendre connaissance afin de poursuivre votre processus d’inscription.</target>
+      </trans-unit>
+
+	  <trans-unit id="invalidFormat" datatype="html">
+        <source>Invalid format</source>
+        <target>Format invalide</target>
+      </trans-unit>
+
+	  <trans-unit id="mailingAddress" datatype="html">
+        <source>Mailing Address</source>
+        <target>Adresse postale</target>
+      </trans-unit>
+
+	  <trans-unit id="emailNotValid" datatype="html">
+        <source>Email is not valid</source>
+        <target>Adresse courriel invalide</target>
+      </trans-unit>
+
+	  <trans-unit id="emailAlreadyExist" datatype="html">
+        <source>Email address already exists</source>
+        <target>L’adresse courriel existe déjà</target>
+      </trans-unit>
+
+	  <trans-unit id="phoneValidator" datatype="html">
+        <source>Not valid format (0-9, (, ), +, - are allowed)</source>
+        <target>Format invalide (0-9, [,], +, - sont permis)</target>
+      </trans-unit>
+
+	  <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+
+	  <trans-unit id="HowDidYouHear" datatype="html">
+        <source>How did you hear about Entandem?</source>
+        <target>Comment avez-vous entendu parler d’Entandem ?</target>
+      </trans-unit>
+
+	  <trans-unit id="emailOrAccountExist" datatype="html">
+        <source>This email or account number does not exist</source>
+        <target>Ce courriel ou numéro de compte n’existe pas</target>
+      </trans-unit>
+
+	  <trans-unit id="alreadyRegist" datatype="html">
+        <source>Already registered?</source>
+        <target>Déjà inscrit ?</target>
+      </trans-unit>
+
+	  <trans-unit id="accountConfirmed" datatype="html">
+        <source>Account Confirmed</source>
+        <target>Compte confirmé</target>
+      </trans-unit>
+
+	  <trans-unit id="successfullyCreatedAnAccount" datatype="html">
+        <source>You successfully created an account, please</source>
+        <target>Création de compte réussie</target>
+      </trans-unit>
+
+	  <trans-unit id="clickHere" datatype="html">
+        <source>click here</source>
+        <target>cliquer ici</target>
+      </trans-unit>
+
+	  <trans-unit id="toLoginAndComplete" datatype="html">
+        <source>to login and complete your registration.</source>
+        <target>pour vous connecter et compléter votre inscription.</target>
+      </trans-unit>
+
+	  <trans-unit id="resetLinkHasExpire" datatype="html">
+        <source>Your reset link has expired after 24 hours. Re-send verification link</source>
+        <target>Le lien de réinitialisation expire après 24 heures.</target>
+      </trans-unit>
+
+	  <trans-unit id="duringConfirmation" datatype="html">
+        <source>During confirmation there was an error. Please try again.</source>
+        <target>Une erreur s’est produite durant le processus de confirmation. Veuillez essayer de nouveau.</target>
+      </trans-unit>
+
+	  <trans-unit id="linkWillExpire" datatype="html">
+        <source>The link will expire after 24 hours.</source>
+        <target>Le lien de réinitialisation expire après 24 heures.</target>
+      </trans-unit>
+
+	  <trans-unit id="resetLinkExpired" datatype="html">
+        <source>Your password reset link expired</source>
+        <target>Votre lien de réinitialisation est expiré.</target>
+      </trans-unit>
+
+	  <trans-unit id="welcome" datatype="html">
+        <source>Welcome</source>
+        <target>Bienvenue</target>
+      </trans-unit>
+
+	  <trans-unit id="getFamiliarDashboard" datatype="html">
+        <source>Get familiar with the dashboard, here are some ways to get started.</source>
+        <target>Apprenez à mieux connaître votre tableau de bord ; voici quelques astuces pour commencer.</target>
+      </trans-unit>
+
+	  <trans-unit id="heresAnOverview" datatype="html">
+        <source>Here's an overview of your current reports, payments, and balance.</source>
+        <target>Voici un aperçu de vos rapports, paiements et soldes actuels.</target>
+      </trans-unit>
+
+	  <trans-unit id="contactName" datatype="html">
+        <source>Contact Name</source>
+        <target>Contact</target>
+      </trans-unit>
+
+	  <trans-unit id="contactName2" datatype="html">
+        <source>Contact Name:</source>
+        <target>Contact :</target>
+      </trans-unit>
+
+	  <trans-unit id="payNow" datatype="html">
+        <source>Pay Now</source>
+        <target>PAYER MAINTENANT</target>
+      </trans-unit>
+
+	  <trans-unit id="myPayments" datatype="html">
+        <source>My Payments</source>
+        <target>Mes paiements</target>
+      </trans-unit>
+
+	  <trans-unit id="noPaymentsDue" datatype="html">
+        <source>You have 0 payments due</source>
+        <target>Vous avez 0 paiements dûs</target>
+      </trans-unit>
+
+	  <trans-unit id="goToAssignTariffs" datatype="html">
+        <source>To submit a new report, go to Assign Tariffs.</source>
+        <target>Pour soumettre un nouveau rapport, rendez-vous à la section Affectation de tarifs.</target>
+      </trans-unit>
+
+	  <trans-unit id="payNo" datatype="html">
+        <source>Pay #</source>
+        <target>Paiement #</target>
+      </trans-unit>
+
+
+	  <trans-unit id="type" datatype="html">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+
+	  <trans-unit id="seeAllPast" datatype="html">
+        <source>See All Past Payments</source>
+        <target>VOIR TOUS MES PAIEMENTS ANTÉRIEURS</target>
+      </trans-unit>
+
+	  <trans-unit id="noRemindersYet" datatype="html">
+        <source>You have no reminders from Entandem yet</source>
+        <target>Vous n’avez actuellement aucun rappel d’Entandem</target>
+      </trans-unit>
+
+	  <trans-unit id="reportNow" datatype="html">
+        <source>Report Now</source>
+        <target>SOUMETTRE UN RAPPORT</target>
+      </trans-unit>
+
+	  <trans-unit id="recentDrafts" datatype="html">
+        <source>Recent Drafts</source>
+        <target>Ébauches récentes</target>
+      </trans-unit>
+
+	  <trans-unit id="noIncompleteReports" datatype="html">
+        <source>You have 0 incomplete reports</source>
+        <target>Vous n’avez aucun rapport incomplet</target>
+      </trans-unit>
+
+	  <trans-unit id="draft" datatype="html">
+        <source>Draft</source>
+        <target>ÉBAUCHE</target>
+      </trans-unit>
+
+	  <trans-unit id="drafts" datatype="html">
+        <source>Drafts</source>
+        <target>Ébauches</target>
+      </trans-unit>
+
+	  <trans-unit id="lastUpdate" datatype="html">
+        <source>Last Update</source>
+        <target>Dernière mise à jour</target>
+      </trans-unit>
+
+	  <trans-unit id="seeAllDrafts" datatype="html">
+        <source>See all drafts</source>
+        <target>Voir toutes les ébauches</target>
+      </trans-unit>
+
+	  <trans-unit id="latestInvoice" datatype="html">
+        <source>Latest Invoice</source>
+        <target>Dernière facture</target>
+      </trans-unit>
+
+	  <trans-unit id="invoiceNumber" datatype="html">
+        <source>Invoice Number:</source>
+        <target>Facture numéro :</target>
+      </trans-unit>
+
+	  <trans-unit id="invoicesFromPayments" datatype="html">
+        <source>Invoices from payments will appear here</source>
+        <target>Les factures de paiements apparaîtront ici</target>
+      </trans-unit>
+
+	  <trans-unit id="statements" datatype="html">
+        <source>Statements</source>
+        <target>Relevés</target>
+      </trans-unit>
+
+	  <trans-unit id="statementNumber" datatype="html">
+        <source>Statement Number:</source>
+        <target>Numéro de relevé :</target>
+      </trans-unit>
+
+	  <trans-unit id="period" datatype="html">
+        <source>Period</source>
+        <target>Période</target>
+      </trans-unit>
+
+	  <trans-unit id="period2" datatype="html">
+        <source>Period:</source>
+        <target>Période :</target>
+      </trans-unit>
+
+	  <trans-unit id="statementsInvoicesWillAppear" datatype="html">
+        <source>Your invoices will appear here</source>
+        <target>Vos factures apparaîtront ici</target>
+      </trans-unit>
+
+	   <trans-unit id="myAccount" datatype="html">
+        <source>My Account</source>
+        <target>Mon compte</target>
+      </trans-unit>
+
+	  <trans-unit id="addr" datatype="html">
+        <source>Address</source>
+        <target>Adresse</target>
+      </trans-unit>
+
+	  <trans-unit id="addr2" datatype="html">
+        <source>Address:</source>
+        <target>Adresse :</target>
+      </trans-unit>
+
+	  <trans-unit id="loginEmailAddress" datatype="html">
+        <source>Login Email Address</source>
+        <target>Adresse courriel du compte</target>
+      </trans-unit>
+
+	  <trans-unit id="promotionalEmails" datatype="html">
+        <source>I do not want to receive promotional emails from Entandem</source>
+        <target>Je ne souhaite pas recevoir de courriels promotionnels de la part d’Entandem</target>
+      </trans-unit>
+
+	  <trans-unit id="contactInformation" datatype="html">
+        <source>Contact Information</source>
+        <target>Contact</target>
+      </trans-unit>
+
+	  <trans-unit id="noContacts" datatype="html">
+        <source>No Contacts</source>
+        <target>Aucun contact</target>
+      </trans-unit>
+
+	  <trans-unit id="contactAdded" datatype="html">
+        <source>You have not added any contacts</source>
+        <target>Vous n’avez ajouté aucun contact</target>
+      </trans-unit>
+
+	  <trans-unit id="newContact" datatype="html">
+        <source>New Contact</source>
+        <target>NOUVEAU CONTACT</target>
+      </trans-unit>
+
+	  <trans-unit id="makePContact" datatype="html">
+        <source>Make as Primary Contact</source>
+        <target>Désigner comme contact principal</target>
+      </trans-unit>
+
+	  <trans-unit id="editContact" datatype="html">
+        <source>Edit Contact</source>
+        <target>Modifier le contact</target>
+      </trans-unit>
+
+	  <trans-unit id="deleteContact" datatype="html">
+        <source>Delete Contact</source>
+        <target>Supprimer le contact</target>
+      </trans-unit>
+
+	  <trans-unit id="addNewContact" datatype="html">
+        <source>Add New Contact</source>
+        <target>Ajouter un nouveau contact</target>
+      </trans-unit>
+
+	  <trans-unit id="makeMyPContact" datatype="html">
+        <source>Make as my primary contact</source>
+        <target>Désigner comme contact principal</target>
+      </trans-unit>
+
+	  <trans-unit id="addContact" datatype="html">
+        <source>Add Contact</source>
+        <target>AJOUTER UN CONTACT</target>
+      </trans-unit>
+
+	  <trans-unit id="updateContact" datatype="html">
+        <source>Update Contact</source>
+        <target>METTRE LE CONTACT À JOUR</target>
+      </trans-unit>
+
+	  <trans-unit id="editLoginEmail" datatype="html">
+        <source>Edit Login Email Address</source>
+        <target>Modifier l’adresse courriel du compte</target>
+      </trans-unit>
+
+	  <trans-unit id="updateEmail" datatype="html">
+        <source>Update Email</source>
+        <target>MISE À JOUR DU COURRIEL</target>
+      </trans-unit>
+
+	  <trans-unit id="resetEmailSend" datatype="html">
+        <source>An email with a verification link will be sent to your inbox.</source>
+        <target>Vous recevrez un courriel contenant un lien de vérification.</target>
+      </trans-unit>
+
+	  <trans-unit id="changePassword" datatype="html">
+        <source>Change Password</source>
+        <target>Modifier le mot de passe</target>
+      </trans-unit>
+
+	  <trans-unit id="editProfileInformation" datatype="html">
+        <source>Edit Profile Information</source>
+        <target>Modifier l’information de profil</target>
+      </trans-unit>
+
+	  <trans-unit id="updateProfile" datatype="html">
+        <source>Update Profile</source>
+        <target>METTRE LE PROFIL À JOUR</target>
+      </trans-unit>
+
+	  <trans-unit id="searchPl" datatype="html">
+        <source>Search</source>
+        <target>Recherche</target>
+      </trans-unit>
+
+	  <trans-unit id="newEmailAddress" datatype="html">
+        <source>New Email Address</source>
+        <target>Nouveau courriel</target>
+      </trans-unit>
+
+	  <trans-unit id="currentPassword" datatype="html">
+        <source>Current Password</source>
+        <target>Mot de passe actuel</target>
+      </trans-unit>
+
+	  <trans-unit id="musicLicenses" datatype="html">
+        <source>Music Licenses</source>
+        <target>Licences musicales</target>
+      </trans-unit>
+
+	  <trans-unit id="tariffAvailable" datatype="html">
+        <source>Music Licenses Available</source>
+        <target>Licences musicales disponibles</target>
+      </trans-unit>
+
+	  <trans-unit id="chooseYourLicense" datatype="html">
+        <source>To choose your license, please indicate how you use music.</source>
+        <target>Veuillez indiquer de quelle manière vous utilisez de la musique afin de choisir la bonne licence.</target>
+      </trans-unit>
+
+	  <trans-unit id="NameMusicUsage" datatype="html">
+        <source>Name of music usage</source>
+        <target>Nom de l’utilisation de musique</target>
+      </trans-unit>
+
+	  <trans-unit id="usageStart" datatype="html">
+        <source>When did you start playing music?</source>
+        <target>Quand avez-vous commencé à utiliser de la musique ?</target>
+      </trans-unit>
+
+	  <trans-unit id="tariffUnit" datatype="html">
+        <source>Tariff Unit</source>
+        <target>Unité de tarif</target>
+      </trans-unit>
+
+	  <trans-unit id="tariffUnit2" datatype="html">
+        <source>Tariff Unit:</source>
+        <target>Unité de tarif :</target>
+      </trans-unit>
+
+	  <trans-unit id="editUnit" datatype="html">
+        <source>Edit Unit</source>
+        <target>Modifier l’unité</target>
+      </trans-unit>
+
+	  <trans-unit id="deleteUnit" datatype="html">
+        <source>Delete Unit</source>
+        <target>Supprimer l’unité</target>
+      </trans-unit>
+
+	  <trans-unit id="addMusicLicense" datatype="html">
+        <source>Add music license</source>
+        <target>Ajouter une licence musicale</target>
+      </trans-unit>
+
+	  <trans-unit id="wantToSelect" datatype="html">
+        <source>Are you sure you want to select </source>
+        <target>Êtes-vous certain de vouloir sélectionner</target>
+      </trans-unit>
+
+	  <trans-unit id="wantToSelect2" datatype="html">
+        <source>This action can be taken only once.</source>
+        <target>Vous ne pouvez effectuer ce choix qu’une seule fois.</target>
+      </trans-unit>
+
+	  <trans-unit id="createTariffUnit" datatype="html">
+        <source>Create Tariff Unit</source>
+        <target>Créer une unité de tarif</target>
+      </trans-unit>
+
+	  <trans-unit id="createUnit" datatype="html">
+        <source>Create Unit</source>
+        <target>CRÉER UNE UNITÉ</target>
+      </trans-unit>
+
+	  <trans-unit id="editTariffUnit" datatype="html">
+        <source>Edit Tariff Unit</source>
+        <target>Modifier l’unité de tarif</target>
+      </trans-unit>
+
+	  <trans-unit id="unitDesc" datatype="html">
+        <source>Please enter a name for this room. If you don’t have a room name, it will default to "main1.” In the event you have more than one room for the same music use, you must provide a room name(s) to make them unique.</source>
+        <target>Veuillez saisir un titre pour cette page. Si vous ne choisissez pas de titre pour cette page, elle s’appellera « main1 » par défaut. Si vous avez plus d’une page pour la même utilisation de musique, vous devez absolument les distinguer à l’aide de titres qui leur sont uniques.</target>
+      </trans-unit>
+
+	  <trans-unit id="roomName" datatype="html">
+        <source>Room Name</source>
+        <target>Nom de la page</target>
+      </trans-unit>
+
+	  <trans-unit id="submitReport" datatype="html">
+        <source>Submit Report</source>
+        <target>Soumettre un rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="sureRemoveUnit" datatype="html">
+        <source>Are you sure you want to remove unit?</source>
+        <target>Êtes-vous certain de vouloir supprimer cette unité ?</target>
+      </trans-unit>
+
+	  <trans-unit id="myInvoices" datatype="html">
+        <source>My Invoices</source>
+        <target>Mes factures</target>
+      </trans-unit>
+
+	  <trans-unit id="currentBalance" datatype="html">
+        <source>Current Balance:</source>
+        <target>Solde actuel :</target>
+      </trans-unit>
+
+	  <trans-unit id="makePayment" datatype="html">
+        <source>Make a payment</source>
+        <target>Effectuer un paiement</target>
+      </trans-unit>
+
+	  <trans-unit id="noInvoices" datatype="html">
+        <source>No Invoices</source>
+        <target>Aucune facture</target>
+      </trans-unit>
+
+	  <trans-unit id="invoicesWillAppear" datatype="html">
+        <source>Invoices will appear here. You do not have any invoices.</source>
+        <target>Les factures apparaîtront ici. Vous n’avez aucune facture pour le moment.</target>
+      </trans-unit>
+
+	  <trans-unit id="invoiceNo" datatype="html">
+        <source>Invoice #</source>
+        <target>Facture #</target>
+      </trans-unit>
+
+	  <trans-unit id="statementNo" datatype="html">
+        <source>Statement #</source>
+        <target>Relevé #</target>
+      </trans-unit>
+
+	  <trans-unit id="paid" datatype="html">
+        <source>Paid</source>
+        <target>Payé</target>
+      </trans-unit>
+
+	  <trans-unit id="unpaid" datatype="html">
+        <source>Unpaid</source>
+        <target>Impayé</target>
+      </trans-unit>
+
+	  <trans-unit id="print" datatype="html">
+        <source>Print</source>
+        <target>Imprimer</target>
+      </trans-unit>
+
+	  <trans-unit id="myStatements" datatype="html">
+        <source>My Statements</source>
+        <target>Mes Relevés</target>
+      </trans-unit>
+
+	  <trans-unit id="noStatements" datatype="html">
+        <source>No Statements</source>
+        <target>Aucun relevé</target>
+      </trans-unit>
+
+	  <trans-unit id="statementsWillAppear" datatype="html">
+        <source>Statements will appear here. You do not have any statements</source>
+        <target>Les relevés apparaîtront ici. Vous n’avez aucun relevé pour le moment.</target>
+      </trans-unit>
+
+	  <trans-unit id="allStatements" datatype="html">
+        <source>All Statements</source>
+        <target>Tous les relevés</target>
+      </trans-unit>
+
+	  <trans-unit id="makeSecurePayment" datatype="html">
+        <source>Make a Secure Payment</source>
+        <target>Effectuer un paiement sécurisé</target>
+      </trans-unit>
+
+	  <trans-unit id="customerName" datatype="html">
+        <source>Customer Name</source>
+        <target>Nom du client</target>
+      </trans-unit>
+
+	  <trans-unit id="customerName2" datatype="html">
+        <source>Customer Name:</source>
+        <target>Nom du client :</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentInformation" datatype="html">
+        <source>Payment Information</source>
+        <target>Information sur le paiement</target>
+      </trans-unit>
+
+	  <trans-unit id="payByCredit" datatype="html">
+        <source>Pay by Credit Card</source>
+        <target>Payer par carte de crédit</target>
+      </trans-unit>
+
+	  <trans-unit id="seeOnline" datatype="html">
+        <source>See Online Banking and Interac</source>
+        <target>Voir les transactions bancaires en ligne et Interac</target>
+      </trans-unit>
+
+	  <trans-unit id="validNumber" datatype="html">
+        <source>This value should be a valid number</source>
+        <target>Cette valeur doit être un nombre valide</target>
+      </trans-unit>
+
+	  <trans-unit id="unableToProcess" datatype="html">
+        <source>For payments over $10,000, contact:</source>
+        <target>Pour les paiements de plus de 10 000 $, communiquez avec :</target>
+      </trans-unit>
+
+	  <trans-unit id="mustBeNumber" datatype="html">
+        <source>Must be numbers 0-9</source>
+        <target>Doit être des nombres entre 0 et 9</target>
+      </trans-unit>
+
+	  <trans-unit id="dateNotValid" datatype="html">
+        <source>Date not valid</source>
+        <target>Date invalide</target>
+      </trans-unit>
+
+	  <trans-unit id="btnPay" datatype="html">
+        <source>Pay</source>
+        <target>Payer</target>
+      </trans-unit>
+
+	  <trans-unit id="retry" datatype="html">
+        <source>Retry</source>
+        <target>Ressayer</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentUnsuccessful" datatype="html">
+        <source>Payment unsuccessful</source>
+        <target>Échec de paiement</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentUnsuccessfulDesc" datatype="html">
+        <source>We could not complete your transaction. Please re-enter your payment information.</source>
+        <target>Une erreur s’est produite. Veuillez saisir de nouveau votre information sur le paiement.</target>
+      </trans-unit>
+
+	  <trans-unit id="transactionNumber" datatype="html">
+        <source>Transaction Number</source>
+        <target>Numéro de transaction</target>
+      </trans-unit>
+
+	  <trans-unit id="transactionNumber2" datatype="html">
+        <source>Transaction Number:</source>
+        <target>Numéro de transaction :</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentSuccessful" datatype="html">
+        <source>Payment successful!</source>
+        <target>Paiement réussi !</target>
+      </trans-unit>
+
+	  <trans-unit id="successful" datatype="html">
+        <source>Successful</source>
+        <target>Succès</target>
+      </trans-unit>
+
+	  <trans-unit id="unsuccessful" datatype="html">
+        <source>Unsuccessful</source>
+        <target>Échec</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentSuccessfulDesc" datatype="html">
+        <source>Thank you for ensuring that songwriters, composers, performers and music publishers are compensated for their work.</source>
+        <target>Merci de contribuer à ce que les auteurs, compositeurs, interprètes et éditeurs de musique soient rémunérés pour leur travail.</target>
+      </trans-unit>
+
+	  <trans-unit id="amountPaid" datatype="html">
+        <source>Amount Paid</source>
+        <target>Montant payé</target>
+      </trans-unit>
+
+	  <trans-unit id="amountPaid2" datatype="html">
+        <source>Amount Paid:</source>
+        <target>Montant payé :</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentMethod" datatype="html">
+        <source>Payment Method</source>
+        <target>Méthode de paiement</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentMethod2" datatype="html">
+        <source>Payment Method:</source>
+        <target>Méthode de paiement :</target>
+      </trans-unit>
+
+	  <trans-unit id="creditCard" datatype="html">
+        <source>Credit Card</source>
+        <target>Carte de crédit</target>
+      </trans-unit>
+
+	  <trans-unit id="creditCard2" datatype="html">
+        <source>Credit Card:</source>
+        <target>Carte de crédit :</target>
+      </trans-unit>
+
+	  <trans-unit id="cardNumber" datatype="html">
+        <source>Card Number</source>
+        <target>Numéro de carte</target>
+      </trans-unit>
+
+	  <trans-unit id="cardNumber2" datatype="html">
+        <source>Card Number:</source>
+        <target>Numéro de carte :</target>
+      </trans-unit>
+
+	  <trans-unit id="wouldYouCopy" datatype="html">
+        <source>Would you like a copy of this receipt?</source>
+        <target>Aimeriez-vous recevoir un exemplaire de ce reçu ?</target>
+      </trans-unit>
+
+	  <trans-unit id="sendCopyToMe" datatype="html">
+        <source>Send a copy to me</source>
+        <target>Envoyez-moi un exemplaire</target>
+      </trans-unit>
+
+	  <trans-unit id="sendCopyToOther" datatype="html">
+        <source>Send a copy to others</source>
+        <target>Envoyer un exemplaire à quelqu’un d’autre</target>
+      </trans-unit>
+
+	  <trans-unit id="emailOrName" datatype="html">
+        <source>Select name or email</source>
+        <target>Sélection le nom ou l’adresse courriel</target>
+      </trans-unit>
+
+	  <trans-unit id="sendCopy" datatype="html">
+        <source>Send copy</source>
+        <target>Envoyer un exemplaire</target>
+      </trans-unit>
+
+	  <trans-unit id="postalHint" datatype="html">
+        <source>Postal code format: A1A1A1</source>
+        <target>Format du code postal : A1A1A1</target>
+      </trans-unit>
+
+	  <trans-unit id="confirmationNo" datatype="html">
+        <source>Confirmation #</source>
+        <target># de confirmation</target>
+      </trans-unit>
+
+	  <trans-unit id="confirmationNo2" datatype="html">
+        <source>Confirmation #:</source>
+        <target># de confirmation :</target>
+      </trans-unit>
+
+
+	  <trans-unit id="payments" datatype="html">
+        <source>Payments</source>
+        <target>Paiements</target>
+      </trans-unit>
+
+	  <trans-unit id="noReportsCreated" datatype="html">
+        <source>No Reports Created Yet</source>
+        <target>Aucun rapport créé pour l’instant</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentsWillAppear" datatype="html">
+        <source>Payments will appear here. You have not created any report to be paid. Assign Tariffs to submit new report</source>
+        <target>Les paiements apparaîtront ici. Vous n’avez créé aucun rapport devant être payé. Sélectionnez un tarif afin de soumettre un nouveau rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="failed" datatype="html">
+        <source>Failed</source>
+        <target>Échec</target>
+      </trans-unit>
+
+	  <trans-unit id="submittedReports" datatype="html">
+        <source>Submitted Reports</source>
+        <target>Rapports soumis</target>
+      </trans-unit>
+
+	  <trans-unit id="newReport" datatype="html">
+        <source>New Report</source>
+        <target>NOUVEAU RAPPORT</target>
+      </trans-unit>
+
+	  <trans-unit id="noSubmittedReports" datatype="html">
+        <source>No Submitted Reports</source>
+        <target>Aucun rapport soumis</target>
+      </trans-unit>
+
+	  <trans-unit id="reportsWillAppear" datatype="html">
+        <source>Reports will appear here. You have not submitted any reports</source>
+        <target>Les rapports apparaîtront ici. Vous n’avez soumis aucun rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="createNewReport" datatype="html">
+        <source>Create a New Report</source>
+        <target>CRÉER UN NOUVEAU RAPPORT</target>
+      </trans-unit>
+
+	  <trans-unit id="noReportFound" datatype="html">
+        <source>No Report Found</source>
+        <target>Aucun rapport trouvé</target>
+      </trans-unit>
+
+	  <trans-unit id="contact" datatype="html">
+        <source>Contact</source>
+        <target>Contact</target>
+      </trans-unit>
+
+	  <trans-unit id="contact2" datatype="html">
+        <source>Contact:</source>
+        <target>Contact :</target>
+      </trans-unit>
+
+	  <trans-unit id="reportDraftsWill" datatype="html">
+        <source>Report drafts will appear here. You have not created any report drafts.</source>
+        <target>Vos ébauches de rapports s’afficheront ici. Vous n’avez créé aucune ébauche de rapport.</target>
+      </trans-unit>
+
+	  <trans-unit id="noReportDrafts" datatype="html">
+        <source>No Report Drafts Yet</source>
+        <target>Aucune ébauche de rapport pour l’instant</target>
+      </trans-unit>
+
+	  <trans-unit id="myDraftReports" datatype="html">
+        <source>My Draft Reports</source>
+        <target>Mes ébauches de rapports</target>
+      </trans-unit>
+
+	  <trans-unit id="deleteThisDraft" datatype="html">
+        <source>Are you sure you want to delete this draft report?</source>
+        <target>Êtes-vous sûr de vouloir supprimer cette ébauche de rapport ?</target>
+      </trans-unit>
+
+	  <trans-unit id="deleteDraft" datatype="html">
+        <source>Delete Draft</source>
+        <target>SUPPRIMER ÉBAUCHE</target>
+      </trans-unit>
+
+	  <trans-unit id="estDetails" datatype="html">
+        <source>Establishment Details</source>
+        <target>Détails concernant l’établissement</target>
+      </trans-unit>
+
+	  <trans-unit id="phone" datatype="html">
+        <source>Phone</source>
+        <target>Téléphone</target>
+      </trans-unit>
+
+	  <trans-unit id="phone2" datatype="html">
+        <source>Phone:</source>
+        <target>Téléphone :</target>
+      </trans-unit>
+
+	  <trans-unit id="reportYear" datatype="html">
+        <source>Report Year</source>
+        <target>Année du rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="totalPayment" datatype="html">
+        <source>Total Payment</source>
+        <target>Paiement total</target>
+      </trans-unit>
+
+	  <trans-unit id="totalPayment2" datatype="html">
+        <source>Total Payment:</source>
+        <target>Paiement total :</target>
+      </trans-unit>
+
+	  <trans-unit id="rsLicense" datatype="html">
+        <source>RE:SOUND license:</source>
+        <target>Licence RÉ:SONNE :</target>
+      </trans-unit>
+
+	  <trans-unit id="scLicense" datatype="html">
+        <source>SOCAN license:</source>
+        <target>Licence SOCAN :</target>
+      </trans-unit>
+
+	  <trans-unit id="hst" datatype="html">
+        <source>HST:</source>
+        <target>TVH :</target>
+      </trans-unit>
+
+	  <trans-unit id="gst" datatype="html">
+        <source>GST:</source>
+        <target>TPS :</target>
+      </trans-unit>
+
+	  <trans-unit id="qst" datatype="html">
+        <source>QST:</source>
+        <target>TVQ :</target>
+      </trans-unit>
+
+	  <trans-unit id="pst" datatype="html">
+        <source>PST:</source>
+        <target>TPS :</target>
+      </trans-unit>
+
+	  <trans-unit id="establishmentInformation" datatype="html">
+        <source>Establishment Information</source>
+        <target>Détails concernant l’établissement</target>
+      </trans-unit>
+
+	  <trans-unit id="selectMusicLicense" datatype="html">
+        <source>Select a music license</source>
+        <target>Sélectionner une licence musicale</target>
+      </trans-unit>
+
+	  <trans-unit id="selectedToReport" datatype="html">
+        <source>Music license selected</source>
+        <target>Licence musicale sélectionnée</target>
+      </trans-unit>
+
+	  <trans-unit id="alreadySubmitted" datatype="html">
+        <source>This report is already submitted.</source>
+        <target>Ce rapport a déjà été soumis</target>
+      </trans-unit>
+
+	  <trans-unit id="goToSubmittedReports" datatype="html">
+        <source>Go To Submitted Reports</source>
+        <target>Consulter les rapports soumis</target>
+      </trans-unit>
+
+	  <trans-unit id="reportDoNotExist" datatype="html">
+        <source>This report do not exist.</source>
+        <target>Ce rapport n’existe pas.</target>
+      </trans-unit>
+
+	  <trans-unit id="selectUnit" datatype="html">
+        <source>Select Unit</source>
+        <target>Sélectionnez une unité</target>
+      </trans-unit>
+
+	  <trans-unit id="createReport" datatype="html">
+        <source>Create Report</source>
+        <target>CRÉER UN RAPPORT</target>
+      </trans-unit>
+
+	  <trans-unit id="noAssignedTariff" datatype="html">
+        <source>No Tariffs Assigned Yet</source>
+        <target>Aucun tarif sélectionné pour l’instant</target>
+      </trans-unit>
+
+	  <trans-unit id="assignTariffs" datatype="html">
+        <source>Assign Tariffs</source>
+        <target>AFFECTATION DE TARIFS</target>
+      </trans-unit>
+
+	  <trans-unit id="assignTariffs2" datatype="html">
+        <source>Assign Tariff</source>
+        <target>Affectation de tarif</target>
+      </trans-unit>
+
+	  <trans-unit id="reportQuarter" datatype="html">
+        <source>Report Quarter</source>
+        <target>Trimestre du rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="reviewAndConfirm" datatype="html">
+        <source>Review your report</source>
+        <target>RÉVISEZ VOTRE RAPPORT</target>
+      </trans-unit>
+
+	   <trans-unit id="bySubmittingThisReport" datatype="html">
+        <source>By submitting this report, you confirm that you have a total of 0 events to report for this year.</source>
+        <target>En soumettant ce rapport, vous confirmez que vous n’avez aucun événement à rapporter pour cette année.</target>
+      </trans-unit>
+
+	   <trans-unit id="concertAct" datatype="html">
+        <source>Concert Act</source>
+        <target>Artiste en concert</target>
+      </trans-unit>
+
+	   <trans-unit id="attendance" datatype="html">
+        <source>Attendance</source>
+        <target>Assistance</target>
+      </trans-unit>
+
+	   <trans-unit id="promoterName" datatype="html">
+        <source>Promoter Name</source>
+        <target>Nom du promoteur</target>
+      </trans-unit>
+
+	   <trans-unit id="promoterAddress" datatype="html">
+        <source>Promoter Address</source>
+        <target>Adresse du promoteur</target>
+      </trans-unit>
+
+	   <trans-unit id="grossSales" datatype="html">
+        <source>Gross Sales</source>
+        <target>Recettes</target>
+      </trans-unit>
+
+	   <trans-unit id="performerSales" datatype="html">
+        <source>Performer</source>
+        <target>Artiste</target>
+      </trans-unit>
+
+	   <trans-unit id="feeCad" datatype="html">
+        <source>Fee (CAD$)</source>
+        <target>Frais bruts (CAD$)</target>
+      </trans-unit>
+
+	  <trans-unit id="grossSalesFee" datatype="html">
+        <source>Gross Sales Fee (CAD$)</source>
+        <target>Recettes brutes ($CAD)</target>
+      </trans-unit>
+
+	   <trans-unit id="performerSalesFee" datatype="html">
+        <source>Performer Fee (CAD$)</source>
+        <target>Cachet (CAD$)</target>
+      </trans-unit>
+
+	   <trans-unit id="iHaveRead" datatype="html">
+        <source>I have read and agree to the</source>
+        <target>J’ai lu et j’accepte les</target>
+      </trans-unit>
+
+	   <trans-unit id="licenseTerms" datatype="html">
+        <source>License Terms & Conditions</source>
+        <target>Modalités et conditions de licence</target>
+      </trans-unit>
+
+	   <trans-unit id="infoProvidedCorrect" datatype="html">
+        <source>All the information provided is correct and complete, and I have the authority to bind the business.</source>
+        <target> toutes les informations fournies sont exactes et complètes et je détiens l’autorité de lier le licencié.</target>
+      </trans-unit>
+
+	   <trans-unit id="saveAndClose" datatype="html">
+        <source>Save and close</source>
+        <target>SAUVEGARDER ET FERMER</target>
+      </trans-unit>
+
+	   <trans-unit id="continueSubmissionLater" datatype="html">
+        <source>Continue Submission Later</source>
+        <target>CONTINUER LA SOUMISSION ULTÉRIEUREMENT</target>
+      </trans-unit>
+
+	   <trans-unit id="continueSubmission" datatype="html">
+        <source>Continue Submission</source>
+        <target>CONTINUER LA SOUMISSION</target>
+      </trans-unit>
+
+	   <trans-unit id="saveReportText1" datatype="html">
+        <source>Your report has been saved. To access your report, navigate to</source>
+        <target>Votre rapport a été sauvegardé. Pour accéder à votre rapport, cliquez sur</target>
+      </trans-unit>
+
+	   <trans-unit id="saveReportText2" datatype="html">
+        <source>in the main menu</source>
+        <target>dans le menu principal</target>
+      </trans-unit>
+
+	   <trans-unit id="venueAddress" datatype="html">
+        <source>Venue Address</source>
+        <target>Adresse de la salle</target>
+      </trans-unit>
+
+	   <trans-unit id="event" datatype="html">
+        <source>Event</source>
+        <target>Événement</target>
+      </trans-unit>
+
+	   <trans-unit id="daysNo" datatype="html">
+        <source># Days</source>
+        <target>Nombre de jours</target>
+      </trans-unit>
+
+	   <trans-unit id="daysLiveNo" datatype="html">
+        <source># Days Live Music Only</source>
+        <target>Nombre de jours de musique en direct seulement</target>
+      </trans-unit>
+
+	   <trans-unit id="liveMusicOnly" datatype="html">
+        <source>Live Music Only</source>
+        <target>Musique en direct uniquement</target>
+      </trans-unit>
+
+	   <trans-unit id="establishment" datatype="html">
+        <source>Establishment</source>
+        <target>Établissement</target>
+      </trans-unit>
+
+	   <trans-unit id="grossReceiptsCad" datatype="html">
+        <source>Gross Receipts</source>
+        <target>Recettes brutes</target>
+      </trans-unit>
+
+	   <trans-unit id="free" datatype="html">
+        <source>Free</source>
+        <target>Gratuit</target>
+      </trans-unit>
+
+	  <trans-unit id="numberOfconcerts" datatype="html">
+        <source>Number of concerts with recorded music</source>
+        <target>Nombre de concerts avec de la musique enregistrée</target>
+      </trans-unit>
+
+	  <trans-unit id="continueToReview" datatype="html">
+        <source>Continue to review</source>
+        <target>ALLER À L’ÉTAPE DE RÉVISION</target>
+      </trans-unit>
+
+	  <trans-unit id="pleaseCompleteDetails" datatype="html">
+        <source>Please complete your event details below.</source>
+        <target>Veuillez remplir les détails de votre événement ci-dessous</target>
+      </trans-unit>
+
+	  <trans-unit id="liveMusicDesc" datatype="html">
+        <source>Did this event have only live music? (I.e. There was no recorded music playing).</source>
+        <target>Est-ce que cet événement ne présentait que de la musique en direct ? (c.-à-d. qu’il n’y a eu aucune musique enregistrée qui a été jouée)</target>
+      </trans-unit>
+
+	  <trans-unit id="woDancingFee" datatype="html">
+        <source>Fee Per Event (Without Dancing)</source>
+        <target>Frais par événement (sans danse)</target>
+      </trans-unit>
+
+	  <trans-unit id="withDancingFee" datatype="html">
+        <source>Fee Per Event (With Dancing)</source>
+        <target>Frais par événement (avec danse)</target>
+      </trans-unit>
+
+	  <trans-unit id="over500" datatype="html">
+        <source>Over 500</source>
+        <target>Plus de 500</target>
+      </trans-unit>
+
+	  <trans-unit id="rs" datatype="html">
+        <source>RE:SOUND</source>
+        <target>RÉ:SONNE</target>
+      </trans-unit>
+
+	  <trans-unit id="sc" datatype="html">
+        <source>SOCAN</source>
+        <target>SOCAN</target>
+      </trans-unit>
+
+	  <trans-unit id="feesFrom" datatype="html">
+        <source>Fees from:</source>
+        <target>Frais de :</target>
+      </trans-unit>
+
+	  <trans-unit id="howCalculateFees" datatype="html">
+        <source>how to calculate fees</source>
+        <target>COMMENT CALCULER LES FRAIS DE LICENCE</target>
+      </trans-unit>
+
+	  <trans-unit id="woDance" datatype="html">
+        <source>Add of Events (w/o dancing)</source>
+        <target>Ajouter le nombre d’événements (sans danse)</target>
+      </trans-unit>
+
+	  <trans-unit id="withDance" datatype="html">
+        <source>Add of Events (w/ dancing)</source>
+        <target>Ajouter le nombre d’événements (avec danse)</target>
+      </trans-unit>
+
+	  <trans-unit id="eventsWillAppearHere" datatype="html">
+        <source>Events will appear here. You have not created any events to report. If you had no events during this reporting period, click “REVIEW YOUR REPORT.”</source>
+        <target>Vos événements apparaîtront ici. Vous n’avez créé aucun rapport d’événement. Si vous n’avez aucun événement à rapporter pour cette année, cliquez sur « Révisez votre rapport ».</target>
+      </trans-unit>
+
+	  <trans-unit id="noEventsYet" datatype="html">
+        <source>No Events Yet</source>
+        <target>Aucun événement pour l’instant</target>
+      </trans-unit>
+
+	  <trans-unit id="eventPlus" datatype="html">
+        <source>+ EVENT</source>
+        <target>+ ÉVÉNEMENT</target>
+      </trans-unit>
+
+	  <trans-unit id="reviewYourReport" datatype="html">
+        <source>Review your Report</source>
+        <target>Révisez votre rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc10a" datatype="html">
+        <source>'Live music only' option calculates without RE:SOUND portion. Total # Days for Live Music Only events subtracts the # of days entered to determine the RE:SOUND fee and include everything for the SOCAN fee</source>
+        <target>L’option « Musique en direct seulement » effectue le calcul sans la portion RÉ:SONNE. Le nombre total de jours de musique en direct seulement soustrait le nombre de jours entré afin de calculer les frais RÉ:SONNE et d’inclure tout ce qui est nécessaire pour le calcul des frais SOCAN.</target>
+      </trans-unit>
+
+	  <trans-unit id="eventsPerYear" datatype="html">
+        <source>Events per year</source>
+        <target>Événements par année</target>
+      </trans-unit>
+
+	  <trans-unit id="oneOrMore" datatype="html">
+        <source>1 or more</source>
+        <target>1 ou plus</target>
+      </trans-unit>
+
+	  <trans-unit id="maxPeriod" datatype="html">
+        <source>Maximum/Period</source>
+        <target>Maximum/Période</target>
+      </trans-unit>
+
+	  <trans-unit id="feePerYear" datatype="html">
+        <source>Fee Per # of days (per year)</source>
+        <target>Frais par nombre de jours (par année)</target>
+      </trans-unit>
+
+	  <trans-unit id="addEventInfo" datatype="html">
+        <source>Add Event Info</source>
+        <target>Ajouter des informations concernant l’événement</target>
+      </trans-unit>
+
+	  <trans-unit id="repLiveOnly" datatype="html">
+        <source>Report as Live Music Only Event (No use of recorded music)</source>
+        <target>Rapporter en tant qu’événement de musique en direct uniquement (aucune utilisation de musique enregistrée)</target>
+      </trans-unit>
+
+	  <trans-unit id="addEvent" datatype="html">
+        <source>Add Event</source>
+        <target>AJOUTER UN ÉVÉNEMENT</target>
+      </trans-unit>
+
+	   <trans-unit id="editEvent" datatype="html">
+        <source>Edit Event</source>
+        <target>Modifier l’événement</target>
+      </trans-unit>
+
+	  <trans-unit id="removeEventConfirm" datatype="html">
+        <source>Are you sure you want to remove event?</source>
+        <target>Êtes-vous certain de vouloir supprimer cet événement ?</target>
+      </trans-unit>
+
+	  <trans-unit id="addEventInform" datatype="html">
+        <source>Please add your event information</source>
+        <target>Veuillez ajouter l’information concernant votre événement</target>
+      </trans-unit>
+
+	  <trans-unit id="moreEventPlus" datatype="html">
+        <source>+ MORE EVENTS</source>
+        <target>AJOUTER + ÉVÉNEMENTS</target>
+      </trans-unit>
+
+	  <trans-unit id="dateOfEvent" datatype="html">
+        <source>Date of the Event</source>
+        <target>Date de l’événement</target>
+      </trans-unit>
+
+	  <trans-unit id="performerName" datatype="html">
+        <source>Performer Name</source>
+        <target>Nom des interprètes</target>
+      </trans-unit>
+
+	  <trans-unit id="feeFlat" datatype="html">
+        <source>Flat Fee per total number of events:</source>
+        <target>Frais fixes par nombre total d’événements :</target>
+      </trans-unit>
+
+	  <trans-unit id="calcNumOfEvent" datatype="html">
+        <source>Calculated by number of events / shows</source>
+        <target>Calculé en fonction de nombre d’événements/spectacles</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc4aj1" datatype="html">
+        <source>Calculated by gross receipts from admissions per event + $15.00 per event.</source>
+        <target>Calculé sur la base des recettes brutes provenant des frais d’admission pour chaque événement + 15 $ par événement.</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc4aj2" datatype="html">
+        <source>3% of gross receipts from ticket sales or fees paid to performers during a free concert ($35 minimum fee + $15 per event).</source>
+        <target>3 % des recettes brutes provenant de la vente de billets ou des cachets versés aux artistes dans le cas d’un concert gratuit (frais minimum de 35 $ + 15 $ par événement).</target>
+      </trans-unit>
+
+	  <trans-unit id="concert" datatype="html">
+        <source>Concert</source>
+        <target>Concerts</target>
+      </trans-unit>
+
+	  <trans-unit id="minFee" datatype="html">
+        <source>Minimum Fee</source>
+        <target>Frais minimum</target>
+      </trans-unit>
+
+	  <trans-unit id="minFee2" datatype="html">
+        <source>*Minimum Fee</source>
+        <target>*Frais minimum</target>
+      </trans-unit>
+
+	  <trans-unit id="feepeConcert" datatype="html">
+        <source>Fee per concert</source>
+        <target>Frais par concert</target>
+      </trans-unit>
+
+	  <trans-unit id="gSaleFee" datatype="html">
+        <source>Gross Sales Fees</source>
+        <target>Recettes brutes</target>
+      </trans-unit>
+
+	  <trans-unit id="gSaleFeePer" datatype="html">
+        <source>Gross Performer Fees</source>
+        <target>Cachets bruts</target>
+      </trans-unit>
+
+	  <trans-unit id="venueName" datatype="html">
+        <source>Venue Name</source>
+        <target>Nom de la salle</target>
+      </trans-unit>
+
+	  <trans-unit id="gsalecad" datatype="html">
+        <source>Gross Sales Fee (CAD$)</source>
+        <target>Recettes brutes ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="grRecCad" datatype="html">
+        <source>Gross Receipts (CAD$)</source>
+        <target>Recettes brutes ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="isEventFree" datatype="html">
+        <source>Is it a Free Event?</source>
+        <target>S’agit-il d’un événement gratuit ?</target>
+      </trans-unit>
+
+	  <trans-unit id="venueNameOpt" datatype="html">
+        <source>Venue Name (Optional)</source>
+        <target>Nom de la salle (facultatif)</target>
+      </trans-unit>
+
+	  <trans-unit id="selectAnOption" datatype="html">
+        <source>Select an option</source>
+        <target>Choisir une option</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc95h" datatype="html">
+        <source>Calculated by 0.048% and 0.10% of gross receipts or $5 for each event where no admission is charged.</source>
+        <target>Calculé sur la base de 0,048 % et 0,10 % des recettes brutes ou 5 $ pour chaque événement où il n’y a pas de frais d’admission.</target>
+      </trans-unit>
+
+	  <trans-unit id="paidEvents" datatype="html">
+        <source>Paid Events</source>
+        <target>Événements payés</target>
+      </trans-unit>
+
+	  <trans-unit id="freeEvents" datatype="html">
+        <source>Free Events</source>
+        <target>Événements gratuits</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc4b" datatype="html">
+        <source>1.56% of gross receipts from ticket sales or fees paid to performers during a free concert ($35 minimum fee).</source>
+        <target>1,56 % des recettes brutes provenant de la vente de billets ou des cachets versés aux artistes dans le cas d’un concert gratuit (frais minimum de 35 $).</target>
+      </trans-unit>
+
+	  <trans-unit id="pNotFound" datatype="html">
+        <source>No Payment Found</source>
+        <target>Aucun paiement trouvé</target>
+      </trans-unit>
+
+	  <trans-unit id="repSubSuccess" datatype="html">
+        <source>Report submitted successfully!</source>
+        <target>Le rapport a été soumis avec succès !</target>
+      </trans-unit>
+
+	  <trans-unit id="totalAmountDue" datatype="html">
+        <source>Total Amount Due:</source>
+        <target>Solde dû :</target>
+      </trans-unit>
+
+	  <trans-unit id="makePayNow" datatype="html">
+        <source>Make a Payment Now</source>
+        <target>EFFECTUER UN PAIEMENT MAINTENANT</target>
+      </trans-unit>
+
+	  <trans-unit id="payDesc" datatype="html">
+        <source>Note: All amounts are subject to changes in any pending Tariff(s) once approved. Reports will be subject to review.</source>
+        <target>Note : Tous les montants peuvent varier en fonction de l’homologation d’un nouveau tarif. Les rapports feront l’objet d’une révision.</target>
+      </trans-unit>
+
+	  <trans-unit id="eventDetails2" datatype="html">
+        <source>Event Details</source>
+        <target>Détails de l’événement</target>
+      </trans-unit>
+
+	  <trans-unit id="musicLicensesDesc" datatype="html">
+        <source>To choose your license, please indicate how you use music.</source>
+        <target>Veuillez indiquer de quelle manière vous utilisez de la musique afin de choisir la bonne licence.</target>
+      </trans-unit>
+
+	  <trans-unit id="musicLicensesAssigned" datatype="html">
+        <source>Music Licenses Assigned</source>
+        <target>Licences musicales sélectionnées</target>
+      </trans-unit>
+
+	  <trans-unit id="beforeMakingPaymen" datatype="html">
+        <source>Before making a payment, you must assign a tariff and create a report.</source>
+        <target>Vous devez sélectionner un tarif et créer un rapport avant d’effectuer un paiement.</target>
+      </trans-unit>
+
+	  <trans-unit id="resFeeTxt" datatype="html">
+        <source>RE:SOUND license</source>
+        <target>Licence RÉ:SONNE</target>
+      </trans-unit>
+
+	  <trans-unit id="socFeeTxt" datatype="html">
+        <source>SOCAN license</source>
+        <target>Licence SOCAN</target>
+      </trans-unit>
+
+
+	  <trans-unit id="licenseText10a5g1" datatype="html">
+        <source>The legal terms that govern your SOCAN license are set out below as well as in the tariff (including the General Provisions) approved by the Copyright Board. If you have any questions or require a copy the tariff, please contact us at </source>
+        <target>Les dispositions régissant votre licence incluent celles présentées ci-après ainsi que les conditions du tarif homologué, incluant les Dispositions générales, telles qu’homologuées annuellement par la Commission du droit d’auteur. Si vous avez des questions ou souhaitez obtenir un exemplaire du tarif, veuillez communiquer avec nous au</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10a5g2" datatype="html">
+        <source>“You”, “your” and “licensee” refer to the person or company submitting this form for the purpose of obtaining a SOCAN license or filing a report as required by the tariff. “SOCAN” refers to Society of Composers, Authors and Music Publishers of Canada. “Works” means any or all of the musical works in SOCAN’s repertoire.</source>
+        <target>« Vous », « votre » et « licencié » désignent la personne ou l’entreprise qui soumet le présent formulaire dans le but d’obtenir une licence SOCAN ou qui soumet un rapport en vertu du tarif. « SOCAN » désigne la Société canadienne des auteurs, compositeurs et éditeurs de musique. « Oeuvres » désigne toute œuvre ou toutes les œuvres du répertoire de la SOCAN</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10a5g3" datatype="html">
+        <source>The license allows you to perform the Works in public (and to authorize same) by strolling musicians or buskers, or by means of recorded music, in parks, streets or other public areas for the days or periods listed on this form.</source>
+        <target>Cette licence vous autorise à exécuter les Oeuvres en public (ainsi qu’à en autoriser l’exécution) par des musiciens ambulants ou des musiciens de rue ou par l’entremise de musique enregistrée dans les parcs, les rues ou d’autres aires publiques durant les journées listées sur le présent formulaire.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10a5g4" datatype="html">
+        <source>The license fee is calculated according to the tariff based on information from your report or audit conducted by SOCAN and is subject to adjustment to reflect any subsequent reports, audits and approved tariffs. Applicable taxes are payable on all license fee amounts.</source>
+        <target>Les frais de licence sont calculés en vertu des tarifs applicables en se basant sur les informations contenues dans votre plus récent rapport ou dans l’audit mené par la SOCAN et sont sujets à des ajustements afin de concorder à tout rapport, audit ou tarif homologués subséquents. Les taxes applicables sont payables sur tous les frais de licence.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10a5g5" datatype="html">
+        <source>If the tariff for a particular year is not approved by January 1 of that year, the most recent approved tariff applies to that year until a new tariff is approved, at which time license fees will be adjusted to reflect the newly approved tariff.</source>
+        <target>Si le tarif pour une année donnée n’est pas homologué avant le 1er janvier de cette année, c’est le dernier tarif homologué qui s’appliquera jusqu’à ce qu’un nouveau tarif soit homologué, et les frais de licence seront rajustés rétroactivement afin de refléter le tarif nouvellement homologué.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10a5g6" datatype="html">
+        <source>You will submit the license fee, applicable taxes and report to Entandem at the end of the calendar quarter in which the performance occurred.</source>
+        <target>Vous soumettrez à Entandem les frais de licences, plus les taxes applicables, ainsi que votre rapport à la fin du trimestre de calendrier durant laquelle la prestation a eu lieu.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10a5g7" datatype="html">
+        <source>You will pay to Entandem any additional amount found due (including applicable taxes) as a result of any adjustment made to any fees within 10 days of being invoiced by Entandem.</source>
+        <target>Vous devrez payer à Entandem tout montant additionnel déclaré dû (incluant les taxes applicables) résultant de tout rajustement de frais, et ce, dans les 10 jours après la réception d’une facture d’Entandem.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10a5g8" datatype="html">
+        <source>You will keep records of all information necessary for the calculation of the license fees.</source>
+        <target>Assurez-vous de conserver toutes les informations nécessaires pour le calcul des frais de licence.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText95h1" datatype="html">
+        <source>The license allows you to perform the Works in public (and to authorize same) by means of performers in person or recorded music in connection with the sports events listed on this form.</source>
+        <target>Cette licence vous autorise à exécuter les Oeuvres en public (ainsi qu’à en autoriser l’exécution) par l’entremise d’interprètes en personne ou de musique enregistrée accompagnant les événements sportifs listés sur le présent formulaire.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText95h2" datatype="html">
+        <source>You will submit the license fee, applicable taxes and report to Entandem by no later than 30 days after the end of each calendar quarter in which the events took place.</source>
+        <target>Vous soumettrez à Entandem le paiement des frais de licence, des taxes applicables et le rapport afférent au plus tard 30 jours après la fin du trimestre de calendrier durant lequel les événements ont eu lieu.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText11b5i1" datatype="html">
+        <source>The license allows you to perform the Works in public (and to authorize same) by means of performers in person or recorded music in conjunction with the events listed on this form, where the primary focus is on comedians or magicians and the use of music is incidental.</source>
+        <target>Cette licence vous autorise à exécuter les Oeuvres en public (ainsi qu’à en autoriser l’exécution) par l’entremise d’interprètes en personne ou de musique enregistrée accompagnant les événements listés sur le présent formulaire et dont l’attrait principal est les humoristes ou les magiciens et l’utilisation de musique n’est qu’accessoire.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText11b5i2" datatype="html">
+        <source>You will submit the license fee, applicable taxes and report to Entandem within 30 days of each event.</source>
+        <target>Vous soumettrez à Entandem le paiement des frais de licence, des taxes applicables et le rapport afférent au plus tard 30 jours après chaque événement.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText4a15j1" datatype="html">
+        <source>“You”, “your” and “licensee” refer to the person or company submitting this form for the purpose of obtaining a SOCAN license or filing a report as required by the tariff. “SOCAN” refers to Society of Composers, Authors and Music Publishers of Canada. “Works” means any or all of the musical works in SOCAN’s repertoire.</source>
+        <target>« Vous »,« votre » et « licencié » désignent la personne ou l’entreprise qui soumet le présent formulaire dans le but d’obtenir une licence SOCAN ou qui soumet un rapport en vertu du tarif. « SOCAN » désigne la Société canadienne des auteurs, compositeurs et éditeurs de musique. « Oeuvres » désigne toute œuvre ou toutes les œuvres du répertoire de la SOCAN.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText4a15j2" datatype="html">
+        <source>The license allows you to perform the Recordings and Works in public (and to authorize the performance of works) by means of performers in person at the concerts listed on this form held at concert halls, theatres or other places of entertainment. “Performers” include DJs when they are the featured performer and their identity forms part of material used to promote the event.</source>
+        <target>Cette licence vous autorise à exécuter les Enregistrements et Oeuvres en public (ainsi qu’à en autoriser l’exécution) par l’entremise d’interprètes en direct durant les concerts listés sur le présent formulaire ayant eu lieu dans une salle de spectacle, un théâtre ou tout autre lieu de divertissement. La notion d’« interprète » inclut les DJ lorsqu’ils sont la tête d’affiche de l’événement et que leur identité fait partie du matériel utilisé pour promouvoir l’événement.</target>
+      </trans-unit>
+
+      <trans-unit id="licenseText4a15j3" datatype="html">
+        <source>The license fee is calculated according to the tariff based on information from your most recent report or audit conducted by SOCAN and is subject to adjustment to reflect any subsequent reports, audits and approved tariffs. Applicable taxes are payable on all license fee amounts.</source>
+        <target>Les frais de licence sont calculés en vertu des tarifs applicables en se basant sur les informations contenues dans votre plus récent rapport ou dans l’audit mené par la SOCAN et sont sujets à des ajustements afin de concorder à tout rapport, audit ou tarif homologués subséquents. Les taxes applicables sont payables sur tous les frais de licence.</target>
+      </trans-unit>
+
+      <trans-unit id="licenseText4a15j4" datatype="html">
+      <source>If the tariff for a particular year is not approved by January 1 of that year, the most recent approved tariff applies to that year and onward until a new tariff is approved, at which time license fees for these years will be adjusted to reflect the newly approved tariff.</source>
+      <target>Si le tarif pour une année donnée n’est pas homologué avant le 1er janvier de cette année, c’est le dernier tarif homologué qui s’appliquera jusqu’à ce qu’un nouveau tarif soit homologué, et les frais de licence seront rajustés rétroactivement afin de refléter le tarif nouvellement homologué.</target>
+    </trans-unit>
+
+    <trans-unit id="licenseText4a15j5" datatype="html">
+      <source>You will submit to Entandem the license fee, applicable taxes, report and the information requested on this form (if available) within 30 days of the concert.</source>
+      <target>Vous soumettrez à Entandem le paiement des frais de licence, des taxes applicables, le rapport afférent et les informations exigées sur le présent formulaire (si elles sont disponibles) au plus tard 30 jours après le concert.</target>
+    </trans-unit>
+
+    <trans-unit id="licenseText4a15j6" datatype="html">
+      <source>You will pay to Entandem any additional amount found due (including applicable taxes) as a result of any adjustment made to any fees within 10 days of being invoiced by Entandem.</source>
+      <target>Vous devrez payer à Entandem tout montant additionnel déclaré dû (incluant les taxes applicables) résultant de tout rajustement de frais, et ce, dans les 10 jours après la réception d’une facture d’Entandem.</target>
+    </trans-unit>
+
+     <trans-unit id="licenseText4a15j7" datatype="html">
+      <source>You will keep records of all information necessary for the calculation of the license fees.</source>
+      <target>Assurez-vous de conserver toutes les informations nécessaires pour le calcul des frais de licence.</target>
+    </trans-unit>
+    <trans-unit id="licenseText85b1" datatype="html">
+            <source>The legal terms that govern your RE:SOUND and SOCAN licenses are set out below as well as in the tariffs (including the General Provisions) approved by the Copyright Board. If you have any questions or require copies of the tariffs, please contact us at</source>
+            <target>RÉ:SONNE tarif 5.B/SOCAN tarif 8/Les dispositions régissant vos licences RÉ:SONNE et SOCAN, incluant les dispositions générales, sont décrites ci-après ainsi que dans les tarifs homologués par la Commission du droit d’auteur. Si vous avez des questions ou souhaitez obtenir un exemplaire du tarif, veuillez communiquer avec nous au </target>
+          </trans-unit>
+	  <trans-unit id="licenseText85b2" datatype="html">
+        <source>“You”, “your” and “licensee” refer to the person or company submitting this form for the purpose of obtaining RE:SOUND and SOCAN licenses or filing a report as required by the tariffs. “SOCAN” refers to Society of Composers, Authors and Music Publishers of Canada. RE:SOUND refers to Re:Sound Music Licensing Company. “Works” means any or all of the musical works in SOCAN’s repertoire. “Recordings” means any or all of the published sound recordings in RE:SOUND’s repertoire.</source>
+        <target>« Vous »,« votre » et « licencié » désignent la personne ou l’entreprise qui soumet le présent formulaire dans le but d’obtenir des licences RÉ:SONNE et SOCAN ou qui soumet un rapport en vertu des tarifs. « SOCAN » désigne la Société canadienne des auteurs, compositeurs et éditeurs de musique. RÉ:SONNE désigne Ré:Sonne — Société de gestion de la musique. « Oeuvres » désigne toute œuvre ou toutes les œuvres du répertoire de la SOCAN. « Enregistrements » désigne tout enregistrement ou tous les enregistrements sonores édités du répertoire de RÉ:SONNE.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText85b3" datatype="html">
+        <source>The licenses allow you to perform the Recordings and Works in public (and to authorize the public performance of the Works) as part of the events listed on this form in accordance with the Copyright Act.</source>
+        <target>Ces licences vous accordent le droit d’exécuter publiquement ces enregistrements et œuvres (ainsi que d’en autoriser l’exécution publique) dans le cadre des événements énumérés sur le présent formulaire conformément à la Loi sur le droit d’auteur.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText85b4" datatype="html">
+        <source>The license fees are calculated according to the tariffs based on information from your report or audit conducted by RE:SOUND and/or SOCAN and is subject to adjustment to reflect any subsequent reports, audits and approved tariffs. Applicable taxes are payable on all license fee amounts.</source>
+        <target>Les frais de licence sont calculés en vertu des tarifs applicables et en se basant sur les informations contenues dans votre plus récent rapport ou dans l’audit mené par la RÉ:SONNE et/ou la SOCAN et sont sujet à des ajustements afin de concorder à tout rapport, audit ou tarif homologués subséquents. Les taxes applicables sont payables sur tous les frais de licence.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText85b5" datatype="html">
+        <source>If the tariffs for a particular year are not approved by January 1 of that year, the most recent approved tariffs apply to that year until the new tariffs are approved, at which time license fees will be adjusted to reflect the newly approved tariffs.</source>
+        <target>Si les tarifs pour une année donnée ne sont pas homologués avant le 1er janvier de cette année, ce sont les derniers tarifs homologués qui s’appliqueront jusqu’à ce que de nouveaux tarifs soient homologués, et les frais de licence seront rajustés rétroactivement afin de refléter les tarifs nouvellement homologués.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText85b6" datatype="html">
+        <source>You will submit the license fees, applicable taxes and report to Entandem by no later than 30 days after the end of each calendar quarter in which events with music took place.</source>
+        <target>Vous soumettrez le paiement des frais de licence, des taxes applicables et le rapport afférent au plus tard 30 jours après la fin du trimestre de calendrier durant lequel les événements ont eu lieu.</target>
+      </trans-unit>
+
+      <trans-unit id="licenseText85b7" datatype="html">
+              <source> You will pay to Entandem any additional amount found due (including applicable taxes) as a result of any adjustment made to any fees within 10 days of being invoiced by Entandem.</source>
+              <target>Vous devrez payer à Entandem tout montant additionnel déclaré dû (incluant les taxes applicables) résultant de tout rajustement de frais, et ce, dans les 10 jours après la réception d’une facture d’Entandem.</target>
+            </trans-unit>
+        <trans-unit id="licenseText85b8" datatype="html">
+                      <source>You will keep records of all information necessary for the calculation of the license fees</source>
+                      <target>Assurez-vous de conserver toutes les informations nécessaires pour le calcul des frais de licence.</target>
+                    </trans-unit>
+	   <trans-unit id="licenseText4b11" datatype="html">
+        <source>The license allows you to perform the Works in public (and to authorize same) by means of performers in person at the classical music concert(s) or recital(s) listed on this form.</source>
+        <target>Cette licence vous autorise à exécuter les Oeuvres en public (ainsi qu’à en autoriser l’exécution) par l’entremise d’interprètes en personne dans le cadre des concerts ou récitals de musique classique listés sur le présent formulaire.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText4b12" datatype="html">
+        <source>You will submit to Entandem the license fee, applicable taxes, report and the information requested on this form (if available) within 30 days of the concert.</source>
+        <target>Vous soumettrez à Entandem le paiement des frais de licence, des taxes applicables, le rapport afférent et les informations exigées sur le présent formulaire (si elles sont disponibles) au plus tard 30 jours après le concert.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText10b5f1" datatype="html">
+        <source>The license allows you to perform the Works in public (and to authorize same) by marching bands or floats with music participating in the parades listed on this form.</source>
+        <target>Cette licence vous autorise à exécuter les Oeuvres en public (ainsi qu’à en autoriser l’exécution) par des fanfares ou des chars allégoriques avec musique qui participent au défilé listé sur le présent formulaire.</target>
+      </trans-unit>
+
+
+	  <trans-unit id="licenseText5b1" datatype="html">
+        <source>The license allows you to perform the Works in public (and to authorize same) at the concerts held at exhibitions or fairs listed on this form, for which admission is charged in addition to any admission for the exhibitions or fairs.</source>
+        <target>Cette licence vous autorise à exécuter les Oeuvres en public (ainsi qu’à en autoriser l’exécution) dans le cadre de concerts présentés durant l’exposition ou la foire listée sur le présent formulaire et pour lesquels des frais d’admission additionnels sont exigés en plus de ceux pour l’admission à l’exposition ou à la foire.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText5b2" datatype="html">
+        <source>You will submit the license fee, applicable taxes and report to Entandem immediately after the close of the exhibition or fair.</source>
+        <target>Vous devrez payer à Entandem tout montant additionnel déclaré dû (incluant les taxes applicables) résultant de tout rajustement de frais, et ce, dans les 10 jours après la réception d’une facture d’Entandem.</target>
+      </trans-unit>
+
+	  <trans-unit id="repHistoryWillApp" datatype="html">
+        <source>Your report history will appear here.</source>
+        <target>Votre historique de rapports apparaîtra ici</target>
+      </trans-unit>
+
+	  <trans-unit id="addConcertInfo" datatype="html">
+        <source>Add Concert Info</source>
+        <target>Ajouter des informations concernant le concert</target>
+      </trans-unit>
+
+	  <trans-unit id="grossPerConcert" datatype="html">
+        <source>Gross Receipts for Concert (CAD$)</source>
+        <target>Recettes brutes du concert ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="grossAdultGround" datatype="html">
+        <source>Gross Adult Grounds Admission (CAD$)</source>
+        <target>Recettes brutes des frais d’admission pour les adultes ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="editConcert" datatype="html">
+        <source>Edit Concert</source>
+        <target>Modifier concert</target>
+      </trans-unit>
+
+	  <trans-unit id="addConcert" datatype="html">
+        <source>Add Concert</source>
+        <target>Licences générales et concerts</target>
+      </trans-unit>
+
+      <trans-unit id="pleaseAddConcertInfo" datatype="html">
+        <source>Please add concert information</source>
+        <target>Veuillez ajouter les informations concernant le concert</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout1" datatype="html">
+        <source>Advertisement</source>
+        <target>Publicité</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout2" datatype="html">
+        <source>Brochure / Flyer</source>
+        <target>Dépliant/Tract</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout3" datatype="html">
+        <source>News / Media</source>
+        <target>Médias</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout4" datatype="html">
+        <source>Referral</source>
+        <target>Référence</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout5" datatype="html">
+        <source>Social Media</source>
+        <target>Médias sociaux</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout6" datatype="html">
+        <source>Tradeshow, conference, event</source>
+        <target>Salon, conférence, événement</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout7" datatype="html">
+        <source>Website search</source>
+        <target>Recherche sur le Web</target>
+      </trans-unit>
+
+	  <trans-unit id="hearAbout8" datatype="html">
+        <source>Other</source>
+        <target>Autres</target>
+      </trans-unit>
+
+	  <trans-unit id="submitNew" datatype="html">
+        <source>Submit New</source>
+        <target>Soumettre un nouveau rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="invoices" datatype="html">
+        <source>Invoices</source>
+        <target>Factures</target>
+      </trans-unit>
+
+	  <trans-unit id="support" datatype="html">
+        <source>Support</source>
+        <target>Aide</target>
+      </trans-unit>
+
+	  <trans-unit id="support2" datatype="html">
+        <source>Support:</source>
+        <target>Aide :</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentAmountCad" datatype="html">
+        <source>Payment Amount (CAD$)</source>
+        <target>Montant du paiement ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="paymentAmountCad2" datatype="html">
+        <source>Payment Amount (CAD$):</source>
+        <target>Montant du paiement ($CAD) :</target>
+      </trans-unit>
+
+	   <trans-unit id="expDate" datatype="html">
+        <source>Expiration Date</source>
+        <target>Date d’expiration</target>
+      </trans-unit>
+
+	  <trans-unit id="cvc" datatype="html">
+        <source>CVC</source>
+        <target>CVC</target>
+      </trans-unit>
+
+	  <trans-unit id="reportHistory" datatype="html">
+        <source>Report History</source>
+        <target>Historique de rapports</target>
+      </trans-unit>
+
+	  <trans-unit id="itemsPerPage" datatype="html">
+        <source>Items per page</source>
+        <target>Items par page</target>
+      </trans-unit>
+
+	  <trans-unit id="adjustReport" datatype="html">
+        <source>Adjust Report</source>
+        <target>Modifier le rapport</target>
+      </trans-unit>
+
+	  <trans-unit id="province1" datatype="html">
+        <source>Alberta</source>
+        <target>Alberta</target>
+      </trans-unit>
+
+	  <trans-unit id="province2" datatype="html">
+        <source>British Columbia</source>
+        <target>Colombie-Britannique</target>
+      </trans-unit>
+
+	  <trans-unit id="province3" datatype="html">
+        <source>Manitoba</source>
+        <target>Manitoba</target>
+      </trans-unit>
+
+	  <trans-unit id="province4" datatype="html">
+        <source>New Brunswick</source>
+        <target>Nouveau-Brunswick</target>
+      </trans-unit>
+
+	  <trans-unit id="province5" datatype="html">
+        <source>Newfoundland and Labrador</source>
+        <target>Terre-Neuve-et-Labrador</target>
+      </trans-unit>
+
+	  <trans-unit id="province6" datatype="html">
+        <source>Northwest Territories</source>
+        <target>Territoires du Nord-Ouest</target>
+      </trans-unit>
+
+	  <trans-unit id="province7" datatype="html">
+        <source>Nova Scotia</source>
+        <target>Nouvelle-Écosse</target>
+      </trans-unit>
+
+	  <trans-unit id="province8" datatype="html">
+        <source>Nunavut</source>
+        <target>Nunavut</target>
+      </trans-unit>
+
+	  <trans-unit id="province9" datatype="html">
+        <source>Ontario</source>
+        <target>Ontario</target>
+      </trans-unit>
+
+	  <trans-unit id="province10" datatype="html">
+        <source>Prince Edward Island</source>
+        <target>Île-du-Prince-Édouard</target>
+      </trans-unit>
+
+	  <trans-unit id="province11" datatype="html">
+        <source>Quebec</source>
+        <target>Québec</target>
+      </trans-unit>
+
+	  <trans-unit id="province12" datatype="html">
+        <source>Saskatchewan</source>
+        <target>Saskatchewan</target>
+      </trans-unit>
+
+	   <trans-unit id="province13" datatype="html">
+        <source>Yukon</source>
+        <target>Yukon</target>
+      </trans-unit>
+
+	  <trans-unit id="add" datatype="html">
+        <source>ADD</source>
+        <target>AJOUTER</target>
+      </trans-unit>
+
+	  <trans-unit id="selectAll" datatype="html">
+        <source>Select all</source>
+        <target>Tout sélectionner</target>
+      </trans-unit>
+
+	  <trans-unit id="grossBiggerAdult" datatype="html">
+        <source>Adult grounds admission bigger than gross tickets</source>
+        <target>Frais d’admission pour les adultes supérieurs aux recettes brutes de billets</target>
+      </trans-unit>
+
+	  <trans-unit id="grossCadTiked" datatype="html">
+        <source>Gross receipts from ticket sales (CAD$)</source>
+        <target>Recettes brutes provenant de la vente de billets ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="grossCad" datatype="html">
+        <source>Gross(CAD$)</source>
+        <target>Recettes brutes ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc11a5e" datatype="html">
+        <source>Any calculation below the minimum fee is when the min. fee would apply for each event. Minimum fee is calculated against each event individually.</source>
+        <target>Les frais minimum s’appliqueront pour tout calcul dont la somme est inférieure à ce minimum. Les frais minimum sont calculés pour chaque événement individuellement.</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc11a5e1" datatype="html">
+        <source>Fee per total gross receipts from ticket sales</source>
+        <target>Frais par total des recettes brutes provenant de la vente de billets</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText11a5e1" datatype="html">
+        <source>The license allows you to perform the Works in public (and to authorize same) by means of performers in person or recorded music at the circuses, ice shows, fireworks displays, multimedia (including sound and light) shows and similar events listed on this form.</source>
+        <target>Cette licence vous autorise à exécuter les Oeuvres en public (ainsi qu’à en autoriser l’exécution) par l’entremise d’interprètes en personne ou musique enregistrée dans les cirsques, spectacles sur glace, feux d’artifice, spectacles multimédias (incluant les spectacles son et lumière) et les événements du même genre listés sur le présent formulaire.</target>
+      </trans-unit>
+
+	  <trans-unit id="licenseText11a5e2" datatype="html">
+        <source>You will submit the license fee, applicable taxes and report to Entandem within 7 days of each event.</source>
+        <target>Vous soumettrez à Entandem le paiement des frais de licence, des taxes applicables et le rapport afférent au plus tard 7 jours après chaque événement.</target>
+      </trans-unit>
+
+
+	  <trans-unit id="totalBandsFloat" datatype="html">
+        <source>Total # of bands or floats</source>
+        <target>Nombre total de fanfares ou de chars allégoriques</target>
+      </trans-unit>
+
+	  <trans-unit id="bandsFloat" datatype="html">
+        <source># Bands or Floats</source>
+        <target>Nombre de fanfares ou de chars allégoriques</target>
+      </trans-unit>
+
+	  <trans-unit id="bandsFloatLive" datatype="html">
+        <source># Floats Live Music Only</source>
+        <target>Nombre de chars allégoriques avec musique en direct seulement</target>
+      </trans-unit>
+
+	  <trans-unit id="calcDesc10b5f" datatype="html">
+        <source>Calculated by total number of marching bands and floats with music. 'Live music only' option calculates without RE:SOUND portion. Total # Days for Live Music Only events subtracts the # of days entered to determine the RE:SOUND fee and include everything for the SOCAN fee.</source>
+        <target>Calculé en fonction de nombre total de fanfares et chars allégoriques avec musique. L’option « Musique en direct seulement » effectue le calcul sans la portion RÉ:SONNE. Le nombre total de jours de musique en direct seulement soustrait le nombre de jours entré afin de calculer les frais RÉ:SONNE et d’inclure tout ce qui est nécessaire pour le calcul des frais SOCAN.</target>
+      </trans-unit>
+
+	  <trans-unit id="minDay" datatype="html">
+        <source>Minimum/Day</source>
+        <target>Minimum par jour</target>
+      </trans-unit>
+
+	  <trans-unit id="grossMoreZero" datatype="html">
+        <source>Gross fee must be more than 0</source>
+        <target>Recettes brutes doivent être supérieurs à 0</target>
+      </trans-unit>
+
+	  <trans-unit id="moreZero" datatype="html">
+        <source>Gross Receipts value must be more then 0</source>
+        <target>Recettes brutes doivent être supérieurs à 0</target>
+      </trans-unit>
+
+	  <trans-unit id="faqs" datatype="html">
+        <source>FAQs</source>
+        <target>FAQ</target>
+      </trans-unit>
+
+	  <trans-unit id="supportTab1" datatype="html">
+        <source>What is Entandem</source>
+        <target>Qu’est-ce qu’Entandem</target>
+      </trans-unit>
+
+	  <trans-unit id="supportTab2" datatype="html">
+        <source>Paying for music License</source>
+        <target>Payer une licence musicale</target>
+      </trans-unit>
+
+	  <trans-unit id="supportTab3" datatype="html">
+        <source>Resound/Socan Customer</source>
+        <target>Client Ré:Sonne/SOCAN</target>
+      </trans-unit>
+
+	  <trans-unit id="general" datatype="html">
+        <source>General:</source>
+        <target>Généralités :</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle1" datatype="html">
+        <source>What is Entandem?</source>
+        <target>Qu’est-ce qu’Entandem ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle2" datatype="html">
+        <source>When was Entandem launched?</source>
+        <target>Quand Entandem commencera-t-elle ses activités ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle3" datatype="html">
+        <source>Who owns/operates Entandem?</source>
+        <target>Qui détient et exploite Entandem ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle4" datatype="html">
+        <source>What are RE:SOUND and SOCAN?</source>
+        <target>Que sont Ré:Sonne et la SOCAN ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle5" datatype="html">
+        <source>Why was Entandem created?</source>
+        <target>Pourquoi avoir créé Entandem ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle6" datatype="html">
+        <source>How will Entandem licensing benefit my business?</source>
+        <target>Comment les licences d’Entandem bénéficieront-elles à mon entreprise ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle7" datatype="html">
+        <source>How will Entandem benefit music rights-holders?</source>
+        <target>Comment Entandem bénéficiera-t-elle les ayants droit ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle8" datatype="html">
+        <source>Will a license cost more under Entandem?</source>
+        <target>Est-ce qu’une licence musicale Entandem sera plus dispendieuse ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle9" datatype="html">
+        <source>I don't currently pay a RE:SOUND and/or a SOCAN license. Do I have to get both?</source>
+        <target>Je ne paie pas de frais de licence à RÉ:SONNE ou à la SOCAN à l’heure actuelle. Est-ce que je dois me prévaloir des deux ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle10" datatype="html">
+        <source>How do you determine license fees? Do I have a say?</source>
+        <target>Comment fixez-vous les frais de licence ? Est-ce que j’ai mon mot à dire ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle11" datatype="html">
+        <source>When will Entandem start administering my license?</source>
+        <target>Quand Entandem commencera-t-elle à administrer ma licence ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle12" datatype="html">
+        <source>If I have issues with my license/payments/service, who do I contact – RE:SOUND, SOCAN or Entandem?</source>
+        <target>Si j’ai des préoccupations au sujet de ma licence, de mes paiements ou du service que je reçois, avec qui dois-je communiquer ? RÉ:Sonne, SOCAN ou Entandem ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle13" datatype="html">
+        <source>What will happen to RE:SOUND and SOCAN after Entandem launches?</source>
+        <target>Que se passera-t-il à la SOCAN et chez RÉ:SONNEaprès le lancement d’Entandem ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle14" datatype="html">
+        <source>I don't currently pay a RE:SOUND and/or a SOCAN license. Will this change?</source>
+        <target>Je ne paie pas de frais de licence à RÉ:SONNEou à la SOCAN à l’heure actuelle. Est-ce que cela va changer ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle15" datatype="html">
+        <source>Which organization do I contact prior to the launch of Entandem?</source>
+        <target>Quelle organisation dois-je contacter avant le lancement d’Entandem ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle16" datatype="html">
+        <source>When will I be able to report and pay for both RE:SOUND and SOCAN licenses online at one time?</source>
+        <target>À partir de quand vais-je pouvoir soumettre mes rapports et payer mes licences RÉ:SONNEet SOCAN en une seule transaction en ligne ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle17" datatype="html">
+        <source>Can I expect more changes of this nature?</source>
+        <target>Est-ce qu’il y a d’autres changements de cette nature à venir ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppTitle18" datatype="html">
+        <source>Does this change where my license money goes?</source>
+        <target>Est-ce que cela change à qui vont mes frais de licence ?</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc1" datatype="html">
+        <source>Entandem is a joint venture between RE:SOUND and SOCAN that brings the music licensing services now managed separately by each organization into a single, jointly operated business.</source>
+        <target>Entandem est une coentreprise de RÉ:SONNE et de la SOCAN qui unifie les licences actuellement gérées séparément par les deux organisations en une seule entreprise.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc2" datatype="html">
+        <source>Entandem was launched in July 2019.</source>
+        <target>Entandem a été lancé en juillet 2019.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc3" datatype="html">
+        <source>Create your account</source>
+        <target>Créez votre compte</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc4" datatype="html">
+        <source>to get started.</source>
+        <target>pour vous inscrire.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc5" datatype="html">
+        <source>Entandem is jointly owned and operated by both RE:SOUND and SOCAN, and we will administer recorded and live music licenses common to both RE:SOUND and SOCAN.</source>
+        <target>Entandem est détenue et exploitée conjointement par RÉ:SONNE et la SOCAN et la coentreprise administrera les licences de musique enregistrée et en direct communes aux deux sociétés.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc6" datatype="html">
+        <source>RE:SOUND is the Canadian not-for-profit music licensing company dedicated to obtaining fair compensation for performing artists and record companies for their performance rights for recorded music. RE:SOUND advocates for music makers and performers, educates music users, licenses businesses and distributes royalties to creators to help build a thriving and sustainable music industry in Canada. RE:SOUND was started in 1997.</source>
+        <target>RÉ:SONNE est une organisation canadienne sans but lucratif de licences musicales dédiée à l’obtention d’une rémunération équitable pour les artistes interprètes et les maisons de disques provenant des redevances d’exécution des enregistrements de leur musique. RÉ:SONNE défend les musiciens et les interprètes, éduque les utilisateurs de musique, octroie des licences aux entreprises et répartit les redevances perçues afin de bâtir une industrie de la musique florissante et durable au Canada. RÉ:SONNE a été fondée en 1997.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc7" datatype="html">
+        <source>SOCAN is a not-for-profit rights management organization that connects more than four-million music creators worldwide and more than a quarter-million businesses and individuals in Canada. Nearly 160,000 songwriters, composers, music publishers and visual artists are its direct members, and more than 100,000 organizations are Licensed To Play music across Canada. In 1990, SOCAN became the name of an organization that started in 1921.</source>
+        <target>La SOCAN est une organisation sans but lucratif de gestion de droits qui est le trait d’union entre plus de 4 millions de créateurs musicaux partout dans le monde et plus d’un quart de million d’entreprises et d’individus au Canada. Son effectif de membres compte près de 160 000 auteurs, compositeurs, éditeurs de musique et artistes visuels, tandis que plus de 100 000 entreprises de partout au Canada détiennent une licence « Autorisé à vous divertir ». C’est en 1990 que la société, qui existe depuis 1921, a adopté le nom SOCAN.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc8" datatype="html">
+        <source>RE:SOUND administers the performance rights of performing artists and record companies in the sound recording. SOCAN administers the performance rights of the composers, authors and their music publishers in the musical work/song.</source>
+        <target>RÉ:SONNE administre le droit d’exécution des artistes interprètes et des maisons de disques des enregistrements sonores de son répertoire. La SOCAN administre le droit d’exécution des auteurs, compositeurs et éditeurs musicaux des œuvres musicales de son répertoire.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc9" datatype="html">
+        <source>Entandem was created to deliver greater value to music users and the rights holders represented by both RE:SOUND and SOCAN. By working together, RE:SOUND and SOCAN will reach more music users to ensure that music creators are legally, fairly and ethically compensated for their music.</source>
+        <target>Entandem a été fondée afin d’offrir une plus grande valeur aux utilisateurs de musique et aux ayants droit représentés tant par RÉ:SONNEet la SOCAN. Grâce à cette collaboration, RÉ:SONNE et la SOCAN rejoindront plus d’utilisateurs de musique afin de s’assurer que les créateurs de musique sont rémunérés de manière légale, juste et équitable pour leur musique.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc10" datatype="html">
+        <source>It's all about simplicity. For most businesses that use music, a single music licensing organization means a simplified experience, by interacting with one organization, with less administrative work and one payment for both RE:SOUND and SOCAN music licenses, and one point of contact to answer questions and resolve issues.</source>
+        <target>C’est une question de simplicité. Pour la majorité des entreprises utilisant de la musique, une organisation unique d’octroi de licence signifie une expérience simplifiée, un seul paiement pour les licences musicales de RÉ:SONNE et de la SOCAN et un guichet unique pour les questions et la résolution de problèmes.</target>
+      </trans-unit>
+
+	   <trans-unit id="suppDesc11" datatype="html">
+        <source>By working together, RE:SOUND and SOCAN will eliminate duplication, reaching more music users to ensure that music creators are legally, fairly and ethically compensated for their music. Entandem will benefit music rights holders – the songwriters, composers and music publishers who earn money from compositions, and the artists and record companies who make recorded music.</source>
+        <target>Grâce à cette collaboration, RÉ:SONNE et la SOCAN éliminent les redondances et rejoignent plus d’utilisateurs de musique afin de s’assurer que les créateurs de musique sont rémunérés de manière légale, juste et équitable pour leur musique. Entandem sera donc bénéfique pour les ayants droit ; les auteurs, compositeurs et éditeurs de musique qui gagnent leur vie grâce à leurs compositions, ainsi que les artistes interprètes et les maisons de disques qui produisent les enregistrements.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc12" datatype="html">
+        <source>The creation of Entandem has no impact on the individual licensing amounts currently collected by RE:SOUND and SOCAN and set by the Copyright Board of Canada.</source>
+        <target>La création d’Entandem n’a aucun impact sur les montants des frais de licence actuellement collectés par RÉ:SONNE et la SOCAN et homologués par la Commission du droit d’auteur du Canada.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc13" datatype="html">
+        <source>Organizations that use recorded music are legally required to obtain the applicable RE:SOUND and SOCAN licenses. Organizations that use live music are required to obtain a SOCAN licence.</source>
+        <target>Les entreprises utilisant de la musique ont une obligation légale de détenir les licences appropriées de RÉ:SONNE et de la SOCAN. Les entreprises qui diffusent de la musique en direct doivent obtenir une licence de la SOCAN.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc14" datatype="html">
+        <source>You might currently be licensed by only one of the organizations due, for example, to lack of awareness or simple oversight. Entandem enables businesses that use music to complete both licenses at one time, through a single music license, so that rights-holders can be compensated for what they have fairly and legally earned through their work.</source>
+        <target>Il se pourrait que vous ne déteniez de licence que de l’une des deux organisations simplement par ignorance ou simple omission. Entandem permet aux entreprises qui utilisent de la musique de se prévaloir des deux licences en même temps par le biais d’une seule licence afin que les ayants droit soient rémunérés pour ce qu’ils ont justement et légalement gagné grâce à leur travail.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc15" datatype="html">
+        <source>Licenses for using music are determined by the Copyright Board of Canada's tariff-setting process. All stakeholders, including music users, can have input on future tariffs through the Copyright Board's tariff-setting process.</source>
+        <target>Les licences pour l’utilisation de musique sont homologuées par le processus de fixation des tarifs de la Commission du droit d’auteur du Canada. Toutes les parties prenantes, incluant les utilisateurs de musique, ont leur mot à dire sur ces tarifs lors du processus entourant leur fixation par la Commission du droit d’auteur.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc16" datatype="html">
+        <source>The transfer of licensing services to Entandem will take place in July 2019. Further details will be communicated in advance.</source>
+        <target>Le transfert des services de licences vers Entandem aura lieu en juillet 2019. Nous vous communiquerons tous les détails à l’avance.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc17" datatype="html">
+        <source>In July 2019, Entandem will be the sole point of contact for any licensing-related issues for the licenses it administers. Until then, please continue to contact RE:SOUND and/or SOCAN about your music licensing needs and requirements.</source>
+        <target>Dès juillet 2019, Entandem deviendra l’unique point de contact pour toute question touchant les licences que l’entreprise administre. D’ici là, veuillez continuer de contacter RÉ:SONNE ou la SOCAN au sujet de vos licences.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc18" datatype="html">
+        <source>Both organizations will continue without change, except for the transfer of general licensing operations to Entandem. Other types of licensing such as broadcast licenses (e.g., radio, TV), background music suppliers and new media (e.g., streaming/webcasting) will continue to be administered by RE:SOUND and SOCAN.</source>
+        <target>Les deux organisations poursuivront leurs activités normales à la seule différence que les opérations de licences générales et de concerts seront transférées à Entandem. Les autres types de licence comme les licences de radiodiffusion (p. ex. radio, télé), les fournisseurs de musique de fond et de services du domaine des nouveaux médias (p. ex. diffusion en continu et webdiffusion continueront d’être administrées par RÉ:SONNEet la SOCAN.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc19" datatype="html">
+        <source>Music users that are legally required to pay RE:SOUND and/or SOCAN licenses, might currently be licensed by only one of the organizations due, for example, to lack of awareness or simple oversight.</source>
+        <target>Les utilisateurs de musique ont l’obligation légale de détenir et payer une licence de RÉ:SONNEet/ou de la SOCAN, et il se pourrait que vous ne déteniez de licence que de l’une des deux organisations simplement par ignorance ou simple omission.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc20" datatype="html">
+        <source>Entandem enables businesses that use music to complete both licenses at one time, through one music license, so that rights-holders can be compensated for what they have fairly and legally earned.</source>
+        <target>Entandem permet aux entreprises qui utilisent de la musique de se prévaloir des deux licences en même temps par le biais d’une seule licence afin que les ayants droit soient rémunérés pour ce qu’ils ont justement et légalement gagné grâce à leur travail.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc21" datatype="html">
+        <source>Until administration of your license is moved to Entandem, there will be no change to your account, the organization that manages your license(s), or your point of contact.</source>
+        <target>D’ici au transfert de l’administration de votre licence vers Entandem, il n’y aura aucun changement à votre compte et l’organisation qui gère vos licences demeure votre point de contact.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc22" datatype="html">
+        <source>The Entandem music licensing website is now live. After you</source>
+        <target>Le site de délivrance de licences musicales Entandem est maintenant en ligne. Une fois que vous aurez</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc23" datatype="html">
+        <source>create your account,</source>
+        <target>créé votre compte,</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc24" datatype="html">
+        <source>you'll receive both RE:SOUND and SOCAN licenses.</source>
+        <target>vous recevrez en même temps des licences de RÉ:SONNE de la SOCAN.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc25" datatype="html">
+        <source>There are no plans currently for any other changes to music licensing. Both organizations have worked hard to ensure that Entandem is the optimal music licensing solution for Canada's unique marketplace, today and long into the future. As with any smart business, we will always consider further opportunities to deliver more to RE:SOUND and SOCAN members. Entandem will always explore new ways to help maximize the value that music brings to businesses, contributing to their bottom line, and returning more earned royalties to music creators and performers.</source>
+        <target>Nous ne prévoyons actuellement pas d’autres changements aux licences musicales. Les deux organisations ont travaillé très fort afin de s’assurer qu’Entandem soit la solution optimale de licences musicales pour le marché canadien, aujourd’hui et pour de nombreuses années à venir. Comme toute entreprise intelligente, nous étudierons toute opportunité nous permettant d’en offrir plus aux membres de RÉ:SONNEet de la SOCAN. Entandem cherchera sans relâche de nouvelles façons de maximiser la plus-value de la musique pour les entreprises afin de bonifier leurs recettes et de répartir plus de redevances aux créateurs et interprètes de musique.</target>
+      </trans-unit>
+
+	  <trans-unit id="suppDesc26" datatype="html">
+        <source>No. All royalties collected and administered will still be delivered to the music rights-holders who have earned them through the use of their music.</source>
+        <target>Non. Toutes les redevances collectées et administrées continueront d’être remises aux ayants droit qui les ont gagnées grâce à l’utilisation de leur musique.</target>
+      </trans-unit>
+
+	  <trans-unit id="grossFeeCad" datatype="html">
+        <source>Gross Fee (CAD$)</source>
+        <target>Frais Bruts ($CAD)</target>
+      </trans-unit>
+
+	  <trans-unit id="grossFee" datatype="html">
+        <source>Gross Fee</source>
+        <target>Frais bruts</target>
+      </trans-unit>
+
+	  <trans-unit id="profileInformationSuccessfully" datatype="html">
+        <source>Profile Information Successfully Changed</source>
+        <target>Information de profil a été modifié avec succès !</target>
+      </trans-unit>
+
+	  <trans-unit id="contactSuccessfullyEdited" datatype="html">
+        <source>Contact Successfully Edited</source>
+        <target>Le contact a été modifié avec succès !</target>
+      </trans-unit>
+
+	  <trans-unit id="contactSuccessfullyDeleted" datatype="html">
+        <source>Contact Successfully Deleted</source>
+        <target>Le contact a été supprimé avec succès</target>
+      </trans-unit>
+
+	  <trans-unit id="primaryContactSuccessfullyEdited" datatype="html">
+        <source>Primary Contact Successfully Edited</source>
+        <target>Le contact principal a été modifié avec succès !</target>
+      </trans-unit>
+
+	  <trans-unit id="impersionateModeNotAllowed" datatype="html">
+        <source>Action is not allowed in Impersonation mode</source>
+        <target>Vous ne pouvez pas effectuer cette action dans le mode mandataire</target>
+      </trans-unit>
+
+	  <trans-unit id="youSubscribed" datatype="html">
+        <source>You subscribed</source>
+        <target>Vous avez souscrit</target>
+      </trans-unit>
+
+	  <trans-unit id="youUnsubscribed" datatype="html">
+        <source>You unsubscribed</source>
+        <target>Vous avez désabonné</target>
+      </trans-unit>
+
+	  <trans-unit id="reportAgain" datatype="html">
+        <source>REPORT AGAIN</source>
+        <target>RAPPORTER DE NOUVEAU</target>
+      </trans-unit>
+
+	  <trans-unit id="q1" datatype="html">
+	    <source>1st Quarter (Jan to Mar)</source>
+        <target>1er trimestre (janv.-mars)</target>
+      </trans-unit>
+
+	  <trans-unit id="q2" datatype="html">
+	    <source>2nd Quarter (Apr to Jun)</source>
+        <target>2e trimestre (avril-juin)</target>
+      </trans-unit>
+
+	  <trans-unit id="q3" datatype="html">
+	    <source>3rd Quarter (Jul to Sept)</source>
+        <target>3e trimestre (juil.-sept.)</target>
+      </trans-unit>
+
+	  <trans-unit id="q4" datatype="html">
+	    <source>4th Quarter (Oct to Dec)</source>
+        <target>4e trimestre (oct.-déc.)</target>
+      </trans-unit>
+
+	  <trans-unit id="emailExist1" datatype="html">
+	    <source>This email address already exists. Please</source>
+        <target>Cette adresse courriel de compte existe déjà. Veuillez</target>
+      </trans-unit>
+
+	  <trans-unit id="emailExist2" datatype="html">
+	    <source>to continue to your account.</source>
+        <target>afin d’accéder à votre compte.</target>
+      </trans-unit>
+
+	  <trans-unit id="emailExist3" datatype="html">
+	    <source>This email address / account number already exists. Please</source>
+        <target>Cette adresse courriel ou ce numéro de compte existe déjà. Veuillez</target>
+      </trans-unit>
+
+      <trans-unit id="emailExist4" datatype="html">
+	    <source>log in</source>
+        <target>ouvrir une session</target>
+      </trans-unit>
+
+	  <trans-unit id="emailExist5" datatype="html">
+	    <source>We are missing some information and can’t complete your registration. Please call</source>
+        <target></target>
+      </trans-unit>
+
+	  <trans-unit id="emailExist6" datatype="html">
+	    <source>so we can help you register your account.</source>
+        <target></target>
+      </trans-unit>
+
+	  <trans-unit id="emailExist7" datatype="html">
+	    <source>This email and/or account number does not exist</source>
+        <target></target>
+      </trans-unit>
+
+	  <trans-unit id="deleteTemplate" datatype="html">
+         <source>Are you sure you want to delete this template?</source>
+         <target></target>
+      </trans-unit>
+
+      <trans-unit id="confirmDeleteTemplate" datatype="html">
+       	 <source>Delete Template</source>
+         <target></target>
+      </trans-unit>
+
+	  <trans-unit id="emailChanged" datatype="html">
+       	 <source>Email changed</source>
+         <target></target>
+      </trans-unit>
+
+	  <trans-unit id="emailSuccessChanged" datatype="html">
+       	 <source>Your email was successfully changed! Please log in.</source>
+         <target></target>
+      </trans-unit>
+
+	  <trans-unit id="looksLikeYou" datatype="html">
+       	 <source>Looks like you were previously licensed with RE:SOUND and/or SOCAN. Please try registering as an existing licensee.</source>
+         <target></target>
+      </trans-unit>
+
+	  <trans-unit id="incorrectValue" datatype="html">
+       	 <source>Incorrect Value</source>
+         <target>Entrée invalide</target>
+      </trans-unit>
+
+	  <trans-unit id="lessEight" datatype="html">
+       	 <source>*less than 8 bands</source>
+         <target>*moins de 8 fanfares</target>
+      </trans-unit>
+
+	  <trans-unit id="totalGross" datatype="html">
+       	 <source>Total Gross</source>
+         <target>Recettes brutes totals</target>
+      </trans-unit>
+
+	  <trans-unit id="gross" datatype="html">
+       	 <source>Gross</source>
+         <target>Recettes brutes</target>
+      </trans-unit>
+
+	  <trans-unit id="adultGeneral" datatype="html">
+       	 <source>Adult General Admission</source>
+         <target>Admission générale pour adultes</target>
+      </trans-unit>
+	  <trans-unit id="sureDeleteContact" datatype="html">
+         <source>Are you sure you want to delete this contact?</source>
+       <target></target>
+    </trans-unit>
+    <trans-unit id="delateContact" datatype="html">
+         <source>Delate Contact?</source>
+       <target></target>
+    </trans-unit>
+    <trans-unit id="failedCreateUnit" datatype="html">
+         <source>Failed to create unit</source>
+       <target></target>
+    </trans-unit>
+    <trans-unit id="failedUniDescription" datatype="html">
+         <source>Unit name already exists</source>
+       <target></target>
+    </trans-unit>
+    <trans-unit id="impersonationError" datatype="html">
+             <source>Action is not allowed in Impersonation mode</source>
+           <target></target>
+        </trans-unit>
+    </body>
+  </file>
+</xliff>

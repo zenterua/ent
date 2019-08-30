@@ -1,0 +1,114 @@
+<div class="page-padding">
+    <div class="bs-xs-20"></div>
+	<div class="container-custome">
+		<back-button>
+			<button class="btn-icon type-xs icon-border">
+				<img src="assets/img/back.svg" alt="">
+			</button>
+		</back-button>
+		<div class="bs-xs-20"></div>
+		<div class="max-560 text-center">
+			<div class="page-content-entry">
+	      
+		      <ng-container *ngIf="payStatusUnsuccess">
+		      	  <div class="row-padd-60">
+				    <div class="bs-xs-30 bs-sm-50"></div>
+				    	<h4 class="h4" i18n="@@paymentUnsuccessful">Payment unsuccessful!</h4>
+						<div class="bs-xs-10"></div>
+						<p class="text grey" i18n="@@paymentUnsuccessfulDesc">We could not complete your transaction. Please re-enter your payment information.</p>
+						<div class="bs-xs-20"></div>
+						<div class="divider"></div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@transactionNumber2">Transaction Number:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text">{{paymentData?.AUTHORIZATION_NO}}</p>
+						</div>
+						<div class="bs-xs-30 bs-sm-50"></div>
+						<a type="button" class="btn btn-primary btn-wide-1" [routerLink]="['/payments/make-payment']" [queryParams]="{amount: payAmount}" i18n="@@retry">Retry</a>
+						<div class="bs-xs-30 bs-sm-50"></div>
+				  </div>
+			  </ng-container>
+			  
+			  <ng-container *ngIf="payStatusSuccess">
+				<div class="row-padd-60">
+				    <div class="bs-xs-30 bs-sm-50"></div>
+					<img src="assets/img/checked-icon.svg" alt="" class="img-full">
+						<div class="bs-xs-10"></div>
+						<h4 class="h4" i18n="@@paymentSuccessful">Payment successful!</h4>
+						<div class="bs-xs-10"></div>
+						<p class="text grey" i18n="@@paymentSuccessfulDesc">Thank you for ensuring that songwriters, composers, performers and music publishers are compensated for their work.</p>
+						<div class="bs-xs-30"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@confirmationNo2">Confirmation #:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">{{paymentData?.REQUEST_NO}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@dateAndTime2">Date and Time:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">{{ setTime(paymentData?.PAYMENT_DATE) }}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@paidBy2">Paid by:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">{{userData.FIRST_NAME}} {{userData.LAST_NAME}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="divider"></div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@transactionNumber2">Transaction Number:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">{{paymentData?.AUTHORIZATION_NO}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@amountPaid2">Amount Paid:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">${{paymentData?.PAYMENT_AMT | number:'1.2-2'}}</p>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@paymentMethod2">Payment Method:</span>
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<div class="inline-align">
+								<p class="text lg" i18n="@@creditCard2">Credit Card:</p>
+								<card-detail-type [type]="paymentData?.PAYMENT_TYPE"></card-detail-type>
+							</div>
+						</div>
+						<div class="bs-xs-20"></div>
+						<div class="caption-align no-flex-sm">
+							<div class="text sm grey">
+							<span i18n="@@cardNumber">Card Number</span>:
+							<div class="bs-xs-10 bs-sm-0"></div>
+							</div>
+							<p class="text lg">**** **** **** {{paymentData?.LASTFOUR}}</p>
+						</div>
+						<div class="bs-xs-30 bs-sm-50"></div>
+				</div>
+			  </ng-container>	
+			  
+			</div>
+		</div>
+	</div>
+	<div class="bs-lg"></div>
+</div>
+
+<div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>

@@ -1,0 +1,504 @@
+<div class="page-padding">
+    <div class="bs-md"></div>
+	<div class="container-custome">
+		<h2 class="h1" i18n="@@myAccount">My Account</h2>
+		<div class="bs-xs-20"></div>
+		<div class="caption-align">
+			<h5 class="h5" i18n="@@profileInformation">Profile Information</h5>
+			<div class="btn-icon" (click)="editAccountInfo()"><img src="assets/img/edit.svg" alt=""></div>
+		</div>
+		<div class="bs-xs-5"></div>
+		<div class="divider"></div>
+		<div class="bs-xs-30"></div>
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@businessName">Business Name:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@account">Account #:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.ACCT_NO}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@phoneNumber">Phone Number:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.PHONE}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@addr2">Address:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.ADDRESS}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@city2">City:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.CITY}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@provinceDot">Province:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.PROVINCE}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@postalCode">Postal Code:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.POSTAL_CODE}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+		<div class="bs-xs-15"></div>
+		<div class="caption-align">
+			<h5 class="h5" i18n="@@loginEmailAddress">Login Email Address</h5>
+			<div class="btn-icon" (click)="editEmailOpen()"><img src="assets/img/edit.svg" alt=""></div>
+		</div>
+		<div class="bs-xs-5"></div>
+		<div class="divider"></div>
+		<div class="bs-xs-30"></div>
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<p class="text sm grey" i18n="@@emailAddress">Email Address:</p>
+				<div class="bs-xs-5"></div>
+				<p class="text lg">{{userData.EMAIL}}</p>
+				<div class="bs-xs-15"></div>
+			</div>
+		</div>
+		<form [formGroup]="promotionEmailForm">
+		<mat-checkbox i18n="@@promotionalEmails" formControlName="promo" (change)="subsctibePromotional($event)">I do not want to receive promotional emails from Entandem</mat-checkbox>
+		</form>
+		<div class="bs-xs-30"></div>
+		<div class="caption-align">
+			<h5 class="h5" i18n="@@password">Password</h5>
+			<div class="btn-icon" (click)="editPasswordInfo = true"><img src="assets/img/edit.svg" alt=""></div>
+		</div>
+		<div class="bs-xs-5"></div>
+		<div class="divider"></div>
+		<div class="bs-xs-30"></div>
+		<div class="caption-align">
+			<h5 class="h5" i18n="@@contactInformation">Contact Information</h5>
+		</div>
+		<div class="bs-xs-5"></div>
+		<div class="divider"></div>
+		<div class="bs-xs-30"></div>
+		<div class="page-content-entry">
+		<div [hidden]="!noContacts">
+		    <div class="bs-xs-30 bs-sm-50"></div>
+			<div class="text-center max-330">
+				<img src="assets/img/reports_icon.svg" alt="">
+				<div class="bs-xs-15"></div>
+				<h3 class="h3" i18n="@@noContacts">No Contacts</h3>
+				<div class="bs-xs-20"></div>
+				<p class="text grey" i18n="@@contactAdded">You have not added any contacts.</p>
+				<div class="bs-xs-20"></div>
+				<button class="btn btn-primary" (click)="newContactInfo = true">+ <span i18n="@@newContact">New Contact</span></button>
+				<div class="bs-xs-30"></div>
+			</div>
+		</div>
+		<div [hidden]="noContacts">
+		<div class="filter-item">
+			<div class="valign-middle around-align no-flex-md">
+				<div class="search-wrap" [ngClass]="{'open-filter':leftPart}">
+					<div class="bs-xs-10"></div>
+					<div class="search-icon" (click)="leftPart = true; rightPart = false;">
+						<div class="btn-icon">
+							<img src="assets/img/search.svg" alt="">
+						</div>
+					</div>
+					<div class="filter-fields">
+						<mat-form-field class="example-full-width">
+						  <input matInput type="text" i18n-placeholder="@@searchPl" placeholder="Search" (keyup)="applyFilter($event.target.value)" [(ngModel)]="searchValue">
+						  <button  matSuffix class="btn-simple" (click)="clearSearch()" *ngIf="searchValue">
+							<mat-icon>close</mat-icon>
+						  </button>
+						</mat-form-field>
+					</div>
+					<div class="bs-xs-10"></div>
+				</div>
+				<button class="btn btn-secondary btn-xs" (click)="newContactInfo = true">+ <span i18n="@@newContact">New Contact</span></button>
+			</div>
+			<div class="bs-xs-20 bs-sm-20 bs-md-0"></div>
+		</div>
+		<table mat-table [dataSource]="accountContacts" matSort class="table-custome table-with-primary">
+		  <ng-container matColumnDef="CONTACT_FIRST_NAME">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@firstName">First Name </th>
+			<td mat-cell *matCellDef="let row" data-name="Date" i18n-data-name="@@firstName" [ngClass]="{'primary': row.PRIMARY_CONTACT == 'Y'}"> {{row.CONTACT_FIRST_NAME}} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="CONTACT_LAST_NAME">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@lastName">Last Name </th>
+			<td mat-cell *matCellDef="let row" data-name="Last Name" i18n-data-name="@@lastName"> {{row.CONTACT_LAST_NAME}} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="E_MAIL">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@emailAddress">Email Address</th>
+			<td mat-cell *matCellDef="let row" data-name="Email" i18n-data-name="@@emailAddress">{{row.E_MAIL}}</td>
+		  </ng-container>
+		  <ng-container matColumnDef="EPR_PHONE_NO">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@phoneNumber">Phone Number</th>
+			<td mat-cell *matCellDef="let row" data-name="Phone" i18n-data-name="@@phoneNumber"> {{row.EPR_PHONE_NO}} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="menu">
+		    <th mat-header-cell *matHeaderCellDef> </th>
+			<td mat-cell *matCellDef="let row; let i = index" class="table-option">
+			  <div class="text-right">
+				<button class="btn-icon type-xs menu-table" [matMenuTriggerFor]="menu">
+					<img src="assets/img/more-actions.svg" alt="">
+				</button>
+				<mat-menu #menu="matMenu">
+				  <button mat-menu-item (click)="setPrimaryContact(row.CONTACT_ID, i)" *ngIf="row.PRIMARY_CONTACT == 'N'" i18n="@@makePContact">Make as Primary Contact</button>
+				  <button mat-menu-item (click)="editContact(row, i)" i18n="@@editContact">Edit Contact</button>
+				  <button mat-menu-item *ngIf="row.PRIMARY_CONTACT == 'N'" i18n="@@deleteContact" (click)="confrimDelatePopup(row.CONTACT_ID)">Delete Contact</button>
+				</mat-menu>
+			   </div>
+			</td>
+		  </ng-container>
+		  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+		</table>
+		<mat-paginator class="custome-pagination" [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10"></mat-paginator>
+		</div>
+		<div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>
+		</div>
+	</div>
+	<div class="bs-lg"></div>
+	<div class="spinner" [ngClass]="{'active': loaderIsVisiblePage}"></div>
+</div>
+
+<app-popup class="popupMainWrapper" *ngIf="newContactInfo" [@animationPopup]="newContactInfo ? 'popupOpened' : 'popupClosed'" (close)="newContactInfo = false" size="1">
+    <ng-container content>
+        <div class="popup-header">
+        	<h6 class="h6" i18n="@@addNewContact">Add New Contact </h6>
+        </div>
+        <div class="bs-xs-30"></div>
+        <div class="padd-30">
+        <form [formGroup]="newContactForm" #formNew="ngForm" (ngSubmit)="onSubmitNewContactForm()">
+            <div class="row">
+            	<div class="col-md-6">
+            		<mat-form-field class="example-full-width">
+					  <input matInput type="text" i18n-placeholder="@@firstName" placeholder="First Name" formControlName="firstName">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="newContactForm.get('firstName').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					</mat-form-field>
+					<div class="bs-xs-10"></div>
+            	</div>
+            	<div class="col-md-6">
+            		<mat-form-field class="example-full-width">
+					  <input matInput type="text" i18n-placeholder="@@lastName" placeholder="Last Name" formControlName="lastName">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="newContactForm.get('lastName').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					</mat-form-field>
+					<div class="bs-xs-10"></div>
+            	</div>
+            </div>
+            <div class="row">
+            	<div class="col-md-6">
+            		<mat-form-field class="example-full-width">
+					  <input matInput type="text" i18n-placeholder="@@phoneNumber2" placeholder="Phone Number" formControlName="phone">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="newContactForm.get('phone').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					</mat-form-field>
+					<div class="bs-xs-10"></div>
+            	</div>
+			</div>
+        	<mat-form-field class="example-full-width">
+			  <input matInput type="email" i18n-placeholder="@@emailAddress2" placeholder="Email Address" formControlName="email">
+			  <mat-icon matSuffix class="invalid">warning</mat-icon>
+			  <mat-error *ngIf="newContactForm.get('email').hasError('required')" i18n="@@fielRequired">
+				   This field is required
+			  </mat-error>
+			  <mat-error *ngIf="newContactForm.get('email').hasError('pattern')" i18n="@@emailNotValid">
+				   Email is not valid
+			  </mat-error>
+			</mat-form-field>
+			<ng-container>
+			    <div class="bs-xs-10"></div>
+				<mat-checkbox formControlName="primary" i18n="@@makeMyPContact">Make as my primary contact </mat-checkbox>
+			</ng-container>
+			<div class="bs-xs-40"></div>
+			<div class="text-center">
+				<button class="btn btn-primary btn-wide" type="submit" [disabled]="!newContactForm.valid" i18n="@@addContact">Add Contact</button>
+			</div>
+			<div class="bs-md"></div>
+		</form>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="addContactInfo" [@animationPopup]="addContactInfo ? 'popupOpened' : 'popupClosed'" (close)="addContactInfo = false" size="1">
+    <ng-container content>
+        <div class="popup-header">
+        	<h6 class="h6" i18n="@@editContact">Edit Contact</h6>
+        </div>
+        <div class="bs-xs-30"></div>
+        <div class="padd-30">
+        <form [formGroup]="editContactForm" #formEdit="ngForm" (ngSubmit)="onEditContactForm()">
+            <div class="row">
+            	<div class="col-md-6">
+            		<mat-form-field class="example-full-width">
+					  <input matInput type="text" i18n-placeholder="@@firstName" placeholder="First Name" formControlName="firstName">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="editContactForm.get('firstName').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					</mat-form-field>
+					<div class="bs-xs-10"></div>
+            	</div>
+            	<div class="col-md-6">
+            		<mat-form-field class="example-full-width">
+					  <input matInput type="text" i18n-placeholder="@@lastName" placeholder="Last Name" formControlName="lastName">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="editContactForm.get('lastName').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					</mat-form-field>
+					<div class="bs-xs-10"></div>
+            	</div>
+            </div>
+            <div class="row">
+            	<div class="col-md-6">
+            		<mat-form-field class="example-full-width">
+					  <input matInput type="text" i18n-placeholder="@@phoneNumber2" placeholder="Phone Number" formControlName="phone">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="editContactForm.get('phone').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					</mat-form-field>
+					<div class="bs-xs-10"></div>
+            	</div>
+			</div>
+        	<mat-form-field class="example-full-width">
+			  <input matInput type="email" i18n-placeholder="@@emailAddress2" placeholder="Email Address" formControlName="email">
+			  <mat-icon matSuffix class="invalid">warning</mat-icon>
+			  <mat-error *ngIf="editContactForm.get('email').hasError('required')" i18n="@@fielRequired">
+				   This field is required
+			  </mat-error>
+			  <mat-error *ngIf="editContactForm.get('email').hasError('pattern')" i18n="@@emailNotValid">
+				   Email is not valid
+			  </mat-error>
+			</mat-form-field>
+			<ng-container *ngIf="isPromaryEditedContact">
+			<div class="bs-xs-10"></div>
+			<mat-checkbox formControlName="primary" i18n="@@makeMyPContact">Make as my primary contact </mat-checkbox>
+			</ng-container>
+			<div class="bs-xs-40"></div>
+			<div class="text-center">
+				<button class="btn btn-primary btn-wide" type="submit" [disabled]="!editContactForm.valid" i18n="@@updateContact">Update Contact</button>
+			</div>
+			<div class="bs-md"></div>
+		</form>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="editEmailInfo" [@animationPopup]="editEmailInfo ? 'popupOpened' : 'popupClosed'" (close)="editEmailInfo = false" size="1">
+    <ng-container content>
+        <div class="popup-header">
+        	<h6 class="h6" i18n="@@editLoginEmail">Edit Login Email Address</h6>
+        </div>
+        <div class="bs-xs-30"></div>
+        <div class="padd-30">
+        <form [formGroup]="editEmailForm" (ngSubmit)="onSubmitEditEmailForm()">
+        	<mat-form-field class="example-full-width">
+			  <input matInput type="email" i18n-placeholder="@@currentEmailAddress" placeholder="Current Email Address" formControlName="oldEmail" readonly>
+			  <mat-icon matSuffix class="invalid">warning</mat-icon>
+			  <mat-error *ngIf="editEmailForm.get('oldEmail').hasError('required')" i18n="@@fielRequired">
+				   This field is required
+			  </mat-error>
+			  <mat-error *ngIf="editEmailForm.get('oldEmail').hasError('pattern')" i18n="@@emailNotValid">
+				   Email is not valid
+			  </mat-error>
+			</mat-form-field>
+       	    <div class="bs-xs-10"></div>
+       	    <mat-form-field class="example-full-width">
+			  <input matInput type="email" i18n-placeholder="@@newEmailAddress" placeholder="New Email Address" formControlName="email">
+			  <mat-icon matSuffix class="invalid">warning</mat-icon>
+			  <mat-error *ngIf="editEmailForm.get('email').hasError('required')" i18n="@@fielRequired">
+				   This field is required
+			  </mat-error>
+			  <mat-error *ngIf="editEmailForm.get('email').hasError('pattern')" i18n="@@emailNotValid">
+				  Email is not valid
+			  </mat-error>
+			</mat-form-field>
+       	    <div class="bs-xs-10"></div>
+       	    <mat-form-field class="example-full-width">
+				<input matInput type="password" i18n-placeholder="@@password" placeholder="Password" formControlName="password">
+				<mat-icon matSuffix class="invalid">warning</mat-icon>
+				<mat-error *ngIf="editEmailForm.get('password').hasError('required')" i18n="@@fielRequired">
+					This field is required
+				</mat-error>
+			</mat-form-field>
+			<div class="bs-xs-40"></div>
+			<div class="text-center">
+				<button class="btn btn-primary btn-wide" type="submit" [disabled]="!editEmailForm.valid" i18n="@@updateEmail">Update Email</button>
+				<div class="bs-xs-20"></div>
+				<p class="text grey" i18n="@@resetEmailSend">An email with a verification link will be sent to your inbox. </p>
+			</div>
+			<div class="bs-md"></div>
+		</form>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="editPasswordInfo" [@animationPopup]="editPasswordInfo ? 'popupOpened' : 'popupClosed'" (close)="editPasswordInfo = false" size="1">
+    <ng-container content>
+        <div class="popup-header">
+        	<h6 class="h6" i18n="@@changePassword">Change Password</h6>
+        </div>
+        <div class="bs-xs-30"></div>
+        <div class="padd-30">
+        	<form [formGroup]="editPasswordForm" (ngSubmit)="onSubmitEditPasswordForm()">
+        	    <div class="row">
+					<div class="col-md-6">
+						<mat-form-field class="example-full-width">
+							<input matInput type="password" i18n-placeholder="@@currentPassword" placeholder="Current Password" formControlName="oldPassword">
+						</mat-form-field>
+						<div class="bs-xs-10"></div>
+					</div>
+				</div>
+        		<div class="row">
+        			<div class="col-md-6">
+        				<mat-form-field class="example-full-width">
+							<input matInput type="password" i18n-placeholder="@@password" placeholder="Password" formControlName="password">
+							<mat-icon matSuffix class="invalid">warning</mat-icon>
+							<mat-error *ngIf="editPasswordForm.get('password').hasError('required')" i18n="@@fielRequired">
+								This field is required
+							</mat-error>
+						</mat-form-field>
+						<div class="bs-xs-10"></div>
+					</div>
+					<div class="col-md-6">
+						<mat-form-field class="example-full-width">
+							<input matInput type="password" i18n-placeholder="@@repeatPassword" placeholder="Repeat Password" formControlName="passwordRepeat">
+							<mat-icon matSuffix class="invalid">warning</mat-icon>
+							<mat-error *ngIf="editPasswordForm.get('passwordRepeat').hasError('required')" i18n="@@fielRequired">
+								This field is required
+							</mat-error>
+						</mat-form-field>
+       			        <div class="bs-xs-10"></div>
+        			</div>
+        		</div>
+				<app-password-hint [password]="editPasswordForm.get('password')"></app-password-hint>
+        		<div class="bs-xs-40"></div>
+			    <div class="text-center">
+					<button class="btn btn-primary btn-wide" type="submit" [disabled]="!editPasswordForm.valid" i18n="@@changePassword">Change Password</button>
+			    </div>
+			    <div class="bs-md"></div>
+			</form>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="editProfileInfo" [@animationPopup]="editProfileInfo ? 'popupOpened' : 'popupClosed'" (close)="editProfileInfo = false" size="1">
+    <ng-container content>
+        <div class="popup-header">
+        	<h6 class="h6" i18n="@@editProfileInformation">Edit Profile Information</h6>
+        </div>
+        <div class="bs-xs-30"></div>
+        <div class="padd-30">
+        <form [formGroup]="editProfileForm" (ngSubmit)="onSubmitEditProfileForm()">
+        	<mat-form-field class="example-full-width">
+			  <input matInput type="text" i18n-placeholder="@@businessName" placeholder="Business Name" formControlName="BUSINESS_NAME">
+			  <mat-icon matSuffix class="invalid">warning</mat-icon>
+			  <mat-error *ngIf="editProfileForm.get('BUSINESS_NAME').hasError('required')" i18n="@@fielRequired">
+				   This field is required
+			  </mat-error>
+          <mat-error
+            *ngIf="editProfileForm.get('BUSINESS_NAME').hasError('maxlength')">
+            This field must have less 50 word
+          </mat-error>
+			</mat-form-field>
+       	    <div class="bs-xs-10"></div>
+       	    <div class="row">
+       	    	<div class="col-md-6">
+       	    		<mat-form-field class="example-full-width">
+					  <input matInput type="text" i18n-placeholder="@@phoneNumber" placeholder="Phone Number" formControlName="PHONE">
+					  <mat-icon matSuffix class="invalid">warning</mat-icon>
+					  <mat-error *ngIf="editProfileForm.get('PHONE').hasError('required')" i18n="@@fielRequired">
+						   This field is required
+					  </mat-error>
+					  <mat-error *ngIf="editProfileForm.get('PHONE').hasError('pattern')" i18n="@@phoneValidator">
+						   Not valid format (0-9, (, ), +, - are allowed)
+					  </mat-error>
+					</mat-form-field>
+       	    	</div>
+       	    </div>
+       	    <div class="bs-xs-10"></div>
+       	    <mat-form-field class="example-full-width">
+			  <input matInput type="text" i18n-placeholder="@@addr" placeholder="Address" formControlName="ADDRESS">
+			  <mat-icon matSuffix class="invalid">warning</mat-icon>
+			  <mat-error *ngIf="editProfileForm.get('ADDRESS').hasError('required')" i18n="@@fielRequired">
+				   This field is required
+			  </mat-error>
+			</mat-form-field>
+     	    <div class="bs-xs-10"></div>
+
+     	   <div class="row">
+     	    <div class="col-md-6">
+    	        <app-provinces formControlName="PROVINCE" title="Province" i18n-placeholder="@@province"></app-provinces>
+     	        <div class="bs-xs-10"></div>
+			</div>
+     	   	<div class="col-md-6">
+     	   		<mat-form-field class="example-full-width">
+				  <input matInput type="text" i18n-placeholder="@@city" placeholder="City" formControlName="CITY">
+				  <mat-icon matSuffix class="invalid">warning</mat-icon>
+				  <mat-error *ngIf="editProfileForm.get('CITY').hasError('required')" i18n="@@fielRequired">
+					   This field is required
+				  </mat-error>
+				</mat-form-field>
+				<div class="bs-xs-10"></div>
+     	   	</div>
+     	   </div>
+
+      	   <div class="row">
+      	   		<div class="col-md-6">
+      	   			<mat-form-field class="example-full-width">
+						<input matInput type="text" i18n-placeholder="@@postalCode" placeholder="Postal Code" formControlName="POSTAL_CODE">
+						<mat-icon matSuffix class="invalid">warning</mat-icon>
+						<mat-error
+							*ngIf="editProfileForm.get('POSTAL_CODE').hasError('required')" i18n="@@fielRequired">
+							This field is required
+						</mat-error>
+						<mat-error *ngIf="editProfileForm.get('POSTAL_CODE').hasError('pattern')" i18n="@@invalidFormat">
+							Invalid format
+						</mat-error>
+					</mat-form-field>
+      	   		</div>
+      	   </div>
+           <div class="bs-xs-40"></div>
+           <div class="text-center">
+           	  	<button class="btn btn-primary btn-wide" type="submit" [disabled]="!editProfileForm.valid" i18n="@@updateProfile">Update Profile</button>
+           </div>
+           <div class="bs-md"></div>
+        </form>
+		</div>
+    </ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="confirmDelateContact" [@animationPopup]="confirmDelateContact ? 'popupOpened' : 'popupClosed'" (close)="confirmDelateContact = false;" size="1">
+  <ng-container content>
+    <div class="popup-padding">
+      <div class="removeConfirmation">
+        <p i18n="@@sureDeleteContact">Are you sure you want to delete this contact?</p>
+        <div class="bs-xs-40"></div>
+        <button type="submit" class="btn btn-primary btn-sm btn-wide" (click)="confirmDelateContact = false;" i18n="@@cancel">Cancel</button>
+        <button type="submit" class="btn btn-alert btn-sm btn-wide" (click)="deleteContact()" i18n="@@delateContact">Delete Contact</button>
+      </div>
+
+    </div>
+  </ng-container>
+</app-popup>
+
+<app-snack-bar></app-snack-bar>

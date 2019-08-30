@@ -1,0 +1,185 @@
+<div class="page-padding">
+    <div class="bs-lg"></div>
+	<div class="container-custome">
+		<h2 class="h1" i18n="@@newReport">New Report</h2>
+		<div class="bs-xs-20"></div>
+			<h5 class="h5" i18n="@@businessInformation">Business Information</h5>
+			<div class="bs-xs-5"></div>
+			<div class="divider"></div>
+			<div class="bs-xs-30"></div>
+		    <div class="row">
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@businessName">Business Name:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@legalName2">Legal Name:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.BUSINESS_NAME}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@email">Email:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.EMAIL}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@phone2">Phone:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.PHONE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@addr2">Address:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.ADDRESS}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@city2">City:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.CITY}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@provinceDot">Province:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.PROVINCE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    	<div class="col-md-3 col-sm-6 col-xs-12">
+		    		<p class="text sm grey" i18n="@@postalCode">Postal Code:</p>
+		    		<div class="bs-xs-5"></div>
+		    		<p class="text lg">{{userData.POSTAL_CODE}}</p>
+		    		<div class="bs-xs-15"></div>
+		    	</div>
+		    </div>
+		    <div class="bs-xs-15"></div>
+
+		    <div *ngIf="!isSubmitted">
+		    <div class="page-content-entry type-2 padd-20" *ngIf="!service.rootViewContainer">
+		        <div class="bs-xs-15"></div>
+				<div class="caption-align">
+					<h6 class="h6" i18n="@@selectMusicLicense">Select a music license</h6>
+					<div class="btn-icon type-sm" (click)="openPopupTraiffs()" *ngIf="!noTariffs"><img src="assets/img/add.svg" alt=""></div>
+					<a class="btn-icon type-sm" [routerLink]="['/assign-tariff']" *ngIf="noTariffs"><img src="assets/img/add.svg" alt=""></a>
+				</div>
+				<div class="bs-xs-15"></div>
+			</div>
+
+			<div *ngIf="service.rootViewContainer">
+				<div class="page-content-entry type-2 padd-20 no-bottom-border">
+					<div class="bs-xs-15"></div>
+					<div class="caption-align">
+						<h6 class="h6" i18n="@@selectedToReport">Music license selected</h6>
+						<ng-container *ngIf="!reportDetailId">
+						<div class="btn-icon type-sm" (click)="openPopupTraiffs()"><img src="assets/img/edit.svg" alt=""></div>
+						</ng-container>
+					</div>
+					<div class="bs-xs-15"></div>
+				</div>
+				<div class="divider"></div>
+			</div>
+
+			<ng-template #dynamic></ng-template>
+<!--			<div class="spinner" [ngClass]="{'active': loaderIsVisible}"></div>	-->
+		    </div>
+
+            <div *ngIf="isSubmitted">
+		         <div class="bs-md"></div>
+				 <div class="text-center">
+					<h2 class="h1" i18n="@@alreadySubmitted">This report is already submitted.</h2>
+					<div class="bs-xs-30"></div>
+					<a class="btn btn-primary btn-lg" [routerLink]="['/reports/submitted-reports']" i18n="@@goToSubmittedReports">Go To Submitted Reports</a>
+				 </div>
+				 <div class="bs-md"></div>
+		    </div>
+
+		    <div *ngIf="reportNotExist">
+		         <div class="bs-md"></div>
+				 <div class="text-center">
+					<h2 class="h1" i18n="@@reportDoNotExist">This report do not exist.</h2>
+					<div class="bs-xs-30"></div>
+					<a class="btn btn-primary btn-lg" [routerLink]="['/reports/submitted-reports']" i18n="@@goToSubmittedReports">Go To Submitted Reports</a>
+				 </div>
+				 <div class="bs-md"></div>
+		    </div>
+		  <div class="bs-lg"></div>
+	</div>
+</div>
+
+<app-popup class="popupMainWrapper" *ngIf="popupTraiffs" [@animationPopup]="popupTraiffs ? 'popupOpened' : 'popupClosed'" (close)="closePopupTariffs()" size="1">
+    <ng-container content>
+        <div class="popup-header">
+        	<div class="h6" i18n="@@selectMusicLicense">Select a music license</div>
+        </div>
+        <div class="bs-xs-20"></div>
+        <div class="wrapper">
+            <ng-container *ngIf="!noTariffs">
+				<ul>
+					<li *ngFor="let item of tariffs; let i = index" class="select-item" [ngClass]="{'active':activeTariff == i}" (click)="selectTariff(item, i)">
+					  <div class="bs-xs-10"></div>
+						  <div class="caption-align padd-30">
+							  <div class="caption-align">
+								<img src="assets/img/tariff-title-2.svg" alt="" style="max-width: 30px;">
+								  <p class="text row-lmar-30">
+								  <ng-container *ngIf="localeId === 'en-US'">
+							      	 {{item.TRFF_NAME_ENG}}
+							      </ng-container>
+								  <ng-container *ngIf="localeId === 'fr'">
+							      	 {{item.TRFF_NAME_FR}}
+							      </ng-container>
+							      </p>
+							  </div>
+							  <img src="assets/img/more-info.svg" alt="" class="info-icon" (click)="openDesc(i)">
+						  </div>
+					  <div class="bs-xs-10"></div>
+					  <div *ngIf="tariffDesc == i" class="overflow-wrapper slide-wrapper">
+				  	      <div class="padd-30">
+							  <div class="bs-xs-10"></div>
+							  <p class="text grey" *ngIf="localeId === 'en-US'" [innerHtml]="item.TRFF_DESC_ENG"></p>
+							  <p class="text grey" *ngIf="localeId === 'fr'" [innerHtml]="item.TRFF_DESC_FR"></p>
+							  <div class="bs-xs-10"></div>
+				          </div>
+					  </div>
+					  <div class="divider"></div>
+					</li>
+				</ul>
+				<div class="bs-xs-30"></div>
+				<div class="padd-30">
+				   <form [formGroup]="unitiForm">
+					<mat-form-field class="example-full-width">
+					  <mat-label i18n="@@selectUnit">Select Unit</mat-label>
+					  <mat-select formControlName="selectedUnit" [attr.disabled]="!selectedTariff">
+						<mat-option *ngFor="let u of unities" [value]="u">
+						  {{u.ROOM_NAME}}
+						</mat-option>
+					  </mat-select>
+					</mat-form-field>
+					</form>
+					<div class="bs-md"></div>
+					<div class="text-center">
+						<button type="button" class="btn btn-primary btn-wide" [disabled]="!unitiForm.valid" (click)="reportTariff()" i18n="@@createReport">Create Report</button>
+					</div>
+				</div>
+			</ng-container>
+			<ng-container *ngIf="noTariffs">
+			    <div class="padd-30 text-center">
+					<div class="bs-md"></div>
+					<h3 class="h3" i18n="@@noAssignedTariff">No Tariffs Assigned Yet</h3>
+					<div class="bs-xs-20"></div>
+					<button class="btn btn-primary" [routerLink]="['/assign-tariff']" i18n="@@assignTariffs">Assign Tariffs</button>
+					<div class="bs-md"></div>
+				</div>
+			</ng-container>
+			<div class="bs-md"></div>
+        	<div class="spinner" [ngClass]="{'active': loaderIsVisibleAssigned}"></div>
+        </div>
+    </ng-container>
+</app-popup>
+

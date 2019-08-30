@@ -1,0 +1,17 @@
+
+<mat-form-field class="example-full-width read-only-value" #trigger="matMenuTrigger" [matMenuTriggerFor]="menu">
+  <input matInput type="text" [placeholder]="title" readonly [(ngModel)]="inputValue">
+</mat-form-field>
+<mat-menu #menu="matMenu" class="custome-mat-menu" [overlapTrigger]="true" yPosition="below" >
+     <div class="wrap" (click)="$event.stopPropagation();">
+		 <mat-form-field class="example-full-width" >
+		 <div class="md-input-container">
+			<input matInput type="number" [placeholder]="title" #from numbersOnly>
+		 </div>	
+		 </mat-form-field>
+		 <div class="text-right">  	
+			<a class="link" (click)="closeMenu()" i18n="@@cancel">Cancel</a>
+			<a class="link row-lmar-20" (click)="onAdd()" i18n="@@add">Add</a>
+		 </div>	
+     </div>
+</mat-menu>

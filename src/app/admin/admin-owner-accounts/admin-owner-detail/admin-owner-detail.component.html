@@ -1,0 +1,267 @@
+<div class="page-title"i18n="@@AdminPortal">
+	Admin Portal
+</div>
+<div class="page-padding" >
+	<div class="adminWrapperContent" style="background-color: #F5F4F4;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+          <back-button>
+            <ng-container content>
+              <button class="btn-icon icon-border">
+                <svg width="40" height="40" viewBox="0 0 32 32">
+                  <g fill="none" fill-rule="evenodd">
+                    <path stroke="#DEDEDE" stroke-width="0" d="M16,0.75 C7.57765757,0.75 0.75,7.57765757 0.75,16 C0.75,24.4223424 7.57765757,31.25 16,31.25 C24.4223424,31.25 31.25,24.4223424 31.25,16 C31.25,7.57765757 24.4223424,0.75 16,0.75 Z"/>
+                    <polygon fill="#404DDC" points="18 12 12 18 6 12 7.096 10.94 11.263 15.126 11.263 6 12.737 6 12.737 15.126 16.94 10.94" transform="rotate(90 12 16)"/>
+                  </g>
+                </svg>
+              </button>
+            </ng-container>
+          </back-button>
+					<div class="bs-xs-25"></div>
+
+					<div class="sectionTitle">
+						<h1 class="h1 as" i18n="@@owneraAccountDetails">Owner Account Details</h1>
+					</div>
+					<div class="bs-xs-15"></div>
+
+					<div class="subTitle style2">
+						<h5 class="h5 as" i18n="@@profileInformation">Profile Information</h5>
+						<button class="btn-icon icon-border iconColor iconNoBorder" (click)="editOwnerProfile();">
+						<img src="assets/img/admin/edit.svg" alt="">
+						</button>
+
+					</div>
+					<div class="bs-xs-25"></div>
+
+					<div class="row">
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="userInfo">
+								<p class="text sm" i18n="@@businessName">Business Name:</p>
+								<span class="text lg">{{ownerInfo?.businessName}}</span>
+							</div>
+
+							<div class="userInfo">
+								<p class="text sm" i18n="@@address">Address:</p>
+								<span class="text lg">{{ownerInfo?.address}}</span>
+							</div>
+
+							<div class="userInfo">
+								<p class="text sm" i18n="@@primaryContact">Primary Contact:</p>
+								<span class="text lg">{{ownerInfo?.primaryContact}}</span>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="userInfo">
+								<p class="text sm" i18n="@@legalName">Legal Name:</p>
+								<span class="text lg">{{ownerInfo?.legalName}}</span>
+							</div>
+
+							<div class="userInfo">
+								<p class="text sm" i18n="@@city">City:</p>
+								<span class="text lg">{{ownerInfo?.city}}</span>
+							</div>
+
+							<div class="userInfo">
+								<p class="text sm" i18n="@@phoneNumber">Phone Number:</p>
+								<span class="text lg">{{ownerInfo?.phoneNumber}}</span>
+
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="userInfo">
+								<p class="text sm" i18n="@@createDate">Date Created:</p>
+								<span class="text lg">{{ownerInfo?.createDate | date: 'MMM d, y'}}</span>
+							</div>
+
+
+							<div class="userInfo">
+								<p class="text sm" i18n="@@province">Province:</p>
+								<span class="text lg">{{ownerInfo?.province}}</span>
+							</div>
+
+							<div class="userInfo">
+								<p class="text sm">Email:</p>
+								<span class="text lg">{{ownerInfo?.email}}</span>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="userInfo">
+								<p class="text sm" i18n="@@account">Account #:</p>
+								<span class="text lg">{{ownerInfo?.accountNumber}}</span>
+							</div>
+
+							<div class="userInfo">
+								<p class="text sm">Postal Code:</p>
+								<span class="text lg">{{ownerInfo?.postalCode}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+        <div class="bs-xs-30"></div>
+
+        <div class="tablePlaceholder" [ngClass]="{'childAssigned': selectedLicensees.data.length}">
+          <ng-container *ngIf="selectedLicensees.data.length">
+            <h6 class="h6 as" i18n="@@ownerChildAssigned">Owner Parent - Child Assigned</h6>
+            <button class="btn-icon icon-border iconColor iconNoBorder" (click)="openAssignLicenseesPopup();">
+
+              <img src="assets/img/admin/edit.svg" alt="">
+            </button>
+          </ng-container>
+          <ng-container *ngIf="!selectedLicensees.data.length">
+            <h6 class="h6 as" i18n="@@assignLicenseesOwner">Assign Licensees for this Owner</h6>
+            <button class="btn-icon icon-border iconColor iconNoBorder" (click)="openAssignLicenseesPopup();">
+
+              <img src="assets/img/admin/plus-icon.svg" alt="">
+            </button>
+
+          </ng-container>
+        </div>
+
+        <div [hidden]="!allLicensees" [@voidSlideUpDown]>
+          <div class="mainTableWrapper" [ngClass]="{'showTableSelected': this.selection.selected.length}" >
+            <div class="spinner semitransparent tableSpiner" [ngClass]="{'active': loadingData}">
+              <img src="assets/img/spinner.gif" alt="">
+            </div>
+            <h5 *ngIf="nothingFound" class="h5 nothingFoundMessage" i18n="@@nothingFound">Nothing found</h5>
+            <h5 *ngIf="tableDataError" class="h5 nothingFoundMessage" i18n="@@errorOccurred">An Unexpected Error Occurred</h5>
+            <h5 *ngIf="tableServerError" class="h5 nothingFoundMessage" i18n="@@unexpectedServerError">An Unexpected Server Error Occurred</h5>
+
+            <div class="tableHeader">
+              <div class="responsiveTableHeader">
+                <button class="btn-icon icon-border iconColor iconNoBorder" (click)="tableHeaderToggle()">
+                  <img src="assets/img/admin/filter.svg" alt="">
+                </button>
+              </div>
+
+              <div class="tableSelected">
+                <p>{{this.selection.selected.length}} <span i18n="@@accountsSelected"> Accounts Selected </span> </p>
+                <button class="btn btn btn-sm btn-primary" (click)="deleteSelectedLicensees()" i18n="@@removeLicensee">Remove licensee</button>
+
+              </div>
+              <form class="tableForm" [formGroup]="tableForm" [ngClass]="{'responsiveActive': responsiveTableHeader}">
+                <div class="tableSearch" [ngClass]="{'active': tableSearch}">
+                  <button class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSearchToggle();">
+                    <img src="assets/img/admin/search.svg" alt="">
+                  </button>
+                  <div class="tableSearchContent">
+                    <mat-form-field class="example-full-width">
+                      <input matInput type="text" i18n-placeholder="@@search" formControlName="tableSearch" placeholder="Search">
+                      <button *ngIf="tableForm.get('tableSearch').value" matSuffix class="btn-simple clearInput" (click)="tableSearchToggle();">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <table mat-table [dataSource]="selectedLicensees" matSort class="table-custome">
+
+              <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? masterToggle() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                [aria-label]="checkboxLabel()">
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)"
+                                [aria-label]="checkboxLabel(row)">
+                  </mat-checkbox>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="id">
+                <th i18n="@@userID" mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+                <td mat-cell *matCellDef="let row" i18n-data-name="@@userID" data-name="User ID">
+                  {{row.ACCT_NO}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="firstName">
+                <th i18n="@@firstName" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let row" i18n-data-name="@@firstName" data-name="FirstName"> {{row.FIRST_NAME}} {{row.LAST_NAME}} </td>
+
+              </ng-container>
+
+              <ng-container matColumnDef="business">
+                <th i18n="@@business" mat-header-cell *matHeaderCellDef mat-sort-header> Business </th>
+                <td mat-cell *matCellDef="let row" i18n-data-name="@@business" data-name="Business"> {{row.NAME}} </td>
+
+              </ng-container>
+
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                <td mat-cell *matCellDef="let row" i18n-data-name="@@email" data-name="Email"> {{row.EMAIL}} </td>
+
+              </ng-container>
+
+              <ng-container matColumnDef="menu">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let row; let i = index" class="table-option">
+                  <div class="text-right">
+                    <button class="btn-icon type-xs menu-table" [matMenuTriggerFor]="menu">
+                      <img src="assets/img/more-actions.svg" alt="">
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="openRemoveLicenseesConffirm(row)" i18n="@@removeFormOwner">Remove form Owner</button>
+                    </mat-menu>
+                  </div>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedOwnersColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedOwnersColumns;" class="hover-menu-row"></tr>
+            </table>
+            <mat-paginator class="custome-pagination" [length]="tableLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+          </div >
+        </div>
+
+
+        <div class="col-xs-12"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="spinner fix semitransparent" [ngClass]="{'active': loaderIsVisible}"></div>
+
+<app-popup class="popupMainWrapper" *ngIf="ownerPopup" [@animationPopup]="ownerPopup ? 'popupOpened' : 'popupClosed'" (close)="this.ownerPopup = false;" size="1">
+	<ng-container content *ngIf="ownerPopup">
+		<div class="popup-header">
+			<div class="h6" i18n="@@editAccountOwner">Edit Account Owner</div>
+		</div>
+		<div class="popup-padding">
+			<app-admin-owner-edit-info [ownerData]="ownerInfo" (ownerDataChanged)="updateOwnerData($event);"></app-admin-owner-edit-info>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="assignLicenseesPopup" [@animationPopup]="assignLicenseesPopup ? 'popupOpened' : 'popupClosed'" (close)="this.assignLicenseesPopup = false;" size="3">
+	<ng-container content>
+		<div class="popup-header">
+			<div class="h6" i18n="@@LicenseesForOwner">Select Licensees for this Owner</div>
+		</div>
+		<div class="popup-padding no-padding">
+			<app-admin-owner-assign-licensees [ownerId]="selectedOwnerId" (assignEmitter)="assignLicenseesSuccess($event);"></app-admin-owner-assign-licensees>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="confirmLicenseesDelete" [@animationPopup]="confirmLicenseesDelete ? 'popupOpened' : 'popupClosed'" (close)="confirmLicenseesDelete  = false;" size="1">
+	<ng-container content>
+		<div class="popup-padding">
+			<div class="removeConfirmation">
+				<p i18n="@@sureWantDeleteOwners">Are you sure you want to delete this owners?</p>
+				<div class="bs-xs-40"></div>
+				<button type="submit" class="btn btn-primary btn-sm btn-wide" (click)="confirmLicenseesDelete = false;" i18n="@@cancel">Cancel</button>
+				<button type="submit" class="btn btn-alert btn-sm btn-wide" (click)="removeLicensees()" i18n="@@deleteLicensees">Delete Licensees</button>
+			</div>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-snack-bar></app-snack-bar>

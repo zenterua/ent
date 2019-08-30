@@ -1,0 +1,127 @@
+<div class="page-title" i18n="@@AdminPortal">
+	Admin Portal
+</div>
+<div class="page-padding" >
+	<div class="adminWrapperContent" style="background-color: #F5F4F4;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+          <back-button>
+            <ng-container content>
+              <button class="btn-icon icon-border">
+                <svg width="40" height="40" viewBox="0 0 32 32">
+                  <g fill="none" fill-rule="evenodd">
+                    <path stroke="#DEDEDE" stroke-width="0" d="M16,0.75 C7.57765757,0.75 0.75,7.57765757 0.75,16 C0.75,24.4223424 7.57765757,31.25 16,31.25 C24.4223424,31.25 31.25,24.4223424 31.25,16 C31.25,7.57765757 24.4223424,0.75 16,0.75 Z"/>
+                    <polygon fill="#404DDC" points="18 12 12 18 6 12 7.096 10.94 11.263 15.126 11.263 6 12.737 6 12.737 15.126 16.94 10.94" transform="rotate(90 12 16)"/>
+                  </g>
+                </svg>
+              </button>
+            </ng-container>
+          </back-button>
+					<div class="bs-xs-25"></div>
+
+          <ng-container *ngIf="showUserInfo">
+            <div class="sectionTitle style2">
+              <h1 class="h1 as" i18n="@@userAccountDetail">User Account Details</h1>
+              <div class="bs-xs-20 bs-sm-0"></div>
+              <div class="btnWrapper">
+                <button class="btn btn-secondary" (click)="resetPassword();" i18n="@@resetPassword">Reset Password</button>
+                <ng-container *ngIf="userActived">
+                  <button class="btn btn-secondary" (click)="toggleStatus()" i18n="@@deactivate">Deactivate</button>
+                </ng-container>
+                <ng-container *ngIf="userInactived">
+                  <button class="btn btn-secondary" (click)="toggleStatus()" i18n="@@activate">Activate</button>
+                </ng-container>
+              </div>
+            </div>
+            <div class="bs-xs-30"></div>
+
+            <div class="subTitle">
+              <h5 class="h5 as" i18n="@@profileInformation">Profile Information</h5>
+            </div>
+            <div class="bs-xs-25"></div>
+
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@businessName">Business Name:</p>
+                  <span class="text lg">{{userInfo?.BUSINESS_NAME}}</span>
+                </div>
+
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@address">Address:</p>
+                  <span class="text lg">{{userInfo?.ADDRESS}}</span>
+                </div>
+
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@primaryContact">Primary Contact:</p>
+                  <span class="text lg">{{userContact?.PRIMARY_CONTACT}}</span>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@createdDate">Date Created:</p>
+                  <span class="text lg">{{userInfo?.CREATED_AT | date: 'MMM d, y'}}</span>
+                </div>
+
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@city">City:</p>
+                  <span class="text lg">{{userInfo?.CITY}}</span>
+                </div>
+
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@phoneNumber">Phone Number:</p>
+                  <span class="text lg">{{userInfo?.PHONE}}</span>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@account">Account #:</p>
+                  <span class="text lg">{{userInfo?.ACCT_NO}}</span>
+                </div>
+
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@province">Province:</p>
+                  <span class="text lg">{{userInfo?.PROVINCE}}</span>
+                </div>
+
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@emailAddress">Email Address:</p>
+                  <span class="text lg">{{userInfo?.EMAIL}}</span>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="userInfo">
+                  <p class="text sm" i18n="@@status">Status:</p>
+                  <ng-container *ngIf="userInfo?.ACTIVE === 1">
+                    <span class="text lg" i18n="@@active">Active</span>
+                  </ng-container>
+                  <ng-container *ngIf="userInfo?.ACTIVE === 0">
+                    <span class="text lg" i18n="@@inactive">Inactive</span>
+                  </ng-container>
+                </div>
+
+                <div class="userInfo">
+                  <p class="text sm">Postal Code:</p>
+                  <span class="text lg">{{userInfo?.POSTAL_CODE}}</span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="showUserError">
+            <div class="text-center" [@itemAnimation]>
+              <h2 class="h1" i18n="@@errorOccurred">An Unexpected Error Occurred</h2>
+              <div class="bs-xs-10"></div>
+              <p class="text grey" i18n="@@serverError">Server Error</p>
+            </div>
+          </ng-container>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="spinner semitransparent" [ngClass]="{'active': loaderIsVisible}"></div>
+
+<app-snack-bar></app-snack-bar>
+

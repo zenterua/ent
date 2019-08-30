@@ -1,0 +1,74 @@
+<div class="page-title" i18n="@@AdminPortal">
+	Admin Portal
+</div>
+<div class="page-padding" >
+	<div class="adminWrapperContent" style="background-color: #F5F4F4;">
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="welcomeBack">
+						<div class="welcomeInfo light">
+							<h1 class="h1 as" i18n="@@welcomeBack">Welcome back!</h1>
+							<p i18n="@@manageAccountsAndMore">Manage accounts and access reports, payment history and more.</p>
+							<div class="welcomePattern">
+								<div class="bgPattern" style="background-image: url('assets/img/admin/admin-dashboard-pattern.png')"></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="bs-xs-25"></div>
+
+			<div class="row dashNav clear-sm-2 clear-md-2 clear-lg-3 ">
+				<div class="col-sm-6 col-lg-4">
+					<div class="adminDashboard">
+						<div class="iconImg" style="background-image: url('assets/img/admin/user-management.png')"></div>
+						<h3 class="h3 as" i18n="@@userManagement">User Management</h3>
+						<a class="link" [routerLink]="['/admin/user-management']" i18n="@@manageUsers">Manage Users</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="adminDashboard">
+						<div class="iconImg" style="background-image: url('assets/img/admin/owner-accounts.png')"></div>
+						<h3 class="h3 as" i18n="@@ownerAccounts">Owner Accounts</h3>
+						<a class="link" [routerLink]="['/admin/owner-accounts']" i18n="@@manageOwners">Manage Owners</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="adminDashboard">
+						<div class="iconImg" style="background-image: url('assets/img/admin/admin-accounts.png')"></div>
+						<h3 class="h3 as" i18n="@@ownerAccounts">Admin Accounts</h3>
+						<a class="link" [routerLink]="['/admin/accounts']" i18n="@@manageAdmin">Manage Admin</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="adminDashboard">
+						<div class="iconImg" style="background-image: url('assets/img/admin/user-impersonation.png')"></div>
+						<h3 class="h3 as" i18n="@@userImpersonation">User Impersonation</h3>
+						<a class="link" [routerLink]="['/admin/impersonation']" i18n="@@impersonationMode">Impersonation Mode</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="adminDashboard">
+						<div class="iconImg" style="background-image: url('assets/img/admin/reports.png')"></div>
+						<h3 class="h3 as" i18n="@@reports">Reports</h3>
+						<a class="link" [routerLink]="['/admin/reports']" i18n="@@allLicenseesReports">All Licensee Reports</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="adminDashboard">
+						<div class="iconImg" style="background-image: url('assets/img/admin/payment-history.png')"></div>
+						<h3 class="h3 as" i18n="@@paymentHistory">Payment History</h3>
+						<a class="link" [routerLink]="['/admin/payment-history']" i18n="@@seePaymentsHistory">See Payment History</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+

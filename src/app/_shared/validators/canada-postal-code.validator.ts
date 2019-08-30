@@ -1,0 +1,1 @@
+export const patternCodeCanada:string = "^(?!.*[DFIOQU])[A-VXY][0-9][A-Z]?[0-9][A-Z][0-9]$"; 

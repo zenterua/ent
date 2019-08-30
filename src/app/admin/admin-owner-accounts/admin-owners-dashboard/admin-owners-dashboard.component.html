@@ -1,0 +1,169 @@
+<div class="page-title" i18n="@@AdminPortal">
+	Admin Portal
+</div>
+<div class="page-padding" >
+	<div class="adminWrapperContent" style="background-color: #F5F4F4;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="sectionTitle style2">
+						<h1 class="h1 as" i18n="@@ownerAccounts">Owner Accounts</h1>
+						<div class="bs-xs-10 bs-sm-0"></div>
+						<div class="btnWrapper">
+							<button class="btn btn btn-primary" (click)="createOwnerAccount = true" i18n="@@ownerAccounts"><span class="btnPlus">+</span> Owner Account</button>
+						</div>
+					</div>
+					<div class="bs-xs-30 bs-sm-20"></div>
+
+					<div class="mainTableWrapper">
+						<div class="spinner semitransparent tableSpiner" [ngClass]="{'active': loadingData}">
+							<img src="assets/img/spinner.gif" alt="">
+						</div>
+						<h5 *ngIf="nothingFound" class="h5 nothingFoundMessage" i18n="@@nothingFound">Nothing found</h5>
+						<h5 *ngIf="tableDataError" class="h5 nothingFoundMessage" i18n="@@errorOccurred">An Unexpected Error Occurred</h5>
+
+						<div class="tableHeader">
+							<div class="responsiveTableHeader">
+								<button class="btn-icon icon-border iconColor iconNoBorder" (click)="tableHeaderToggle()">
+								<img src="assets/img/admin/filter.svg" alt="">
+								</button>
+							</div>
+
+							<form class="tableForm" [formGroup]="tableForm" [ngClass]="{'responsiveActive': responsiveTableHeader}">
+								<div class="tableSearch" [ngClass]="{'active': tableSearch}">
+									<button class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSearchToggle();">
+										<img src="assets/img/admin/search.svg" alt="">
+									</button>
+									<div class="tableSearchContent">
+										<mat-form-field class="example-full-width">
+											<input matInput type="text" i18n-placeholder="@@search" formControlName="tableSearch" placeholder="Search">
+											<button *ngIf="tableForm.get('tableSearch').value" matSuffix class="btn-simple clearInput" (click)="tableSearchToggle();">
+												<mat-icon>close</mat-icon>
+											</button>
+										</mat-form-field>
+									</div>
+								</div>
+
+								<div class="tableSorting" [ngClass]="{'active': tableSorting}">
+									<button class="btn-icon icon-border iconColor iconNoBorder tableIcon" (click)="tableSortingToggle()">
+										<img src="assets/img/admin/filter.svg" alt="">
+									</button>
+									<div class="tableSortingContent">
+<!--
+										<mat-form-field class="example-full-width tableSelector">
+											<mat-label i18n="@@status">Status</mat-label>
+											<mat-select formControlName="tableSearhStatus" multiple>
+												<multi-select [model]="tableForm.get('tableSearhStatus')" [values]="optionsList">
+												</multi-select>
+												<mat-option *ngFor="let item of optionsList" [value]="item">
+													{{item.value}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+-->
+										<app-provinces formControlName="tableSearhProvince" isrequired='false' i18n="@@province" title="Province"></app-provinces>
+										<app-datepicker class="tableCalendar" i18n-title="@@startDate" filter="true" formControlName="startDate" title="Start Date" ></app-datepicker>
+										<app-datepicker class="tableCalendar" i18n-title="@@endDate" filter="true" formControlName="endDate" title="End Date" ></app-datepicker>
+
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="responsiveTable">
+							<table mat-table [dataSource]="users" matSort class="table-custome">
+
+								<ng-container matColumnDef="id">
+									<th i18n="@@userID" mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@userID" data-name="User ID">
+										<a class="color" [routerLink]="['owner-detail', row.ACCT_NO]">
+											{{row.ACCT_NO}}
+										</a>
+									</td>
+								</ng-container>
+
+								<ng-container matColumnDef="business">
+									<th i18n="@@business" mat-header-cell *matHeaderCellDef mat-sort-header> Business </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@business" data-name="Business"> {{row.NAME}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="firstName">
+									<th i18n="@@firstName" mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@firstName" data-name="FirstName"> {{row.CONTACT_FIRST_NAME}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="lastName">
+									<th i18n="@@lastName" mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@lastName" data-name="LastName"> {{row.CONTACT_LAST_NAME}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="email">
+									<th i18n="@@email" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@email" data-name="Email"> {{row.E_MAIL}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="city">
+									<th i18n="@@city" mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+									<td mat-cell *matCellDef="let row"i18n-data-name="@@city" data-name="City"> {{row.CITY}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="province">
+									<th i18n="@@province" mat-header-cell *matHeaderCellDef mat-sort-header> Province </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@province" data-name="Province"> {{row.PROVINCE}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="date">
+									<th i18n="@@created" mat-header-cell *matHeaderCellDef mat-sort-header> Created </th>
+									<td mat-cell *matCellDef="let row" i18n-data-name="@@date" data-name="Date">{{row.CREATION_DATE | date: 'MMM d, y'}} </td>
+								</ng-container>
+
+								<ng-container matColumnDef="menu">
+									<th mat-header-cell *matHeaderCellDef> </th>
+									<td mat-cell *matCellDef="let row; let i = index" class="table-option">
+										<div class="text-right">
+											<button class="btn-icon type-xs menu-table" [matMenuTriggerFor]="menu">
+												<img src="assets/img/more-actions.svg" alt="">
+											</button>
+											<mat-menu #menu="matMenu">
+												<button mat-menu-item (click)="selectLicensees(row)" i18n="@@assignLicensees">Assign Licensees</button>
+											</mat-menu>
+										</div>
+									</td>
+								</ng-container>
+
+								<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+								<tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-menu-row"></tr>
+							</table>
+						</div>
+						<mat-paginator class="custome-pagination" [length]="tableLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="spinner semitransparent" [ngClass]="{'active': loaderIsVisible}"></div>
+
+<app-popup class="popupMainWrapper" *ngIf="createOwnerAccount" [@animationPopup]="createOwnerAccount ? 'popupOpened' : 'popupClosed'" (close)="createOwnerAccount = false" size="1">
+	<ng-container content>
+		<div class="popup-header">
+			<div class="h6" i18n="@@createAccountOwner">Create Account Owner</div>
+		</div>
+		<div class="popup-padding">
+			<app-admin-owner-create-account  (ownerCreated)="newOwnerCreated($event);"></app-admin-owner-create-account>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-popup class="popupMainWrapper" *ngIf="assignLicensees" [@animationPopup]="assignLicensees ? 'popupOpened' : 'popupClosed'" (close)="assignLicensees = false" size="3">
+	<ng-container content>
+		<div class="popup-header">
+			<div class="h6" i18n="@@LicenseesForOwner">Select Licensees for this Owner</div>
+		</div>
+		<div class="popup-padding no-padding">
+			<app-admin-owner-assign-licensees (closePopup)="closePopup($event)" [ownerId]="selectedOwnerId" (assignEmitter)="assignLicenseesSuccess($event);"></app-admin-owner-assign-licensees>
+		</div>
+	</ng-container>
+</app-popup>
+
+<app-snack-bar></app-snack-bar>
